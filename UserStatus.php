@@ -27,7 +27,7 @@ $wgExtensionCredits['other'][] = array(
 	'version' => '2.0',
 	'author' => array( 'Aaron Wright', 'David Pean', 'Jack Phoenix' ),
 	'description' => 'Social status updates on user profiles and on network pages',
-	'url' => 'http://www.mediawiki.org/wiki/Extension:UserStatus'
+	'url' => 'https://www.mediawiki.org/wiki/Extension:UserStatus'
 );
 
 // Set up i18n and the new special pages
