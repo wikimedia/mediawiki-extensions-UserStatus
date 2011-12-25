@@ -33,7 +33,7 @@ $wgExtensionCredits['other'][] = array(
 // Set up i18n and the new special pages
 $dir = dirname( __FILE__ ) . '/';
 $wgExtensionMessagesFiles['UserStatus'] = $dir . 'UserStatus.i18n.php';
-#$wgExtensionAliasesFiles['UserStatus'] = $dir . 'UserStatus.alias.php';
+#$wgExtensionMessagesFiles['UserStatusAlias'] = $dir . 'UserStatus.alias.php';
 $wgAutoloadClasses['UserStatus'] = $dir . 'UserStatusClass.php';
 $wgAutoloadClasses['ViewFanUpdates'] = $dir . 'SpecialFanUpdates.php';
 $wgAutoloadClasses['ViewUserStatus'] = $dir . 'SpecialUserStatus.php';
