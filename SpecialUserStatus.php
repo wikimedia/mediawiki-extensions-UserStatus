@@ -15,29 +15,31 @@ class ViewUserStatus extends UnlistedSpecialPage {
 	 * @param $par Mixed: parameter passed to the special page or null
 	 */
 	public function execute( $par ) {
-		global $wgRequest, $wgOut, $wgUser, $wgScriptPath;
+		$out = $this->getOutput();
+		$request = $this->getRequest();
+		$currentUser = $this->getUser();
 
 		$messages_show = 25;
 		$output = '';
-		$user_name = $wgRequest->getVal( 'user', $par );
-		$page = $wgRequest->getInt( 'page', 1 );
+		$user_name = $request->getVal( 'user', $par );
+		$page = $request->getInt( 'page', 1 );
 
 		/**
 		 * Redirect Non-logged in users to Login Page
 		 * It will automatically return them to their Status page
 		 */
-		if( $wgUser->getID() == 0 && $user_name == '' ) {
-			$wgOut->setPageTitle( wfMsg( 'userstatus-woops' ) );
+		if ( $currentUser->getID() == 0 && $user_name == '' ) {
+			$out->setPageTitle( $this->msg( 'userstatus-woops' )->text() );
 			$login = SpecialPage::getTitleFor( 'Userlogin' );
-			$wgOut->redirect( $login->getFullURL( 'returnto=Special:UserStatus' ) );
+			$out->redirect( $login->getFullURL( 'returnto=Special:UserStatus' ) );
 			return false;
 		}
 
 		/**
 		 * If no user is set in the URL, we assume its the current user
 		 */
-		if( !$user_name ) {
-			$user_name = $wgUser->getName();
+		if ( !$user_name ) {
+			$user_name = $currentUser->getName();
 		}
 		$user_id = User::idFromName( $user_name );
 		$user = Title::makeTitle( NS_USER, $user_name );
@@ -45,9 +47,9 @@ class ViewUserStatus extends UnlistedSpecialPage {
 		/**
 		 * Error message for username that does not exist (from URL)
 		 */
-		if( $user_id == 0 ) {
-			$wgOut->setPageTitle( wfMsg( 'userstatus-woops' ) );
-			$wgOut->addHTML( wfMsg( 'userstatus-no-user' ) );
+		if ( $user_id == 0 ) {
+			$out->setPageTitle( $this->msg( 'userstatus-woops' )->text() );
+			$out->addHTML( $this->msg( 'userstatus-no-user' )->text() );
 			return false;
 		}
 
@@ -63,23 +65,26 @@ class ViewUserStatus extends UnlistedSpecialPage {
 		$s = new UserStatus();
 		$messages = $s->getStatusMessages( $user_id, 0, 0, $messages_show, $page );
 
-		if ( !( $wgUser->getName() == $user_name ) ) {
-			$wgOut->setPageTitle( wfMsg( 'userstatus-user-thoughts', $user_name ) );
+		// Set a different page title depending on whose thoughts (yours or
+		// someone else's) we're viewing
+		if ( !( $currentUser->getName() == $user_name ) ) {
+			$out->setPageTitle( $this->msg( 'userstatus-user-thoughts', $user_name )->text() );
 		} else {
-			$wgOut->setPageTitle( wfMsg( 'userstatus-your-thoughts' ) );
+			$out->setPageTitle( $this->msg( 'userstatus-your-thoughts' )->text() );
 		}
 
-		$output .= '<div class="gift-links">';
-		if ( !( $wgUser->getName() == $user_name ) ) {
+		// "Back to (your|$user_name's) profile" link
+		$output .= '<div class="gift-links">'; // @todo FIXME: this really should be renamed...
+		if ( !( $currentUser->getName() == $user_name ) ) {
 			$output .= "<a href=\"{$user->getFullURL()}\">" .
-				wfMsg( 'userstatus-back-user-profile', $user_name ) . '</a>';
+				$this->msg( 'userstatus-back-user-profile', $user_name )->text() . '</a>';
 		} else {
-			$output .= '<a href="' . $wgUser->getUserPage()->getFullURL() . '">' .
-				wfMsg( 'userstatus-back-your-profile' ) . '</a>';
+			$output .= '<a href="' . $currentUser->getUserPage()->getFullURL() . '">' .
+				$this->msg( 'userstatus-back-your-profile' )->text() . '</a>';
 		}
 		$output .= '</div>';
 
-		if( $page == 1 ) {
+		if ( $page == 1 ) {
 			$start = 1;
 		} else {
 			$start = ( $page - 1 ) * $per_page + 1;
@@ -88,10 +93,10 @@ class ViewUserStatus extends UnlistedSpecialPage {
 		$end = $start + ( count( $messages ) ) - 1;
 		wfDebug( "total = {$total}" );
 
-		if( $total ) {
+		if ( $total ) {
 			$output .= '<div class="user-page-message-top">
 				<span class="user-page-message-count" style="font-size: 11px; color: #666666;">' .
-					wfMsgExt( 'userstatus-showing-thoughts', 'parsemag', $start, $end, $total ) .
+					$this->msg( 'userstatus-showing-thoughts', $start, $end, $total )->parse() .
 				'</span>
 			</div>';
 		}
@@ -100,90 +105,122 @@ class ViewUserStatus extends UnlistedSpecialPage {
 		 * Build next/prev navigation
 		 */
 		$numofpages = $total / $per_page;
+		$thisTitle = $this->getTitle();
 
-		if( $numofpages > 1 ) {
+		if ( $numofpages > 1 ) {
 			$output .= '<div class="page-nav">';
-			if( $page > 1 ) {
-				$output .= '<a href="' . $this->getTitle()->getFullURL( array(
-					'user' => $user_name, 'page' => ( $page - 1 ) ) ) . '">' .
-					wfMsg( 'userstatus-prev' ) . '</a> ';
+			if ( $page > 1 ) {
+				$output .= Linker::link(
+					$thisTitle,
+					$this->msg( 'userstatus-prev' )->plain(),
+					array(),
+					array(
+						'user' => $user_name,
+						'page' => ( $page - 1 )
+					)
+				) . $this->msg( 'word-separator' )->plain();
 			}
 
-			if( ( $total % $per_page ) != 0 ) {
+			if ( ( $total % $per_page ) != 0 ) {
 				$numofpages++;
 			}
-			if( $numofpages >= 9 && $page < $total ) {
+			if ( $numofpages >= 9 && $page < $total ) {
 				$numofpages = 9 + $page;
-				if( $numofpages >= ( $total / $per_page ) ) {
+				if ( $numofpages >= ( $total / $per_page ) ) {
 					$numofpages = ( $total / $per_page ) + 1;
 				}
 			}
 
-			for( $i = 1; $i <= $numofpages; $i++ ) {
-				if( $i == $page ) {
+			for ( $i = 1; $i <= $numofpages; $i++ ) {
+				if ( $i == $page ) {
 					$output .= ( $i . ' ' );
 				} else {
-					$output .= '<a href="' . $this->getTitle()->getFullURL(
-						array( 'user' => $user_name, 'page' => $i ) ) .
-						"\">$i</a> ";
+					$output .= Linker::link(
+						$thisTitle,
+						$i,
+						array(),
+						array(
+							'user' => $user_name,
+							'page' => $i
+						)
+					) . $this->msg( 'word-separator' )->plain();
 				}
 			}
 
-			if( ( $total - ( $per_page * $page ) ) > 0 ) {
-				$output .= ' <a href="' . $this->getTitle()->getFullURL( array(
-					'user' => $user_name, 'page' => ( $page + 1 ) ) ) . '">' .
-					wfMsg( 'userstatus-next' ) . '</a>';
+			if ( ( $total - ( $per_page * $page ) ) > 0 ) {
+				$output .= $this->msg( 'word-separator' )->plain() .
+					Linker::link(
+						$thisTitle,
+						$this->msg( 'userstatus-next' )->plain(),
+						array(),
+						array(
+							'user' => $user_name,
+							'page' => ( $page + 1 )
+						)
+					);
 			}
 			$output .= '</div><p>';
 		}
 
 		// Add CSS & JS
-		if ( defined( 'MW_SUPPORTS_RESOURCE_MODULES' ) ) {
-			$wgOut->addModuleStyles( 'ext.userStatus' );
-			$wgOut->addModuleScripts( 'ext.userStatus' );
-		} else {
-			$wgOut->addExtensionStyle( $wgScriptPath . '/extensions/UserStatus/UserStatus.css' );
-			$wgOut->addScriptFile( $wgScriptPath . '/extensions/UserStatus/UserStatus.js' );
-		}
+		$out->addModules( 'ext.userStatus' );
 
 		$output .= '<div class="user-status-container">';
 		$thought_link = SpecialPage::getTitleFor( 'ViewThought' );
-		if( $messages ) {
+		if ( $messages ) {
 			foreach ( $messages as $message ) {
 				$user = Title::makeTitle( NS_USER, $message['user_name'] );
 				$avatar = new wAvatar( $message['user_id'], 'm' );
 
 				$network_link = '<a href="' . SportsTeams::getNetworkURL( $message['sport_id'], $message['team_id'] ) . '">' .
-					wfMsg( 'userstatus-all-team-updates', SportsTeams::getNetworkName( $message['sport_id'], $message['team_id'] ) ) .
+					$this->msg(
+						'userstatus-all-team-updates',
+						SportsTeams::getNetworkName( $message['sport_id'], $message['team_id'] )
+					)->text() .
 				'</a>';
 
 				$delete_link = '';
-				if( $wgUser->getName() == $message['user_name'] ) {
-					$delete_link = "<span class=\"user-board-red\">
-						<a href=\"javascript:void(0);\" onclick=\"javascript:delete_message({$message['id']})\">" .
-						wfMsg( 'userstatus-delete-thought-text' ) ."</a>
+				if (
+					$currentUser->getName() == $message['user_name'] ||
+					$currentUser->isAllowed( 'delete-status-updates' )
+				)
+				{
+					$delete_link = "<span class=\"user-status-delete-link\">
+						<a href=\"javascript:void(0);\" data-message-id=\"{$message['id']}\">" .
+						$this->msg( 'userstatus-delete-thought-text' )->text() ."</a>
 					</span>";
 				}
 
+				// If there are links and their texts are tl;dr, cut 'em a bit
 				$message_text = preg_replace_callback(
 					'/(<a[^>]*>)(.*?)(<\/a>)/i',
 					array( 'UserStatus', 'cutLinkText' ),
 					$message['text']
 				);
-				$vote_count = wfMsgExt( 'userstatus-num-agree', 'parsemag', $message['plus_count'] );
+
+				$vote_count = $this->msg( 'userstatus-num-agree' )->numParams( $message['plus_count'] )->parse();
 
 				$vote_link = '';
-				if( $wgUser->isLoggedIn() && $wgUser->getName() != $message['user_name'] ) {
-					if( !$message['voted'] ) {
-						$vote_link = "<a href=\"javascript:void(0);\" onclick=\"vote_status({$message['id']},1)\">[" .
-							wfMsg( 'userstatus-_agree' ) . "]</a>";
+				// Only registered users who aren't the author of the particular
+				// thought can vote for it
+				if ( $currentUser->isLoggedIn() && $currentUser->getName() != $message['user_name'] ) {
+					if ( !$message['voted'] ) {
+						$vote_link = "<a class=\"vote-status-link\" href=\"javascript:void(0);\" data-message-id=\"{$message['id']}\">[" .
+							$this->msg( 'userstatus-agree' )->text() . ']</a>';
 					} else {
 						$vote_link = $vote_count;
 					}
 				}
 
-				$view_thought_link = '<a href="' . $thought_link->getFullURL( "id={$message['id']}" ) . '">[' .
-					wfMsg( 'userstatus-see-who-agrees' ) . ']</a>';
+				$view_thought_link = Linker::link(
+					$thought_link,
+					$this->msg(
+						'brackets',
+						$this->msg( 'userstatus-see-who-agrees' )->plain()
+					)->plain(),
+					array(),
+					array( 'id' => $message['id'] )
+				);
 
 				$output .= '<div class="user-status-row">
 
@@ -199,8 +236,8 @@ class ViewUserStatus extends UnlistedSpecialPage {
 
 						{$message_text}
 
-						<div class=\"user-status-date\">" . 
-							wfMsg( 'userstatus-ago', UserStatus::getTimeAgo( $message['timestamp'] ) ) .
+						<div class=\"user-status-date\">" .
+							$this->msg( 'userstatus-ago', UserStatus::getTimeAgo( $message['timestamp'] ) )->text() .
 							"<span class=\"user-status-vote\" id=\"user-status-vote-{$message['id']}\">
 								{$vote_link}
 							</span>
@@ -217,11 +254,11 @@ class ViewUserStatus extends UnlistedSpecialPage {
 				</div>";
 			}
 		} else {
-			$output .= '<p>' . wfMsg( 'userstatus-no-updates' ) . '</p>';
+			$output .= '<p>' . $this->msg( 'userstatus-no-updates' )->text() . '</p>';
 		}
 
 		$output .= '</div>';
 
-		$wgOut->addHTML( $output );
+		$out->addHTML( $output );
 	}
 }

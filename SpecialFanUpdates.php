@@ -23,14 +23,16 @@ class ViewFanUpdates extends UnlistedSpecialPage {
 	 * @param $par Mixed: parameter passed to the special page or null
 	 */
 	public function execute( $par ) {
-		global $wgRequest, $wgOut, $wgUser, $wgScriptPath;
+		$out = $this->getOutput();
+		$request = $this->getRequest();
+		$user = $this->getUser();
 
 		$messages_show = 25;
 		$updates_show = 25; // just an arbitrary value to stop PHP from complaining on 12 August 2011 --ashley
 		$output = '';
-		$sport_id = $wgRequest->getInt( 'sport_id' );
-		$team_id = $wgRequest->getInt( 'team_id' );
-		$page = $wgRequest->getInt( 'page', 1 );
+		$sport_id = $request->getInt( 'sport_id' );
+		$team_id = $request->getInt( 'team_id' );
+		$page = $request->getInt( 'page', 1 );
 
 		if ( $team_id ) {
 			$team = SportsTeams::getTeam( $team_id );
@@ -41,28 +43,28 @@ class ViewFanUpdates extends UnlistedSpecialPage {
 		} else {
 			// No sports ID nor team ID...bail out or we'll get a database
 			// error...
-			$wgOut->setPageTitle( wfMsg( 'userstatus-woops' ) );
-			$out = '<div class="relationship-request-message">' .
-				wfMsg( 'userstatus-invalid-link' ) . '</div>';
-			$out .= '<div class="relationship-request-buttons">';
-			$out .= '<input type="button" class="site-button" value="' .
-				wfMsg( 'mainpage' ) .
+			$out->setPageTitle( $this->msg( 'userstatus-woops' )->plain() );
+			$output = '<div class="relationship-request-message">' .
+				$this->msg( 'userstatus-invalid-link' )->text() . '</div>';
+			$output .= '<div class="relationship-request-buttons">';
+			$output .= '<input type="button" class="site-button" value="' .
+				$this->msg( 'mainpage' )->text() .
 				"\" onclick=\"window.location='" .
 				Title::newMainPage()->escapeFullURL() . "'\"/>";
 			/* removed because I was too lazy to port the error message over :P
-			if ( $wgUser->isLoggedIn() ) {
-				$out .= ' <input type="button" class="site-button" value="' .
-					wfMsg( 'st_network_your_profile' ) .
+			if ( $user->isLoggedIn() ) {
+				$output .= ' <input type="button" class="site-button" value="' .
+					$this->msg( 'st_network_your_profile' )->text() .
 					"\" onclick=\"window.location='" .
 					Title::makeTitle( NS_USER, $wgUser->getName() )->escapeFullURL() . "'\"/>";
 			}
 			*/
-			$out .= '</div>';
-			$wgOut->addHTML( $out );
+			$output .= '</div>';
+			$out->addHTML( $output );
 			return true;
 		}
 
-		$wgOut->setPageTitle( wfMsg( 'userstatus-network-thoughts', $network_name ) );
+		$out->setPageTitle( $this->msg( 'userstatus-network-thoughts', $network_name )->text() );
 
 		/**
 		 * Config for the page
@@ -79,23 +81,23 @@ class ViewFanUpdates extends UnlistedSpecialPage {
 			$page
 		);
 
-		$output .= '<div class="gift-links">';
+		$output .= '<div class="gift-links">'; // @todo FIXME: rename!
 		$output .= '<a href="' .
 			SportsTeams::getNetworkURL( $sport_id, $team_id ) . '">' .
-				wfMsg( 'userstatus-back-to-network' ) . '</a>';
+				$this->msg( 'userstatus-back-to-network' )->text() . '</a>';
 		$output .= '</div>';
 
-		if( $page == 1 ) {
+		if ( $page == 1 ) {
 			$start = 1;
 		} else {
 			$start = ( $page - 1 ) * $per_page + 1;
 		}
 		$end = $start + ( count( $messages ) ) - 1;
 
-		if( $total ) {
+		if ( $total ) {
 			$output .= '<div class="user-page-message-top">
 			<span class="user-page-message-count" style="font-size: 11px; color: #666666;">' .
-				wfMsgExt( 'userstatus-showing-thoughts', 'parsemag', $start, $end, $total ) .
+				$this->msg( 'userstatus-showing-thoughts', $start, $end, $total )->parse() .
 			'</span>
 		</div>';
 		}
@@ -105,27 +107,27 @@ class ViewFanUpdates extends UnlistedSpecialPage {
 		 */
 		$numofpages = $total / $per_page;
 
-		if( $numofpages > 1 ) {
+		if ( $numofpages > 1 ) {
 			$output .= '<div class="page-nav">';
-			if( $page > 1 ) {
+			if ( $page > 1 ) {
 				$output .= '<a href="' .
 					SportsTeams::getFanUpdatesURL( $sport_id, $team_id ) .
-					'&page=' . ( $page - 1 ) . '">' . wfMsg( 'userstatus-prev' ) .
+					'&page=' . ( $page - 1 ) . '">' . $this->msg( 'userstatus-prev' )->text() .
 					'</a> ';
 			}
 
-			if( ( $total % $per_page ) != 0 ) {
+			if ( ( $total % $per_page ) != 0 ) {
 				$numofpages++;
 			}
-			if( $numofpages >= 9 && $page < $total ) {
+			if ( $numofpages >= 9 && $page < $total ) {
 				$numofpages = 9 + $page;
-				if( $numofpages >= ( $total / $per_page ) ) {
+				if ( $numofpages >= ( $total / $per_page ) ) {
 					$numofpages = ( $total / $per_page ) + 1;
 				}
 			}
 
-			for( $i = 1; $i <= $numofpages; $i++ ) {
-				if( $i == $page ) {
+			for ( $i = 1; $i <= $numofpages; $i++ ) {
+				if ( $i == $page ) {
 					$output .= ( $i . ' ');
 				} else {
 					$output .= '<a href="' .
@@ -137,24 +139,18 @@ class ViewFanUpdates extends UnlistedSpecialPage {
 			if( ( $total - ( $per_page * $page ) ) > 0 ) {
 				$output .= ' <a href="' .
 					SportsTeams::getFanUpdatesURL( $sport_id, $team_id ) .
-					'&page=' . ( $page + 1 ) . '">' . wfMsg( 'userstatus-next' ) .
+					'&page=' . ( $page + 1 ) . '">' . $this->msg( 'userstatus-next' )->text() .
 					'</a>';
 			}
 			$output .= '</div><p>';
 		}
 
 		// Add CSS & JS
-		if ( defined( 'MW_SUPPORTS_RESOURCE_MODULES' ) ) {
-			$wgOut->addModuleStyles( 'ext.userStatus' );
-			$wgOut->addModuleScripts( 'ext.userStatus' );
-		} else {
-			$wgOut->addExtensionStyle( $wgScriptPath . '/extensions/UserStatus/UserStatus.css' );
-			$wgOut->addScriptFile( $wgScriptPath . '/extensions/UserStatus/UserStatus.js' );
-		}
+		$out->addModules( 'ext.userStatus' );
 
 		// Registered users who are not blocked can add status updates when the
 		// database is not locked
-		if( $wgUser->isLoggedIn() && !$wgUser->isBlocked() && !wfReadOnly() ) {
+		if ( $user->isLoggedIn() && !$user->isBlocked() && !wfReadOnly() ) {
 			$output .= "<script>
 				var __sport_id__ = {$sport_id};
 				var __team_id__ = {$team_id};
@@ -163,32 +159,32 @@ class ViewFanUpdates extends UnlistedSpecialPage {
 			</script>";
 
 			$output .= "<div class=\"user-status-form\">
-			<span class=\"user-name-top\">{$wgUser->getName()}</span> <input type=\"text\" name=\"user_status_text\" id=\"user_status_text\" size=\"40\"/>
-			<input type=\"button\" value=\"" . wfMsg( 'userstatus-btn-add' ) . '" class="site-button" onclick="add_status()" />
+			<span class=\"user-name-top\">{$user->getName()}</span> <input type=\"text\" name=\"user_status_text\" id=\"user_status_text\" size=\"40\"/>
+			<input type=\"button\" value=\"" . $this->msg( 'userstatus-btn-add' )->text() . '" class="site-button" />
 			</div>';
 		}
 
 		$output .= '<div class="user-status-container">';
-		if( $messages ) {
+		if ( $messages ) {
 			foreach ( $messages as $message ) {
 				$user = Title::makeTitle( NS_USER, $message['user_name'] );
 				$avatar = new wAvatar( $message['user_id'], 'm' );
 
 				$messages_link = '<a href="' .
 					UserStatus::getUserUpdatesURL( $message['user_name'] ) . '">' .
-					wfMsg( 'userstatus-view-all-updates', $message['user_name'] ) .
+					$this->msg( 'userstatus-view-all-updates', $message['user_name'] )->text() .
 					'</a>';
 				$delete_link = '';
 				// Allow the owner of the status update and privileged users to
 				// delete it
-				if(
-					$wgUser->getName() == $message['user_name'] ||
-					$wgUser->isAllowed( 'delete-status-updates' )
+				if (
+					$user->getName() == $message['user_name'] ||
+					$user->isAllowed( 'delete-status-updates' )
 				)
 				{
-					$delete_link = "<span class=\"user-board-red\">
-							<a href=\"javascript:void(0);\" onclick=\"javascript:delete_message({$message['id']})\">" .
-						wfMsg( 'userstatus-delete' ) . '</a>
+					$delete_link = "<span class=\"user-status-delete-link\">
+							<a href=\"javascript:void(0);\" data-message-id=\"{$message['id']}\">" .
+						$this->msg( 'userstatus-delete' )->text() . '</a>
 					</span>';
 				}
 
@@ -202,17 +198,17 @@ class ViewFanUpdates extends UnlistedSpecialPage {
 					<a href=\"{$user->getFullURL()}\">{$avatar->getAvatarURL()}</a>
 					<a href=\"{$user->getFullURL()}\"><b>{$message['user_name']}</b></a> {$message_text}
 					<span class=\"user-status-date\">" .
-						wfMsg( 'userstatus-ago', UserStatus::getTimeAgo( $message['timestamp'] ) ) .
+						$this->msg( 'userstatus-ago', UserStatus::getTimeAgo( $message['timestamp'] ) )->text() .
 					'</span>
 				</div>';
 			}
 		} else {
-			$output .= '<p>' . wfMsg( 'userstatus-no-updates' ) . '</p>';
+			$output .= '<p>' . $this->msg( 'userstatus-no-updates' )->text() . '</p>';
 		}
 
 		$output .= '</div>';
 
-		$wgOut->addHTML( $output );
+		$out->addHTML( $output );
 	}
 
 }

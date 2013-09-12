@@ -41,6 +41,7 @@ $messages['en'] = array(
 	'userstatus-nobody-agrees' => 'No one agrees with this thought',
 	'userstatus-no-new-thoughts' => 'There are no new thoughts. Add one!',
 	'userstatus-just-added' => 'just added',
+	'userstatus-confirm-delete' => 'Are you sure you want to delete this thought?',
 	'right-delete-status-updates' => "Delete users' status updates",
 );
 
@@ -78,5 +79,6 @@ $messages['fi'] = array(
 	'userstatus-nobody-agrees' => 'Kukaan ei ole samaa mieltä tämän ajatuksen kanssa',
 	'userstatus-no-new-thoughts' => 'Ajatuksia ei ole. Lisää yksi!',
 	'userstatus-just-added' => 'äskettäin lisätty',
+	'userstatus-confirm-delete' => 'Haluatko varmasti poistaa tämän ajatuksen?',
 	'right-delete-status-updates' => "Poistaa käyttäjien tilapäivityksiä",
 );

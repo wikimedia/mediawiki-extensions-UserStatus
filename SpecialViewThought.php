@@ -20,16 +20,17 @@ class ViewThought extends UnlistedSpecialPage {
 	 * @param $par Mixed: parameter passed to the special page or null
 	 */
 	public function execute( $par ) {
-		global $wgRequest, $wgOut, $wgUser, $wgScriptPath;
+		$out = $this->getOutput();
+		$request = $this->getRequest();
 
 		$messages_show = 25;
 		$output = '';
-		$us_id = $wgRequest->getInt( 'id', $par );
-		$page = $wgRequest->getInt( 'page', 1 );
+		$us_id = $request->getInt( 'id', $par );
+		$page = $request->getInt( 'page', 1 );
 
 		// No ID? Show an error message then.
-		if( !$us_id || !is_numeric( $us_id ) ) {
-			$wgOut->addHTML( wfMsg( 'userstatus-invalid-link' ) );
+		if ( !$us_id || !is_numeric( $us_id ) ) {
+			$out->addHTML( $this->msg( 'userstatus-invalid-link' )->text() );
 			return false;
 		}
 
@@ -40,27 +41,43 @@ class ViewThought extends UnlistedSpecialPage {
 
 		$s = new UserStatus();
 		$message = $s->getStatusMessage( $us_id );
+
+		// Before doing any further processing, check if we got an empty array.
+		// It occurs when someone is trying to access this special page with
+		// the ID of a deleted status update.
+		if ( empty( $message ) ) {
+			$out->setPageTitle( $this->msg( 'userstatus-woops' )->plain() );
+
+			$output = '<div class="relationship-request-message">' .
+				$this->msg( 'userstatus-invalid-link' )->plain() . '</div>';
+			$output .= '<div class="relationship-request-buttons">';
+			$output .= '<input type="button" class="site-button" value="' .
+				$this->msg( 'mainpage' )->text() .
+				"\" onclick=\"window.location='" .
+				Title::newMainPage()->escapeFullURL() . "'\"/>";
+			$output .= '</div>';
+
+			$out->addHTML( $output );
+			return;
+		}
+
 		$user_name = $message['user_name'];
 		$user = Title::makeTitle( NS_USER, $user_name );
 
 		// Different page title, depending on whose status updates we're
 		// viewing
-		if ( !( $wgUser->getName() == $user_name ) ) {
-			$wgOut->setPageTitle( wfMsg( 'userstatus-user-thoughts', $user_name ) );
+		if ( !( $this->getUser()->getName() == $user_name ) ) {
+			$out->setPageTitle( $this->msg( 'userstatus-user-thoughts', $user_name )->text() );
 		} else {
-			$wgOut->setPageTitle( wfMsg( 'userstatus-your-thoughts' ) );
+			$out->setPageTitle( $this->msg( 'userstatus-your-thoughts' )->text() );
 		}
 
 		// Add CSS
-		if ( defined( 'MW_SUPPORTS_RESOURCE_MODULES' ) ) {
-			$wgOut->addModuleStyles( 'ext.userStatus.viewThought' );
-		} else {
-			$wgOut->addExtensionStyle( $wgScriptPath . '/extensions/UserStatus/ViewThought.css' );
-		}
+		$out->addModules( 'ext.userStatus.viewThought' );
 
 		$output .= "<div class=\"view-thought-links\">
 			<a href=\"{$user->getFullURL()}\">" .
-				wfMsg( 'userstatus-user-profile', $user_name ) .
+				$this->msg( 'userstatus-user-profile', $user_name )->text() .
 			'</a>
 		</div>';
 		$output .= '<div class="user-status-container">';
@@ -79,7 +96,7 @@ class ViewThought extends UnlistedSpecialPage {
 					{$message['text']}
 
 					<div class=\"user-status-date\">" .
-						wfMsg( 'userstatus-ago', UserStatus::getTimeAgo( $message['timestamp'] ) ) .
+						$this->msg( 'userstatus-ago', UserStatus::getTimeAgo( $message['timestamp'] ) )->text() .
 					'</div>
 
 				</div>
@@ -90,10 +107,10 @@ class ViewThought extends UnlistedSpecialPage {
 		</div>';
 
 		$output .= '<div class="who-agrees">';
-		$output .= '<h1>' . wfMsg( 'userstatus-who-agrees' ) . '</h1>';
+		$output .= '<h1>' . $this->msg( 'userstatus-who-agrees' )->text() . '</h1>';
 		$voters = $s->getStatusVoters( $us_id );
 		// Get the people who agree with this status update, if any
-		if( $voters ) {
+		if ( $voters ) {
 			foreach ( $voters as $voter ) {
 				$user = Title::makeTitle( NS_USER, $voter['user_name'] );
 				$avatar = new wAvatar( $voter['user_id'], 'm' );
@@ -104,12 +121,12 @@ class ViewThought extends UnlistedSpecialPage {
 				</div>";
 			}
 		} else {
-			$output .= '<p>' . wfMsg( 'userstatus-nobody-agrees' ) . '</p>';
+			$output .= '<p>' . $this->msg( 'userstatus-nobody-agrees' )->text() . '</p>';
 		}
 
 		$output .= '</div>';
 
-		$wgOut->addHTML( $output );
+		$out->addHTML( $output );
 	}
 
 }

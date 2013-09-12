@@ -29,7 +29,7 @@ class UserStatus {
 
 		$dbw = wfGetDB( DB_MASTER );
 
-		if( $wgUser->isBlocked() ) {
+		if ( $wgUser->isBlocked() ) {
 			return '';
 		}
 
@@ -67,9 +67,9 @@ class UserStatus {
 		global $wgUser;
 
 		// Only registered users may vote...
-		if( $wgUser->isLoggedIn() ) {
+		if ( $wgUser->isLoggedIn() ) {
 			// ...and only if they haven't already voted
-			if( $this->alreadyVotedStatusMessage( $wgUser->getID(), $us_id ) ) {
+			if ( $this->alreadyVotedStatusMessage( $wgUser->getID(), $us_id ) ) {
 				return;
 			}
 
@@ -94,8 +94,14 @@ class UserStatus {
 		}
 	}
 
+	/**
+	 * Increase the vote count for a given status message.
+	 *
+	 * @param $us_id Integer: status message ID
+	 * @param $vote Integer: 1 to update positive (plus) votes, -1 for negative
+	 */
 	public function incStatusVoteCount( $us_id, $vote ) {
-		if( $vote == 1 ) {
+		if ( $vote == 1 ) {
 			$field = 'us_vote_plus';
 		} else {
 			$field = 'us_vote_minus';
@@ -111,19 +117,22 @@ class UserStatus {
 
 	public function updateUserCache( $text, $sport_id, $team_id = 0 ) {
 		global $wgUser, $wgMemc;
+
 		$key = wfMemcKey( 'user', 'status-last-update', $wgUser->getID() );
 
 		$data['text'] = $this->formatMessage( $text );
 		$data['sport_id'] = $sport_id;
 		$data['team_id'] = $team_id;
 		$data['timestamp'] = time();
-		if( $team_id ) {
+
+		if ( $team_id ) {
 			$team = SportsTeams::getTeam( $team_id );
 			$data['network'] = $team['name'];
 		} else {
 			$sport = SportsTeams::getSport( $sport_id );
 			$data['network'] = $sport['name'];
 		}
+
 		$wgMemc->set( $key, $data );
 	}
 
@@ -142,9 +151,11 @@ class UserStatus {
 			array( 'sv_us_id' => $us_id, 'sv_user_id' => $user_id ),
 			__METHOD__
 		);
+
 		if ( $s !== false ) {
 			return true;
 		}
+
 		return false;
 	}
 
@@ -163,11 +174,13 @@ class UserStatus {
 			array( 'us_id' => $us_id ),
 			__METHOD__
 		);
+
 		if ( $s !== false ) {
 			if( $user_id == $s->us_user_id ) {
 				return true;
 			}
 		}
+
 		return false;
 	}
 
@@ -177,7 +190,7 @@ class UserStatus {
 	 * @param $us_id Integer: ID number of the status message to delete
 	 */
 	public function deleteStatus( $us_id ) {
-		if( $us_id ) {
+		if ( $us_id ) {
 			$dbw = wfGetDB( DB_MASTER );
 			$s = $dbw->selectRow(
 				'user_status',
@@ -252,7 +265,7 @@ class UserStatus {
 			);
 		}
 
-		return $messages[0];
+		return ( isset( $messages[0] ) ? $messages[0] : array() );
 	}
 
 	/**
@@ -273,28 +286,28 @@ class UserStatus {
 		$dbr = wfGetDB( DB_MASTER );
 		$user_sql = $sport_sql = '';
 
-		if( $limit > 0 ) {
+		if ( $limit > 0 ) {
 			$limitvalue = 0;
-			if( $page ) {
+			if ( $page ) {
 				$limitvalue = $page * $limit - ( $limit );
 			}
 			$limit_sql = " LIMIT {$limitvalue},{$limit} ";
 		}
 
-		if( $user_id > 0 ) {
+		if ( $user_id > 0 ) {
 			$user_sql .= " us_user_id = {$user_id} ";
 		}
 
-		if( $sport_id > 0 && $team_id == 0 ) {
+		if ( $sport_id > 0 && $team_id == 0 ) {
 			$sport_sql .= " ( ( us_sport_id = {$sport_id} AND us_team_id = 0 ) OR us_team_id IN
 				(SELECT team_id FROM {$dbr->tableName( 'sport_team' )} WHERE team_sport_id = {$sport_id} ) ) ";
 		}
 
-		if( $team_id > 0 ) {
+		if ( $team_id > 0 ) {
 			$sport_sql .= " us_team_id = {$team_id} ";
 		}
 
-		if( $user_sql && $sport_sql ) {
+		if ( $user_sql && $sport_sql ) {
 			$user_sql .= ' AND ';
 		}
 
@@ -358,42 +371,42 @@ class UserStatus {
 
 		$thought_link = SpecialPage::getTitleFor( 'ViewThought' );
 
-		if( $messages ) {
+		if ( $messages ) {
 			foreach ( $messages as $message ) {
 				$user = Title::makeTitle( NS_USER, $message['user_name'] );
 				$avatar = new wAvatar( $message['user_id'], 'm' );
 
 				$messages_link = '<a href="' .
 					UserStatus::getUserUpdatesURL( $message['user_name'] ) . '">' .
-					wfMsg( 'userstatus-view-all-updates', $message['user_name'] ) .
+					wfMessage( 'userstatus-view-all-updates', $message['user_name'] )->text() .
 				'</a>';
 				$delete_link = '';
 
-				$vote_count = wfMsgExt( 'userstatus-num-agree', 'parsemag', $message['plus_count'] );
+				$vote_count = wfMessage( 'userstatus-num-agree', $message['plus_count'] )->parse();
 
 				if (
 					$wgUser->getName() == $message['user_name'] ||
 					$wgUser->isAllowed( 'delete-status-updates' )
 				)
 				{
-					$delete_link = "<span class=\"user-board-red\">
-						<a href=\"javascript:void(0);\" onclick=\"javascript:delete_message({$message['id']})\">" .
-						wfMsg( 'userstatus-delete-thought-text' ) . '</a>
+					$delete_link = "<span class=\"user-status-delete-link\">
+						<a href=\"javascript:void(0);\" data-message-id=\"{$message['id']}\">" .
+						wfMessage( 'userstatus-delete-thought-text' )->text() . '</a>
 					</span>';
 				}
 
 				$vote_link = '';
-				if( $wgUser->isLoggedIn() && $wgUser->getName() != $message['user_name'] ) {
+				if ( $wgUser->isLoggedIn() && $wgUser->getName() != $message['user_name'] ) {
 					if ( !$message['voted'] ) {
-						$vote_link = "<a href=\"javascript:void(0);\" onclick=\"vote_status({$message['id']},1)\">[" .
-							wfMsg( 'userstatus-agree' ) . ']</a>';
+						$vote_link = "<a class=\"vote-status-link\" href=\"javascript:void(0);\" data-message-id=\"{$message['id']}\">[" .
+							wfMessage( 'userstatus-agree' )->text() . ']</a>';
 					} else {
 						$vote_link = $vote_count;
 					}
 				}
 
 				$view_thought_link = '<a href="' . $thought_link->getFullURL( 'id=' . $message['id'] ) .
-					'">[' . wfMsg( 'userstatus-see-who-agrees' ) . ']</a>';
+					'">[' . wfMessage( 'userstatus-see-who-agrees' )->text() . ']</a>';
 
 				$message_text = preg_replace_callback(
 					'/(<a[^>]*>)(.*?)(<\/a>)/i',
@@ -420,7 +433,7 @@ class UserStatus {
 					<a href=\"{$user->getFullURL()}\"><b>{$message['user_name']}</b></a> {$message_text}
 
 					<div class=\"user-status-date\">" .
-						wfMsg( 'userstatus-ago', self::getTimeAgo( $message['timestamp'] ) ) .
+						wfMessage( 'userstatus-ago', self::getTimeAgo( $message['timestamp'] ) )->text() .
 						"<span class=\"user-status-vote\" id=\"user-status-vote-{$message['id']}\">
 							{$vote_link}
 						</span>
@@ -440,7 +453,7 @@ class UserStatus {
 
 			}
 		} else {
-			$output .= '<p>' . wfMsg( 'userstatus-no-new-thoughts' ) . '</p>';
+			$output .= '<p>' . wfMessage( 'userstatus-no-new-thoughts' )->text() . '</p>';
 		}
 
 		return $output;
@@ -461,14 +474,24 @@ class UserStatus {
 			array( 'us_id' => $us_id ),
 			__METHOD__
 		);
+
 		if ( $s !== false ) {
 			$votes['plus'] = $s->us_vote_plus;
 			$votes['minus'] = $s->us_vote_minus;
 			return $votes;
 		}
+
 		return false;
 	}
 
+	/**
+	 * Get some information about the users who voted for a given status update.
+	 * This information includes vote timestamp, the user's name and ID number
+	 * as well as the vote itself.
+	 *
+	 * @param $us_id Integer: status update ID number
+	 * @return Array
+	 */
 	public function getStatusVoters( $us_id ) {
 		$dbr = wfGetDB( DB_MASTER );
 
@@ -499,7 +522,7 @@ class UserStatus {
 
 	static function getNetworkUpdatesCount( $sport_id, $team_id ) {
 		$dbr = wfGetDB( DB_MASTER );
-		if( !$team_id ) {
+		if ( !$team_id ) {
 			$where_sql = " ( ( us_sport_id = {$sport_id} AND us_team_id = 0 ) OR us_team_id IN
 				(SELECT team_id FROM {$dbr->tableName( 'sport_team' )} WHERE team_sport_id = {$sport_id} ) ) ";
 		} else {
@@ -516,7 +539,7 @@ class UserStatus {
 		return $title->escapeFullURL( "user=$user_name" );
 	}
 
-	static function dateDifference( $date1, $date2 ) {
+	public static function dateDifference( $date1, $date2 ) {
 		$dtDiff = $date1 - $date2;
 
 		$totalDays = intval( $dtDiff / ( 24 * 60 * 60 ) );
@@ -530,18 +553,18 @@ class UserStatus {
 		return $dif;
 	}
 
-	static function getTimeOffset( $time, $timeabrv, $timename ) {
+	public static function getTimeOffset( $time, $timeabrv, $timename ) {
 		$timeStr = '';
-		if( $time[$timeabrv] > 0 ) {
-			$timeStr = wfMsgExt( "userstatus-time-{$timename}", 'parsemag', $time[$timeabrv] );
+		if ( $time[$timeabrv] > 0 ) {
+			$timeStr = wfMessage( "userstatus-time-{$timename}", $time[$timeabrv] )->parse();
 		}
-		if( $timeStr ) {
+		if ( $timeStr ) {
 			$timeStr .= ' ';
 		}
 		return $timeStr;
 	}
 
-	function getTimeAgo( $time ) {
+	public static function getTimeAgo( $time ) {
 		$timeArray = self::dateDifference( time(), $time );
 		$timeStr = '';
 		$timeStrD = self::getTimeOffset( $timeArray, 'd', 'days' );
@@ -549,15 +572,15 @@ class UserStatus {
 		$timeStrM = self::getTimeOffset( $timeArray, 'm', 'minutes' );
 		$timeStrS = self::getTimeOffset( $timeArray, 's', 'seconds' );
 		$timeStr = $timeStrD;
-		if( $timeStr < 2 ) {
+		if ( $timeStr < 2 ) {
 			$timeStr .= $timeStrH;
 			$timeStr .= $timeStrM;
-			if( !$timeStr ) {
+			if ( !$timeStr ) {
 				$timeStr .= $timeStrS;
 			}
 		}
-		if( !$timeStr ) {
-			$timeStr = wfMsgExt( 'userstatus-time-seconds', 'parsemag', 1 );
+		if ( !$timeStr ) {
+			$timeStr = wfMessage( 'userstatus-time-seconds', 1 )->parse();
 		}
 		return $timeStr;
 	}
@@ -575,11 +598,12 @@ class UserStatus {
 		$image = preg_match( '/<img src=/i', $linkText );
 		$isURL = ( preg_match( '%^(?:http|https|ftp)://(?:www\.)?.*$%i', $linkText ) ? true : false );
 
-		if( $isURL && !$image && strlen( $linkText ) > 50 ) {
+		if ( $isURL && !$image && strlen( $linkText ) > 50 ) {
 			$start = substr( $linkText, 0, ( 50 / 2 ) - 3 );
 			$end = substr( $linkText, strlen( $linkText ) - ( 50 / 2 ) + 3, ( 50 / 2 ) - 3 );
-			$linkText = trim( $start ) . wfMsg( 'ellipsis' ) . trim( $end );
+			$linkText = trim( $start ) . wfMessage( 'ellipsis' )->plain() . trim( $end );
 		}
+
 		return $tagOpen . $linkText . $tagClose;
 	}
 }
