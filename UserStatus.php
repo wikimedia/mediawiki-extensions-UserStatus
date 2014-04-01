@@ -5,7 +5,6 @@
  *
  * @file
  * @ingroup Extensions
- * @version 3.0
  * @date 10 July 2013
  * @author Aaron Wright <aaron.wright@gmail.com>
  * @author David Pean <david.pean@gmail.com>
@@ -26,7 +25,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 $wgExtensionCredits['other'][] = array(
 	'path' => __FILE__,
 	'name' => 'UserStatus',
-	'version' => '3.0',
+	'version' => '3.1.0',
 	'author' => array( 'Aaron Wright', 'David Pean', 'Jack Phoenix' ),
 	'description' => 'Social status updates on user profiles and on network pages',
 	'url' => 'https://www.mediawiki.org/wiki/Extension:UserStatus'
@@ -34,8 +33,8 @@ $wgExtensionCredits['other'][] = array(
 
 // Set up i18n and the new special pages
 $dir = dirname( __FILE__ ) . '/';
+$wgMessagesDirs['UserStatus'] = __DIR__ . '/i18n';
 $wgExtensionMessagesFiles['UserStatus'] = $dir . 'UserStatus.i18n.php';
-#$wgExtensionMessagesFiles['UserStatusAlias'] = $dir . 'UserStatus.alias.php';
 $wgAutoloadClasses['UserStatus'] = $dir . 'UserStatusClass.php';
 $wgAutoloadClasses['ViewFanUpdates'] = $dir . 'SpecialFanUpdates.php';
 $wgAutoloadClasses['ViewUserStatus'] = $dir . 'SpecialUserStatus.php';
