@@ -105,7 +105,7 @@ class ViewUserStatus extends UnlistedSpecialPage {
 		 * Build next/prev navigation
 		 */
 		$numofpages = $total / $per_page;
-		$thisTitle = $this->getTitle();
+		$thisTitle = $this->getPageTitle();
 
 		if ( $numofpages > 1 ) {
 			$output .= '<div class="page-nav">';
