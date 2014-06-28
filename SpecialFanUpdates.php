@@ -50,13 +50,13 @@ class ViewFanUpdates extends UnlistedSpecialPage {
 			$output .= '<input type="button" class="site-button" value="' .
 				$this->msg( 'mainpage' )->text() .
 				"\" onclick=\"window.location='" .
-				Title::newMainPage()->escapeFullURL() . "'\"/>";
+				htmlspecialchars( Title::newMainPage()->getFullURL() ) . "'\"/>";
 			/* removed because I was too lazy to port the error message over :P
 			if ( $user->isLoggedIn() ) {
 				$output .= ' <input type="button" class="site-button" value="' .
 					$this->msg( 'st_network_your_profile' )->text() .
 					"\" onclick=\"window.location='" .
-					Title::makeTitle( NS_USER, $wgUser->getName() )->escapeFullURL() . "'\"/>";
+					htmlspecialchars( Title::makeTitle( NS_USER, $wgUser->getName() )->getFullURL() ) . "'\"/>";
 			}
 			*/
 			$output .= '</div>';

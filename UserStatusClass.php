@@ -536,7 +536,7 @@ class UserStatus {
 
 	static function getUserUpdatesURL( $user_name ) {
 		$title = SpecialPage::getTitleFor( 'UserStatus' );
-		return $title->escapeFullURL( "user=$user_name" );
+		return htmlspecialchars( $title->getFullURL( "user=$user_name" ) );
 	}
 
 	public static function dateDifference( $date1, $date2 ) {

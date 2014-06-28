@@ -54,7 +54,7 @@ class ViewThought extends UnlistedSpecialPage {
 			$output .= '<input type="button" class="site-button" value="' .
 				$this->msg( 'mainpage' )->text() .
 				"\" onclick=\"window.location='" .
-				Title::newMainPage()->escapeFullURL() . "'\"/>";
+				htmlspecialchars( Title::newMainPage()->getFullURL() ) . "'\"/>";
 			$output .= '</div>';
 
 			$out->addHTML( $output );

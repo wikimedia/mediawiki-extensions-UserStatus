@@ -228,7 +228,7 @@ class ApiUserStatus extends ApiBase {
 
 			$output .= "<div class=\"user-status-row\">
 			{$avatar->getAvatarURL()}
-			<a href=\"{$userTitle->escapeFullURL()}\"><b>{$db_user_name}</b></a> {$db_status_text}
+			<a href=\"{htmlspecialchars( $userTitle->getFullURL() )}\"><b>{$db_user_name}</b></a> {$db_status_text}
 			<span class=\"user-status-date\">" .
 				wfMessage( 'userstatus-just-added' )->text() .
 			'</span>
