@@ -235,6 +235,9 @@ class UserStatus {
 	public function getStatusMessage( $us_id ) {
 		global $wgUser;
 
+		// Paranoia, because nobody likes an SQL injection point.
+		$us_id = (int) $us_id;
+
 		$dbr = wfGetDB( DB_MASTER );
 
 		$sql = "SELECT us_id, us_user_id, us_user_name, us_text,
