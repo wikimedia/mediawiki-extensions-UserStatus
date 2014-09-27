@@ -155,7 +155,7 @@ class ApiUserStatus extends ApiBase {
 		"<img src=\"{$wgExtensionAssetsPath}/UserStatus/quoteIcon.png\" border=\"0\" style=\"margin-left:5px;\" alt=\"\" />
 		{$update['text']}
 		<img src=\"{$wgExtensionAssetsPath}/UserStatus/endQuoteIcon.png\" border=\"0\" alt=\"\" />
-		<span class=\"user-status-date\">" . 
+		<span class=\"user-status-date\">" .
 			wfMessage( 'userstatus-ago', UserStatus::getTimeAgo( $update['timestamp'] ) )->text() .
 		'</span>';
 	}
@@ -226,9 +226,10 @@ class ApiUserStatus extends ApiBase {
 			$avatar = new wAvatar( $db_user_id, 'ml' );
 			$userTitle = Title::makeTitle( NS_USER, $db_user_name );
 
+			$url = htmlspecialchars( $userTitle->getFullURL() );
 			$output .= "<div class=\"user-status-row\">
 			{$avatar->getAvatarURL()}
-			<a href=\"{htmlspecialchars( $userTitle->getFullURL() )}\"><b>{$db_user_name}</b></a> {$db_status_text}
+			<a href=\"{$url}\"><b>{$db_user_name}</b></a> {$db_status_text}
 			<span class=\"user-status-date\">" .
 				wfMessage( 'userstatus-just-added' )->text() .
 			'</span>
