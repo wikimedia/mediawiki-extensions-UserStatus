@@ -95,7 +95,7 @@ class ViewUserStatus extends UnlistedSpecialPage {
 
 		if ( $total ) {
 			$output .= '<div class="user-page-message-top">
-				<span class="user-page-message-count" style="font-size: 11px; color: #666666;">' .
+				<span class="user-page-message-count">' .
 					$this->msg( 'userstatus-showing-thoughts', $start, $end, $total )->parse() .
 				'</span>
 			</div>';

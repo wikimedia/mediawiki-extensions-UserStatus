@@ -152,9 +152,9 @@ class ApiUserStatus extends ApiBase {
 		$update = $update[0];
 
 		return SportsTeams::getLogo( $update['sport_id'], $update['team_id'], 's' ) .
-		"<img src=\"{$wgExtensionAssetsPath}/UserStatus/quoteIcon.png\" border=\"0\" style=\"margin-left:5px;\" alt=\"\" />
+		"<img src=\"{$wgExtensionAssetsPath}/UserStatus/quoteIcon.png\" style=\"margin-left:5px;\" alt=\"\" />
 		{$update['text']}
-		<img src=\"{$wgExtensionAssetsPath}/UserStatus/endQuoteIcon.png\" border=\"0\" alt=\"\" />
+		<img src=\"{$wgExtensionAssetsPath}/UserStatus/endQuoteIcon.png\" alt=\"\" />
 		<span class=\"user-status-date\">" .
 			wfMessage( 'userstatus-ago', UserStatus::getTimeAgo( $update['timestamp'] ) )->text() .
 		'</span>';

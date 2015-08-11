@@ -7,11 +7,10 @@ class UserStatusHooks {
 	 * Creates UserStatus' new database tables when the user runs
 	 * /maintenance/update.php, the MediaWiki core updater script.
 	 *
-	 * @param $updater DatabaseUpdater
-	 * @return Boolean
+	 * @param DatabaseUpdater $updater
+	 * @return bool
 	 */
 	public static function onLoadExtensionSchemaUpdates( $updater ) {
-		$dir = dirname( __FILE__ );
 		$dbExt = '';
 
 		/*
@@ -36,8 +35,8 @@ class UserStatusHooks {
 			}
 		}
 
-		$updater->addExtensionUpdate( array( 'addTable', 'user_status', "$dir/user_status$dbExt.sql", true ) );
-		$updater->addExtensionUpdate( array( 'addTable', 'user_status_vote', "$dir/user_status$dbExt.sql", true ) );
+		$updater->addExtensionUpdate( array( 'addTable', 'user_status', __DIR__ . "/user_status$dbExt.sql", true ) );
+		$updater->addExtensionUpdate( array( 'addTable', 'user_status_vote', __DIR__ . "/user_status$dbExt.sql", true ) );
 
 		return true;
 	}
@@ -45,7 +44,7 @@ class UserStatusHooks {
 	/**
 	 * For integration with the Renameuser extension.
 	 *
-	 * @param $renameUserSQL RenameuserSQL
+	 * @param RenameuserSQL $renameUserSQL
 	 * @return bool
 	 */
 	public static function onRenameUserSQL( $renameUserSQL ) {

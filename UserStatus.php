@@ -5,7 +5,6 @@
  *
  * @file
  * @ingroup Extensions
- * @date 10 September 2014
  * @author Aaron Wright <aaron.wright@gmail.com>
  * @author David Pean <david.pean@gmail.com>
  * @author Jack Phoenix <jack@countervandalism.net>
@@ -13,19 +12,11 @@
  * @link https://www.mediawiki.org/wiki/Extension:UserStatus Documentation
  */
 
-/**
- * Protect against register_globals vulnerabilities.
- * This line must be present before any global variable is referenced.
- */
-if ( !defined( 'MEDIAWIKI' ) ) {
-	die( 'This is not a valid entry point to MediaWiki.' );
-}
-
 // Extension credits that will show up on Special:Version
 $wgExtensionCredits['other'][] = array(
 	'path' => __FILE__,
 	'name' => 'UserStatus',
-	'version' => '3.2',
+	'version' => '3.2.1',
 	'author' => array( 'Aaron Wright', 'David Pean', 'Jack Phoenix' ),
 	'description' => 'Social status updates on user profiles and on network pages',
 	'url' => 'https://www.mediawiki.org/wiki/Extension:UserStatus'

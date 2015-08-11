@@ -53,3 +53,8 @@
 .user-status-vote {
 	margin: 0px 0px 0px 5px;
 }
+
+.user-page-message-count {
+	color: #666666;
+	font-size: 11px;
+}

@@ -1,0 +1,67 @@
+{
+	"name": "UserStatus",
+	"version": "3.2.1",
+	"author": [
+		"Aaron Wright",
+		"David Pean",
+		"Jack Phoenix"
+	],
+	"license-name": "GPL-2.0+",
+	"url": "https://www.mediawiki.org/wiki/Extension:UserStatus",
+	"description": "Social status updates on user profiles and on network pages",
+	"type": "other",
+	"SpecialPages": {
+		"FanUpdates": "ViewFanUpdates",
+		"UserStatus": "ViewUserStatus",
+		"ViewThought": "ViewThought"
+	},
+	"MessagesDirs": {
+		"UserStatus": [
+			"i18n"
+		]
+	},
+	"AutoloadClasses": {
+		"ApiUserStatus": "ApiUserStatus.php",
+		"UserStatus": "UserStatusClass.php",
+		"UserStatusHooks": "UserStatusHooks.php",
+		"ViewFanUpdates": "SpecialFanUpdates.php",
+		"ViewUserStatus": "SpecialUserStatus.php",
+		"ViewThought": "SpecialViewThought.php"
+	},
+	"Hooks": {
+		"LoadExtensionSchemaUpdates": [
+			"UserStatusHooks::onLoadExtensionSchemaUpdates"
+		],
+		"RenameUserSQL": [
+			"UserStatusHooks::onRenameUserSQL"
+		]
+	},
+	"ResourceFileModulePaths": {
+		"localBasePath": "",
+		"remoteExtPath": "UserStatus"
+	},
+	"ResourceModules": {
+		"ext.userStatus": {
+			"styles": "UserStatus.css",
+			"scripts": "UserStatus.js",
+			"messages": [ "userstatus-confirm-delete" ],
+			"position": "top"
+		},
+		"ext.userStatus.viewThought": {
+			"styles": "ViewThought.css",
+			"position": "top"
+		}
+	},
+	"AvailableRights": [
+		"delete-status-updates"
+	],
+	"GroupPermissions": {
+		"staff": {
+			"delete-status-updates": true
+		},
+		"sysop": {
+			"delete-status-updates": true
+		}
+	},
+	"manifest_version": 1
+}
