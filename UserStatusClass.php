@@ -448,7 +448,7 @@ class UserStatus {
 
 				</div>
 
-				<div class=\"cleared\"></div>
+				<div class=\"visualClear\"></div>
 
 				</div>";
 

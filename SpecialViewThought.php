@@ -101,7 +101,7 @@ class ViewThought extends UnlistedSpecialPage {
 
 				</div>
 
-				<div class="cleared"></div>
+				<div class="visualClear"></div>
 
 		</div>
 		</div>';
