@@ -20,6 +20,9 @@
 			"i18n"
 		]
 	},
+	"APIModules": {
+		"userstatus": "ApiUserStatus"
+	},
 	"AutoloadClasses": {
 		"ApiUserStatus": "ApiUserStatus.php",
 		"UserStatus": "UserStatusClass.php",
