@@ -170,7 +170,7 @@ class ApiUserStatus extends ApiBase {
 
 	function deleteStatus( $us_id ) {
 		$user = $this->getUser();
-		if(
+		if (
 			$this->userStatus->doesUserOwnStatusMessage( $user->getId(), $us_id ) ||
 			$user->isAllowed( 'delete-status-updates' )
 		)
@@ -184,11 +184,6 @@ class ApiUserStatus extends ApiBase {
 	function updateStatus( $user_id, $user_name, $text, $date, $next_row ) {
 		$user = User::newFromId( $user_id );
 		// @todo FIXME: IS USER_ID (+user_name) REALLY NEEDED? CAN WE JUST UTILIZE $this->getUser() HERE?
-
-		// Don't do anything if the user is blocked
-		if ( $user->isBlocked() ) {
-			return '';
-		}
 
 		// Get a database handler
 		$dbw = wfGetDB( DB_MASTER );
@@ -242,14 +237,7 @@ class ApiUserStatus extends ApiBase {
 	}
 
 	/**
-	 * @return String: human-readable module description
-	 */
-	public function getDescription() {
-		return 'API for handling social status messages';
-	}
-
-	/**
-	 * @return Array
+	 * @return array
 	 */
 	public function getAllowedParams() {
 		return array(

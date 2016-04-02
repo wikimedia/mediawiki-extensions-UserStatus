@@ -176,7 +176,7 @@ class UserStatus {
 		);
 
 		if ( $s !== false ) {
-			if( $user_id == $s->us_user_id ) {
+			if ( $user_id == $s->us_user_id ) {
 				return true;
 			}
 		}
