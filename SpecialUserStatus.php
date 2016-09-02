@@ -163,7 +163,8 @@ class ViewUserStatus extends UnlistedSpecialPage {
 		}
 
 		// Add CSS & JS
-		$out->addModules( 'ext.userStatus' );
+		$out->addModuleStyles( 'ext.userStatus.styles' );
+		$out->addModules( 'ext.userStatus.scripts' );
 
 		$output .= '<div class="user-status-container">';
 		$thought_link = SpecialPage::getTitleFor( 'ViewThought' );

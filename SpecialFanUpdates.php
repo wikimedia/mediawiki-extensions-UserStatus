@@ -146,7 +146,8 @@ class ViewFanUpdates extends UnlistedSpecialPage {
 		}
 
 		// Add CSS & JS
-		$out->addModules( 'ext.userStatus' );
+		$out->addModuleStyles( 'ext.userStatus.styles' );
+		$out->addModules( 'ext.userStatus.scripts' );
 
 		// Registered users who are not blocked can add status updates when the
 		// database is not locked

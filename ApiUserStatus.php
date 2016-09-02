@@ -4,8 +4,7 @@
  *
  * @file
  * @ingroup API
- * @date 10 July 2013
- * @see http://www.mediawiki.org/wiki/API:Extensions#ApiSampleApiExtension.php
+ * @see https://www.mediawiki.org/wiki/API:Extensions#ApiSampleApiExtension.php
  */
 class ApiUserStatus extends ApiBase {
 
@@ -37,7 +36,6 @@ class ApiUserStatus extends ApiBase {
 		$text = $params['text'];
 		$count = $params['count'];
 		$userId = $params['userId'];
-		$num = $params['num'];
 		$us_id = $params['us_id'];
 		$vote = $params['vote'];
 		wfRestoreWarnings();
@@ -66,17 +64,6 @@ class ApiUserStatus extends ApiBase {
 					$this->dieUsage( 'One or more of the required four params is missing', 'zomgamissingparam2' );
 				}
 				$output = $this->addNetworkStatus( $sportId, $teamId, $text, $count );
-				break;
-			case 'getstatus':
-				if (
-					$userId === null || !is_numeric( $userId ) ||
-					$num === null || !is_numeric( $num ) ||
-					count( $params ) < 2
-				)
-				{
-					$this->dieUsage( 'One or more of the required two params is missing', 'zomgamissingparam3' );
-				}
-				$output = $this->getStatus( $userId, $num );
 				break;
 			case 'votestatus':
 				if (
@@ -139,25 +126,6 @@ class ApiUserStatus extends ApiBase {
 		$m = $this->userStatus->addStatus( $sportId, $teamId, urldecode( $text ) );
 
 		return $this->userStatus->displayStatusMessages( 0, $sportId, $teamId, $count, 1 );
-	}
-
-	/**
-	 * Unused...I think this function's original incarnation was used in
-	 * ancient history.
-	 */
-	function getStatus( $userId, $num ) {
-		global $wgExtensionAssetsPath;
-
-		$update = $this->userStatus->getStatusMessages( $userId, 0, 0, 1, $num );
-		$update = $update[0];
-
-		return SportsTeams::getLogo( $update['sport_id'], $update['team_id'], 's' ) .
-		"<img src=\"{$wgExtensionAssetsPath}/UserStatus/quoteIcon.png\" style=\"margin-left:5px;\" alt=\"\" />
-		{$update['text']}
-		<img src=\"{$wgExtensionAssetsPath}/UserStatus/endQuoteIcon.png\" alt=\"\" />
-		<span class=\"user-status-date\">" .
-			wfMessage( 'userstatus-ago', UserStatus::getTimeAgo( $update['timestamp'] ) )->text() .
-		'</span>';
 	}
 
 	function voteStatus( $us_id, $vote ) {
@@ -260,9 +228,6 @@ class ApiUserStatus extends ApiBase {
 			'userId' => array(
 				ApiBase::PARAM_TYPE => 'integer'
 			),
-			'num' => array(
-				ApiBase::PARAM_TYPE => 'integer'
-			),
 			'us_id' => array(
 				ApiBase::PARAM_TYPE => 'integer'
 			),
@@ -272,7 +237,15 @@ class ApiUserStatus extends ApiBase {
 		);
 	}
 
-	// Describe the parameter
+	public function needsToken() {
+		return 'csrf';
+	}
+
+	public function isWriteMode() {
+		return true;
+	}
+
+	// Describe the parameters
 	public function getParamDescription() {
 		return array_merge( parent::getParamDescription(), array(
 			'what' => 'What to do? Verb + subject, i.e. addnetworkstatus to add a status to a network page, deletestatus to delete a status message, etc.',
@@ -281,7 +254,6 @@ class ApiUserStatus extends ApiBase {
 			'text' => 'Status update text',
 			'count' => 'Display this many status updates in the returned feed',
 			'userId' => 'User ID number',
-			'num' => 'No idea, really; DOCUMENT ME!',
 			'us_id' => 'Status message ID',
 			'vote' => '1 to "upvote" a status message, -1 to "downvote" instead',
 		) );

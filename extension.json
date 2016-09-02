@@ -1,6 +1,6 @@
 {
 	"name": "UserStatus",
-	"version": "3.2.1",
+	"version": "3.3",
 	"author": [
 		"Aaron Wright",
 		"David Pean",
@@ -44,11 +44,15 @@
 		"remoteExtPath": "UserStatus"
 	},
 	"ResourceModules": {
-		"ext.userStatus": {
+		"ext.userStatus.styles": {
 			"styles": "UserStatus.css",
-			"scripts": "UserStatus.js",
-			"messages": [ "userstatus-confirm-delete" ],
 			"position": "top"
+		},
+		"ext.userStatus.scripts": {
+			"scripts": "UserStatus.js",
+			"dependencies": [ "mediawiki.api" ],
+			"messages": [ "userstatus-confirm-delete" ],
+			"position": "bottom"
 		},
 		"ext.userStatus.viewThought": {
 			"styles": "ViewThought.css",
