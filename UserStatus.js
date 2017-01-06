@@ -75,7 +75,7 @@ var UserStatus = {
 	}
 };
 
-$( document ).ready( function() {
+$( function() {
 	// Both Special:FanUpdates and Special:UserStatus have "delete" links, so...
 	// UserStatus::displayStatusMessages() (UserStatusClass.php) also depends
 	// on this
