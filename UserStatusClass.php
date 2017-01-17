@@ -242,7 +242,7 @@ class UserStatus {
 
 		$sql = "SELECT us_id, us_user_id, us_user_name, us_text,
 			us_sport_id, us_team_id, us_vote_plus, us_vote_minus,
-			UNIX_TIMESTAMP(us_date) AS unix_time,
+			us_date,
 			(SELECT COUNT(*) FROM {$dbr->tableName( 'user_status_vote' )}
 				WHERE sv_us_id = us_id
 				AND sv_user_id =" . $wgUser->getID() . ") AS AlreadyVoted
@@ -256,7 +256,7 @@ class UserStatus {
 		foreach ( $res as $row ) {
 			$messages[] = array(
 				'id' => $row->us_id,
-				'timestamp' => ($row->unix_time),
+				'timestamp' => wfTimestamp( TS_UNIX, $row->us_date ),
 				'user_id' => $row->us_user_id,
 				'user_name' => $row->us_user_name,
 				'sport_id' => $row->us_sport_id,
@@ -316,7 +316,7 @@ class UserStatus {
 
 		$sql = "SELECT us_id, us_user_id, us_user_name, us_text,
 			us_sport_id, us_team_id, us_vote_plus, us_vote_minus,
-			UNIX_TIMESTAMP(us_date) AS unix_time,
+			us_date,
 			(SELECT COUNT(*) FROM {$dbr->tableName( 'user_status_vote' )}
 				WHERE sv_us_id = us_id
 				AND sv_user_id = " . $wgUser->getID() . ") AS AlreadyVoted
@@ -332,7 +332,7 @@ class UserStatus {
 		foreach ( $res as $row ) {
 			$messages[] = array(
 				'id' => $row->us_id,
-				'timestamp' => ( $row->unix_time ),
+				'timestamp' => wfTimestamp( TS_UNIX, $row->us_date ),
 				'user_id' => $row->us_user_id,
 				'user_name' => $row->us_user_name,
 				'sport_id' => $row->us_sport_id,
@@ -501,8 +501,7 @@ class UserStatus {
 		$res = $dbr->select(
 			'user_status_vote',
 			array(
-				'sv_user_id', 'sv_user_name',
-				'UNIX_TIMESTAMP(sv_date) AS unix_time', 'sv_vote_score'
+				'sv_user_id', 'sv_user_name', 'sv_date', 'sv_vote_score'
 			),
 			array( 'sv_us_id' => intval( $us_id ) ),
 			__METHOD__,
@@ -513,7 +512,7 @@ class UserStatus {
 
 		foreach ( $res as $row ) {
 			$voters[] = array(
-				'timestamp' => ( $row->unix_time ),
+				'timestamp' => wfTimestamp( TS_UNIX, $row->sv_date ),
 				'user_id' => $row->sv_user_id,
 				'user_name' => $row->sv_user_name,
 				'score' => $row->sv_vote_score

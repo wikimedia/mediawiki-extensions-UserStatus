@@ -172,8 +172,7 @@ class ApiUserStatus extends ApiBase {
 		$res = $dbw->select(
 			'user_status',
 			array(
-				'us_user_id', 'us_user_name', 'us_text',
-				'UNIX_TIMESTAMP(us_date) AS unix_time'
+				'us_user_id', 'us_user_name', 'us_text', 'us_date'
 			),
 			array( 'us_id' => intval( $next_row ) ),
 			__METHOD__
@@ -185,7 +184,7 @@ class ApiUserStatus extends ApiBase {
 			$db_user_id = $row->us_user_id;
 			$db_user_name = $row->us_user_name;
 			$db_status_text = $row->us_text;
-			$user_status_date = $row->unix_time;
+			$user_status_date = wfTimestamp( TS_UNIX, $row->us_date );
 			$avatar = new wAvatar( $db_user_id, 'ml' );
 			$userTitle = Title::makeTitle( NS_USER, $db_user_name );
 
