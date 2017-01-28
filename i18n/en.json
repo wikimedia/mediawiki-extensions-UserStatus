@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": []
 	},
+	"userstatus-desc": "Social status updates on user profiles and on network pages",
 	"userstatus-network-thoughts": "$1 Thoughts",
 	"userstatus-back-to-network": "&lt; Back To Network",
 	"userstatus-showing-thoughts": "{{PLURAL:$2|Showing 1 Thought|Showing $1 - $2 of $3 Thoughts}}.",

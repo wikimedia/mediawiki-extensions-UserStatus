@@ -8,7 +8,7 @@
 	],
 	"license-name": "GPL-2.0+",
 	"url": "https://www.mediawiki.org/wiki/Extension:UserStatus",
-	"description": "Social status updates on user profiles and on network pages",
+	"descriptionmsg": "userstatus-desc",
 	"type": "other",
 	"SpecialPages": {
 		"FanUpdates": "ViewFanUpdates",

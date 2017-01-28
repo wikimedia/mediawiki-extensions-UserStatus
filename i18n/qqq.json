@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": []
 	},
+	"userstatus-desc": "{{desc|name=UserStatus|url=https://www.mediawiki.org/wiki/Extension:UserStatus}}",
 	"apihelp-userstatus-description": "{{doc-apihelp-description|userstatus}}",
 	"apihelp-userstatus-param-what": "{{doc-apihelp-param|userstatus|what}}",
 	"apihelp-userstatus-param-sportId": "{{doc-apihelp-param|userstatus|sportId}}",
