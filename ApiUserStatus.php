@@ -244,20 +244,6 @@ class ApiUserStatus extends ApiBase {
 		return true;
 	}
 
-	// Describe the parameters
-	public function getParamDescription() {
-		return array_merge( parent::getParamDescription(), array(
-			'what' => 'What to do? Verb + subject, i.e. addnetworkstatus to add a status to a network page, deletestatus to delete a status message, etc.',
-			'sportId' => 'ID of the sport',
-			'teamId' => 'ID of the sport team',
-			'text' => 'Status update text',
-			'count' => 'Display this many status updates in the returned feed',
-			'userId' => 'User ID number',
-			'us_id' => 'Status message ID',
-			'vote' => '1 to "upvote" a status message, -1 to "downvote" instead',
-		) );
-	}
-
 	// Get examples
 	public function getExamples() {
 		return array(

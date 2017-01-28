@@ -1,0 +1,14 @@
+{
+	"@metadata": {
+		"authors": []
+	},
+	"apihelp-userstatus-description": "{{doc-apihelp-description|userstatus}}",
+	"apihelp-userstatus-param-what": "{{doc-apihelp-param|userstatus|what}}",
+	"apihelp-userstatus-param-sportId": "{{doc-apihelp-param|userstatus|sportId}}",
+	"apihelp-userstatus-param-teamId": "{{doc-apihelp-param|userstatus|teamId}}",
+	"apihelp-userstatus-param-text": "{{doc-apihelp-param|userstatus|text}}",
+	"apihelp-userstatus-param-count": "{{doc-apihelp-param|userstatus|count}}",
+	"apihelp-userstatus-param-userId": "{{doc-apihelp-param|userstatus|userId}}",
+	"apihelp-userstatus-param-us_id": "{{doc-apihelp-param|userstatus|us_id}}",
+	"apihelp-userstatus-param-vote": "{{doc-apihelp-param|userstatus|vote}}"
+}
