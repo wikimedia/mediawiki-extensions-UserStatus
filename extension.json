@@ -20,6 +20,9 @@
 			"i18n"
 		]
 	},
+	"ExtensionMessagesFiles": {
+		"UserStatusAlias": "UserStatus.alias.php"
+	},
 	"APIModules": {
 		"userstatus": "ApiUserStatus"
 	},
