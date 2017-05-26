@@ -4,6 +4,7 @@
 	},
 	"userstatus-desc": "{{desc|name=UserStatus|url=https://www.mediawiki.org/wiki/Extension:UserStatus}}",
 	"apihelp-userstatus-description": "{{doc-apihelp-description|userstatus}}",
+	"apihelp-userstatus-summary": "{{doc-apihelp-summary|userstatus}}",
 	"apihelp-userstatus-param-what": "{{doc-apihelp-param|userstatus|what}}",
 	"apihelp-userstatus-param-sportId": "{{doc-apihelp-param|userstatus|sportId}}",
 	"apihelp-userstatus-param-teamId": "{{doc-apihelp-param|userstatus|teamId}}",
