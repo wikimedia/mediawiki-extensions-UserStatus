@@ -1,6 +1,6 @@
 {
 	"name": "UserStatus",
-	"version": "3.3",
+	"version": "3.4.0",
 	"author": [
 		"Aaron Wright",
 		"David Pean",
@@ -21,18 +21,18 @@
 		]
 	},
 	"ExtensionMessagesFiles": {
-		"UserStatusAlias": "UserStatus.alias.php"
+		"UserStatusAlias": "includes/UserStatus.alias.php"
 	},
 	"APIModules": {
 		"userstatus": "ApiUserStatus"
 	},
 	"AutoloadClasses": {
-		"ApiUserStatus": "ApiUserStatus.php",
-		"UserStatus": "UserStatusClass.php",
-		"UserStatusHooks": "UserStatusHooks.php",
-		"ViewFanUpdates": "SpecialFanUpdates.php",
-		"ViewUserStatus": "SpecialUserStatus.php",
-		"ViewThought": "SpecialViewThought.php"
+		"ApiUserStatus": "includes/api/ApiUserStatus.php",
+		"UserStatus": "includes/UserStatus.class.php",
+		"UserStatusHooks": "includes/UserStatus.hooks.php",
+		"ViewFanUpdates": "includes/specials/SpecialFanUpdates.php",
+		"ViewUserStatus": "includes/specials/SpecialUserStatus.php",
+		"ViewThought": "includes/specials/SpecialViewThought.php"
 	},
 	"Hooks": {
 		"LoadExtensionSchemaUpdates": [
@@ -48,17 +48,17 @@
 	},
 	"ResourceModules": {
 		"ext.userStatus.styles": {
-			"styles": "UserStatus.css",
+			"styles": "resources/css/UserStatus.css",
 			"position": "top"
 		},
 		"ext.userStatus.scripts": {
-			"scripts": "UserStatus.js",
+			"scripts": "resources/js/UserStatus.js",
 			"dependencies": [ "mediawiki.api" ],
 			"messages": [ "userstatus-confirm-delete" ],
 			"position": "bottom"
 		},
 		"ext.userStatus.viewThought": {
-			"styles": "ViewThought.css",
+			"styles": "resources/css/ViewThought.css",
 			"position": "top"
 		}
 	},

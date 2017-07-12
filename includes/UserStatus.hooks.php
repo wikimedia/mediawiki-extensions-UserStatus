@@ -35,8 +35,8 @@ class UserStatusHooks {
 			}
 		}
 
-		$updater->addExtensionUpdate( array( 'addTable', 'user_status', __DIR__ . "/user_status$dbExt.sql", true ) );
-		$updater->addExtensionUpdate( array( 'addTable', 'user_status_vote', __DIR__ . "/user_status$dbExt.sql", true ) );
+		$updater->addExtensionUpdate( array( 'addTable', 'user_status', __DIR__ . "/../sql/user_status$dbExt.sql", true ) );
+		$updater->addExtensionUpdate( array( 'addTable', 'user_status_vote', __DIR__ . "/../sql/user_status$dbExt.sql", true ) );
 
 		return true;
 	}
