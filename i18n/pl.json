@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"Chrumps"
+		]
+	},
+	"userstatus-delete": "Usuń",
+	"userstatus-ago": "$1 temu",
+	"userstatus-time-hours": "{{PLURAL:$1|1 godzinę|$1 godziny|$1 godzin}}",
+	"userstatus-time-minutes": "{{PLURAL:$1|1 minutę|$1 minuty|$1 minut}}"
+}

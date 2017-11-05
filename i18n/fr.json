@@ -1,0 +1,14 @@
+{
+	"@metadata": {
+		"authors": [
+			"Wladek92"
+		]
+	},
+	"userstatus-prev": "préc",
+	"userstatus-next": "suivant",
+	"userstatus-btn-add": "ajouter",
+	"userstatus-delete": "Supprimer",
+	"userstatus-woops": "Oups !",
+	"userstatus-just-added": "juste ajouté",
+	"apihelp-userstatus-param-userId": "Numéro d'identification utilisateur"
+}

@@ -1,0 +1,16 @@
+{
+	"@metadata": {
+		"authors": [
+			"Mainframe98"
+		]
+	},
+	"userstatus-prev": "vorige",
+	"userstatus-next": "volgende",
+	"userstatus-btn-add": "toevoegen",
+	"userstatus-delete": "Verwijderen",
+	"userstatus-ago": "$1 geleden",
+	"userstatus-time-days": "{{PLURAL:$1|één dag|$1 dagen}}",
+	"userstatus-time-hours": "{{PLURAL:$1|één uur|$1 uren}}",
+	"userstatus-time-minutes": "{{PLURAL:$1|één minuut|$1 minuten}}",
+	"userstatus-time-seconds": "{{PLURAL:$1|één seconde|$1 seconden}}"
+}

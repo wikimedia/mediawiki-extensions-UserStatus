@@ -1,0 +1,28 @@
+{
+	"@metadata": {
+		"authors": [
+			"Robby"
+		]
+	},
+	"userstatus-network-thoughts": "Iwwerleeunge vum $1",
+	"userstatus-prev": "vireg",
+	"userstatus-next": "nächst",
+	"userstatus-delete": "Läschen",
+	"userstatus-ago": "viru(n) $1",
+	"userstatus-time-days": "{{PLURAL:$1|een Dag|$1 Deeg}}",
+	"userstatus-time-hours": "{{PLURAL:$1|eng Stonn|$1 Stonnen}}",
+	"userstatus-time-minutes": "{{PLURAL:$1|eng Minutt|$1 Minutten}}",
+	"userstatus-time-seconds": "{{PLURAL:$1|eng Sekonn|$1 Sekonnen}}",
+	"userstatus-woops": "Ups!",
+	"userstatus-no-user": "De Benotzer deen Dir probéiert Iech unzekucke gëtt et net.",
+	"userstatus-your-thoughts": "Är Iwwerleeungen",
+	"userstatus-user-thoughts": "Iwwerleeunge vum $1",
+	"userstatus-back-your-profile": "&lt; Zréck op Äre Profil",
+	"userstatus-back-user-profile": "Zréck op dem $1 säi Profil",
+	"userstatus-agree": "zoustëmmen",
+	"userstatus-invalid-link": "Net valabele Link",
+	"userstatus-who-agrees": "Wien ass d'Accord",
+	"userstatus-nobody-agrees": "Et ass kee mat dësen Iwwerleeungen d'Accord",
+	"userstatus-just-added": "elo grad bäigesat",
+	"userstatus-confirm-delete": "Sidd dir sécher datt Dir dës Iwwerleeunge läsche wëllt?"
+}

@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"Saraiki"
+		]
+	},
+	"userstatus-next": "اڳلا",
+	"userstatus-btn-add": "جوڑو",
+	"userstatus-delete": "مٹاؤ",
+	"userstatus-ago": "$1 پہلے"
+}

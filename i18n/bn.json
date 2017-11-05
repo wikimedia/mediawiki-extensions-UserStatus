@@ -1,0 +1,30 @@
+{
+	"@metadata": {
+		"authors": [
+			"Aftabuzzaman"
+		]
+	},
+	"userstatus-network-thoughts": "$1টি ভাবনা",
+	"userstatus-showing-thoughts": "{{PLURAL:$2|১টি ভাবনা দেখানো হচ্ছে|$3টি ভাবনার $1 - $2টি দেখানো হচ্ছে}}।",
+	"userstatus-prev": "পূর্ববর্তী",
+	"userstatus-next": "পরবর্তী",
+	"userstatus-btn-add": "যোগ করুন",
+	"userstatus-view-all-updates": "সব $1 হালনাগাদ দেখুন",
+	"userstatus-delete": "অপসারণ করুন",
+	"userstatus-ago": "$1 আগে",
+	"userstatus-time-days": "{{PLURAL:$1|এক দিন|$1 দিন}}",
+	"userstatus-time-hours": "{{PLURAL:$1|এক ঘণ্টা|$1 ঘণ্টা}}",
+	"userstatus-time-minutes": "{{PLURAL:$1|এক মিনিট|$1 মিনিট}}",
+	"userstatus-time-seconds": "{{PLURAL:$1|এক সেকেন্ড|$1 সেকেন্ড}}",
+	"userstatus-no-updates": "এখানে কোন হালনাগাদ নেই",
+	"userstatus-woops": "ওহ!",
+	"userstatus-your-thoughts": "আপনার ভাবনা",
+	"userstatus-user-thoughts": "$1-এর ভাবনা",
+	"userstatus-user-profile": "&lt; $1-এর প্রোফাইল দেখুন",
+	"userstatus-back-your-profile": "&lt; আপনার প্রোফাইলে ফিরুন",
+	"userstatus-agree": "একমত",
+	"userstatus-see-who-agrees": "দেখুন আর কে কে একমত",
+	"userstatus-who-agrees": "কে একমত",
+	"userstatus-just-added": "এইমাত্র যোগ হয়েছে",
+	"userstatus-confirm-delete": "আপনি কি নিশ্চিতভাবে এই ভাবনা অপসারণ করতে চান?"
+}
