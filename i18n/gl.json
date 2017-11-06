@@ -1,0 +1,18 @@
+{
+	"@metadata": {
+		"authors": [
+			"Elisardojm"
+		]
+	},
+	"userstatus-prev": "ant",
+	"userstatus-next": "seguinte",
+	"userstatus-btn-add": "engadir",
+	"userstatus-delete": "Borrar",
+	"userstatus-ago": "hai $1",
+	"userstatus-time-days": "{{PLURAL:$1|un día|$1 días}}",
+	"userstatus-time-hours": "{{PLURAL:$1|unha hora|$1 horas}}",
+	"userstatus-time-minutes": "{{PLURAL:$1|un minuto|$1 minutos}}",
+	"userstatus-time-seconds": "{{PLURAL:$1|un segundo|$1 segundos}}",
+	"userstatus-woops": "Vaites!",
+	"userstatus-agree": "de acordo"
+}

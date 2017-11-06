@@ -1,0 +1,32 @@
+{
+	"@metadata": {
+		"authors": [
+			"Ykhwong"
+		]
+	},
+	"userstatus-back-to-network": "&lt; 네트워크로 돌아가기",
+	"userstatus-prev": "이전",
+	"userstatus-next": "다음",
+	"userstatus-btn-add": "추가",
+	"userstatus-view-all-updates": "모든 업데이트 $1개 보기",
+	"userstatus-delete": "삭제",
+	"userstatus-ago": "$1 전",
+	"userstatus-time-days": "{{PLURAL:$1|1일|$1일}}",
+	"userstatus-time-hours": "{{PLURAL:$1|한 시간|$1시간}}",
+	"userstatus-time-minutes": "{{PLURAL:$1|1분|$1분}}",
+	"userstatus-time-seconds": "{{PLURAL:$1|1초|$1초}}",
+	"userstatus-no-updates": "업데이트가 없습니다",
+	"userstatus-woops": "이런!",
+	"userstatus-no-user": "보려고 하는 사용자가 존재하지 않습니다.",
+	"userstatus-user-profile": "&lt; $1님의 프로필 보기",
+	"userstatus-back-your-profile": "&lt; 내 프로필로 돌아가기",
+	"userstatus-back-user-profile": "$1님의 프로파일로 돌아가기",
+	"userstatus-all-team-updates": "모든 $1개 업데이트",
+	"userstatus-num-agree": "{{PLURAL:$1|한 명이 동의합니다|$1명이 동의합니다}}",
+	"userstatus-invalid-link": "유효하지 않은 링크",
+	"userstatus-just-added": "방금 추가했습니다",
+	"right-delete-status-updates": "사용자의 상태 업데이트 삭제",
+	"apihelp-userstatus-param-text": "상태 업데이트 텍스트",
+	"apihelp-userstatus-param-userId": "사용자 ID 번호",
+	"apihelp-userstatus-param-us_id": "상태 메시지 ID"
+}

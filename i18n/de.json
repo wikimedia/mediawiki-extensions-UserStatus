@@ -39,7 +39,12 @@
 	"right-delete-status-updates": "Statusaktualisierungen des Benutzers löschen",
 	"apihelp-userstatus-description": "API zur Verarbeitung von Nachrichten des sozialen Status",
 	"apihelp-userstatus-summary": "API zur Verarbeitung von Nachrichten des sozialen Status",
+	"apihelp-userstatus-param-what": "Was ist zu tun? Verb + Subjekt, z.&nbsp;B. addnetworkstatus zum Hinzufügen eines Status zu einer Netzwerkseite, deletestatus zum Löschen einer Statusnachricht etc.",
+	"apihelp-userstatus-param-sportId": "Kennung des Sports",
 	"apihelp-userstatus-param-teamId": "Kennung des Sportteams",
+	"apihelp-userstatus-param-text": "Text der Statusaktualisierung",
+	"apihelp-userstatus-param-count": "Zeigt diese Anzahl an Statusaktualisierungen im zurückgegebenen Feed an",
 	"apihelp-userstatus-param-userId": "Benutzerkennung",
-	"apihelp-userstatus-param-us_id": "Statusnachrichtenkennung"
+	"apihelp-userstatus-param-us_id": "Statusnachrichtenkennung",
+	"apihelp-userstatus-param-vote": "1 für „Gefällt mir“ einer Statusnachricht oder stattdessen -1 für „Gefällt mir nicht“"
 }
