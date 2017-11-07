@@ -4,6 +4,7 @@
 			"Aftabuzzaman"
 		]
 	},
+	"userstatus-desc": "ব্যবহারকারীর বৃত্তান্তে এবং নেটওয়ার্কের পাতাগুলোতে সামাজিক অবস্থা হালনাগাদ",
 	"userstatus-network-thoughts": "$1টি ভাবনা",
 	"userstatus-showing-thoughts": "{{PLURAL:$2|১টি ভাবনা দেখানো হচ্ছে|$3টি ভাবনার $1 - $2টি দেখানো হচ্ছে}}।",
 	"userstatus-prev": "পূর্ববর্তী",
@@ -18,13 +19,18 @@
 	"userstatus-time-seconds": "{{PLURAL:$1|এক সেকেন্ড|$1 সেকেন্ড}}",
 	"userstatus-no-updates": "এখানে কোন হালনাগাদ নেই",
 	"userstatus-woops": "ওহ!",
+	"userstatus-no-user": "আপনি যে ব্যবহারকারী দেখার চেষ্টা করছেন তার অস্তিত্ব নেই।",
 	"userstatus-your-thoughts": "আপনার ভাবনা",
 	"userstatus-user-thoughts": "$1-এর ভাবনা",
 	"userstatus-user-profile": "&lt; $1-এর প্রোফাইল দেখুন",
 	"userstatus-back-your-profile": "&lt; আপনার প্রোফাইলে ফিরুন",
 	"userstatus-agree": "একমত",
 	"userstatus-see-who-agrees": "দেখুন আর কে কে একমত",
+	"userstatus-invalid-link": "অকার্যকর লিঙ্ক",
 	"userstatus-who-agrees": "কে একমত",
+	"userstatus-no-new-thoughts": "নতুন কোন ভাবনা নেই। একটি যোগ করুন!",
 	"userstatus-just-added": "এইমাত্র যোগ হয়েছে",
-	"userstatus-confirm-delete": "আপনি কি নিশ্চিতভাবে এই ভাবনা অপসারণ করতে চান?"
+	"userstatus-confirm-delete": "আপনি কি নিশ্চিতভাবে এই ভাবনা অপসারণ করতে চান?",
+	"right-delete-status-updates": "ব্যবহারকারীদের অবস্থার হালনাগাদ অপসারণ করা",
+	"apihelp-userstatus-param-us_id": "আইডির অবস্থা নির্দেশক বার্তা"
 }

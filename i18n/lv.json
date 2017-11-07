@@ -4,7 +4,9 @@
 			"Papuass"
 		]
 	},
+	"userstatus-btn-add": "pievienot",
 	"userstatus-delete": "Dzēst",
 	"userstatus-your-thoughts": "Tavas domas",
-	"userstatus-invalid-link": "Nederīga saite"
+	"userstatus-invalid-link": "Nederīga saite",
+	"apihelp-userstatus-param-us_id": "Statusa ziņojuma ID"
 }

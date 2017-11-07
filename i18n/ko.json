@@ -23,6 +23,7 @@
 	"userstatus-back-user-profile": "$1님의 프로파일로 돌아가기",
 	"userstatus-all-team-updates": "모든 $1개 업데이트",
 	"userstatus-num-agree": "{{PLURAL:$1|한 명이 동의합니다|$1명이 동의합니다}}",
+	"userstatus-agree": "동의",
 	"userstatus-invalid-link": "유효하지 않은 링크",
 	"userstatus-just-added": "방금 추가했습니다",
 	"right-delete-status-updates": "사용자의 상태 업데이트 삭제",
