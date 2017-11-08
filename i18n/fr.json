@@ -1,14 +1,45 @@
 {
 	"@metadata": {
 		"authors": [
-			"Wladek92"
+			"Wladek92",
+			"Gomoko"
 		]
 	},
+	"userstatus-desc": "Mises à jour des états sociaux sur les profils utilisateur et sur les pages réseau",
+	"userstatus-network-thoughts": "Pensées de $1",
+	"userstatus-back-to-network": "&lt; Retour au réseau",
+	"userstatus-showing-thoughts": "Affichage de {{PLURAL:$2|1 pensée|$1 - $2 sur $3 pensées}}.",
 	"userstatus-prev": "préc",
 	"userstatus-next": "suivant",
 	"userstatus-btn-add": "ajouter",
+	"userstatus-view-all-updates": "Voir toutes les mises à jour de $1",
 	"userstatus-delete": "Supprimer",
+	"userstatus-ago": "il y a $1",
+	"userstatus-time-days": "{{PLURAL:$1|un jour|$1 jours}}",
+	"userstatus-time-hours": "{{PLURAL:$1|une heure|$1 heures}}",
+	"userstatus-time-minutes": "{{PLURAL:$1|une minute|$1 minutes}}",
+	"userstatus-time-seconds": "{{PLURAL:$1|une seconde|$1 secondes}}",
+	"userstatus-no-updates": "Il n’y a aucune mise à jour",
 	"userstatus-woops": "Oups !",
+	"userstatus-no-user": "L’utilisateur que vous essayez d’afficher n’existe pas.",
+	"userstatus-your-thoughts": "Vos pensées",
+	"userstatus-user-thoughts": "Pensées de $1",
+	"userstatus-user-profile": "&lt; Afficher le profil de $1",
+	"userstatus-back-your-profile": "&lt; Retour à votre profil",
+	"userstatus-back-user-profile": "Retour au profil de $1",
+	"userstatus-all-team-updates": "Toutes les mises à jour de $1",
+	"userstatus-num-agree": "{{PLURAL:$1|1 personne est d’accord|$1 personnes sont d’accord}}",
+	"userstatus-agree": "est d’accord",
+	"userstatus-see-who-agrees": "voir qui d’autre est d’accord",
+	"userstatus-invalid-link": "Lien non valide",
+	"userstatus-who-agrees": "Qui est d’accord",
+	"userstatus-nobody-agrees": "Personne n’est d’accord avec cette pensée",
+	"userstatus-no-new-thoughts": "Il n’y a aucune nouvelle pensée. En ajouter une !",
 	"userstatus-just-added": "juste ajouté",
+	"userstatus-confirm-delete": "Êtes-vous sûr de vouloir supprimer cette pensée ?",
+	"right-delete-status-updates": "Supprimer les mises à jour de l’état de l’utilisateur",
+	"apihelp-userstatus-description": "API pour gérer les messages d’états sociaux",
+	"apihelp-userstatus-summary": "API pour gérer les messages des états sociaux",
+	"apihelp-userstatus-param-sportId": "ID du sport",
 	"apihelp-userstatus-param-userId": "Numéro d'identification utilisateur"
 }
