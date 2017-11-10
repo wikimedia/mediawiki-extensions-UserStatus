@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Metalhead64"
+			"Metalhead64",
+			"Danielbeerbonn"
 		]
 	},
 	"userstatus-desc": "Soziale Statusaktualisierungen auf Benutzerprofilen und Netzwerkseiten",
@@ -29,7 +30,7 @@
 	"userstatus-all-team-updates": "Alle $1 Aktualisierungen",
 	"userstatus-num-agree": "{{PLURAL:$1|Eine Person stimmt|$1 Personen stimmen}} zu",
 	"userstatus-agree": "zustimmen",
-	"userstatus-see-who-agrees": "Sehen, wer wem zustimmt",
+	"userstatus-see-who-agrees": "Sehen, wer ebenfalls zustimmt",
 	"userstatus-invalid-link": "Ungültiger Link",
 	"userstatus-who-agrees": "Wer stimmt zu",
 	"userstatus-nobody-agrees": "Niemand stimmt diesem Gedanken zu",

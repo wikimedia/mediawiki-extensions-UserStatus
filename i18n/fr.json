@@ -41,5 +41,8 @@
 	"apihelp-userstatus-description": "API pour gérer les messages d’états sociaux",
 	"apihelp-userstatus-summary": "API pour gérer les messages des états sociaux",
 	"apihelp-userstatus-param-sportId": "ID du sport",
-	"apihelp-userstatus-param-userId": "Numéro d'identification utilisateur"
+	"apihelp-userstatus-param-teamId": "ID de l'équipe sportive",
+	"apihelp-userstatus-param-text": "Texte donnant l'état de la modification",
+	"apihelp-userstatus-param-userId": "Numéro d'identification utilisateur",
+	"apihelp-userstatus-param-us_id": "ID du message d'état"
 }

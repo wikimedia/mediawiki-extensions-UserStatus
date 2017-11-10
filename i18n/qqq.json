@@ -11,7 +11,7 @@
 	"userstatus-showing-thoughts": "A navigation link text",
 	"userstatus-prev": "A navigation link text",
 	"userstatus-next": "A navigation link text\n{{Identical|Next}}",
-	"userstatus-btn-add": "A button text",
+	"userstatus-btn-add": "A button text\n{{Identical|Add}}",
 	"userstatus-view-all-updates": "A link text",
 	"userstatus-delete": "A button text\n{{Identical|Delete}}",
 	"userstatus-ago": "Phrase for indicating how long ago something happened.",
