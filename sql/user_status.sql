@@ -1,4 +1,4 @@
--- Author: Jack Phoenix <jack@countervandalism.net>
+-- Author: Jack Phoenix
 -- Date: 11 August 2011
 -- License: public domain to the extent that it is possible
 CREATE TABLE /*_*/user_status (
