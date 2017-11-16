@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Wladek92",
-			"Gomoko"
+			"Gomoko",
+			"Urhixidur"
 		]
 	},
 	"userstatus-desc": "Mises à jour des états sociaux sur les profils utilisateur et sur les pages réseau",
@@ -28,14 +29,14 @@
 	"userstatus-back-your-profile": "&lt; Retour à votre profil",
 	"userstatus-back-user-profile": "Retour au profil de $1",
 	"userstatus-all-team-updates": "Toutes les mises à jour de $1",
-	"userstatus-num-agree": "{{PLURAL:$1|1 personne est d’accord|$1 personnes sont d’accord}}",
+	"userstatus-num-agree": "{{PLURAL:$1|1 personne est|$1 personnes sont}} d’accord",
 	"userstatus-agree": "est d’accord",
 	"userstatus-see-who-agrees": "voir qui d’autre est d’accord",
 	"userstatus-invalid-link": "Lien non valide",
 	"userstatus-who-agrees": "Qui est d’accord",
 	"userstatus-nobody-agrees": "Personne n’est d’accord avec cette pensée",
 	"userstatus-no-new-thoughts": "Il n’y a aucune nouvelle pensée. En ajouter une !",
-	"userstatus-just-added": "juste ajouté",
+	"userstatus-just-added": "nouvellement ajouté",
 	"userstatus-confirm-delete": "Êtes-vous sûr de vouloir supprimer cette pensée ?",
 	"right-delete-status-updates": "Supprimer les mises à jour de l’état de l’utilisateur",
 	"apihelp-userstatus-description": "API pour gérer les messages d’états sociaux",
@@ -44,7 +45,7 @@
 	"apihelp-userstatus-param-sportId": "ID du sport",
 	"apihelp-userstatus-param-teamId": "ID de l'équipe sportive",
 	"apihelp-userstatus-param-text": "Texte donnant l'état de la modification",
-	"apihelp-userstatus-param-count": "Afficher ces nombreuses mises à jour d’état dans le fil retourné",
+	"apihelp-userstatus-param-count": "Afficher ce nombre de mises à jour d’état dans le fil retourné",
 	"apihelp-userstatus-param-userId": "Numéro d'identification utilisateur",
 	"apihelp-userstatus-param-us_id": "ID du message d'état",
 	"apihelp-userstatus-param-vote": "1 pour « voter pour » un message d’état, -1 pour « voter contre »"
