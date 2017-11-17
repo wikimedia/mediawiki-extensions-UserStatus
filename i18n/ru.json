@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"Wirbel78"
+		]
+	},
+	"userstatus-prev": "пред.",
+	"userstatus-next": "след.",
+	"userstatus-btn-add": "добавить",
+	"userstatus-delete": "Удалить"
+}
