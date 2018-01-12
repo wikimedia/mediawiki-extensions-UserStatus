@@ -118,7 +118,7 @@ class UserStatus {
 	public function updateUserCache( $text, $sport_id, $team_id = 0 ) {
 		global $wgUser, $wgMemc;
 
-		$key = wfMemcKey( 'user', 'status-last-update', $wgUser->getID() );
+		$key = $wgMemc->makeKey( 'user', 'status-last-update', $wgUser->getId() );
 
 		$data['text'] = $this->formatMessage( $text );
 		$data['sport_id'] = $sport_id;
