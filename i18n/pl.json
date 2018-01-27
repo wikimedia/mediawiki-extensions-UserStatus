@@ -4,6 +4,9 @@
 			"Chrumps"
 		]
 	},
+	"userstatus-prev": "poprz.",
+	"userstatus-next": "nast.",
+	"userstatus-btn-add": "dodaj",
 	"userstatus-delete": "Usuń",
 	"userstatus-ago": "$1 temu",
 	"userstatus-time-hours": "{{PLURAL:$1|1 godzinę|$1 godziny|$1 godzin}}",
