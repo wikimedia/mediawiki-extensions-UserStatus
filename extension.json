@@ -48,18 +48,15 @@
 	},
 	"ResourceModules": {
 		"ext.userStatus.styles": {
-			"styles": "resources/css/UserStatus.css",
-			"position": "top"
+			"styles": "resources/css/UserStatus.css"
 		},
 		"ext.userStatus.scripts": {
 			"scripts": "resources/js/UserStatus.js",
 			"dependencies": [ "mediawiki.api" ],
-			"messages": [ "userstatus-confirm-delete" ],
-			"position": "bottom"
+			"messages": [ "userstatus-confirm-delete" ]
 		},
 		"ext.userStatus.viewThought": {
-			"styles": "resources/css/ViewThought.css",
-			"position": "top"
+			"styles": "resources/css/ViewThought.css"
 		}
 	},
 	"AvailableRights": [
