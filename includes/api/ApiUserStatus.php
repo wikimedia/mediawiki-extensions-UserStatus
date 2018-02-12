@@ -30,7 +30,7 @@ class ApiUserStatus extends ApiBase {
 
 		// Sanity checks for these variables and their types is performed below,
 		// in the switch() loop
-		MediaWiki\suppressWarnings();
+		Wikimedia\suppressWarnings();
 		$sportId = $params['sportId'];
 		$teamId = $params['teamId'];
 		$text = $params['text'];
@@ -38,7 +38,7 @@ class ApiUserStatus extends ApiBase {
 		$userId = $params['userId'];
 		$us_id = $params['us_id'];
 		$vote = $params['vote'];
-		MediaWiki\restoreWarnings();
+		Wikimedia\restoreWarnings();
 
 		// Hmm, what do we want to do?
 		switch ( $params['what'] ) {
