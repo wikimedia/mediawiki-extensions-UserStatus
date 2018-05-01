@@ -1,0 +1,8 @@
+{
+	"@metadata": {
+		"authors": [
+			"Baloch Khan"
+		]
+	},
+	"userstatus-time-minutes": "{{PLURAL:$1|يوه دقيقه|$1 دقیقي}}"
+}
