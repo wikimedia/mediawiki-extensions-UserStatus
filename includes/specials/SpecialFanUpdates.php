@@ -83,8 +83,14 @@ class ViewFanUpdates extends UnlistedSpecialPage {
 
 		$output .= '<div class="gift-links">'; // @todo FIXME: rename!
 		$output .= '<a href="' .
-			SportsTeams::getNetworkURL( $sport_id, $team_id ) . '">' .
-				$this->msg( 'userstatus-back-to-network' )->text() . '</a>';
+			htmlspecialchars(
+				SpecialPage::getTitleFor( 'FanHome' )->getFullURL( [
+					'sport_id' => $sport_id,
+					'team_id' => $team_id
+				] ),
+				ENT_QUOTES
+			) .
+			'">' . $this->msg( 'userstatus-back-to-network' )->text() . '</a>';
 		$output .= '</div>';
 
 		if ( $page == 1 ) {
@@ -111,7 +117,7 @@ class ViewFanUpdates extends UnlistedSpecialPage {
 			$output .= '<div class="page-nav">';
 			if ( $page > 1 ) {
 				$output .= '<a href="' .
-					SportsTeams::getFanUpdatesURL( $sport_id, $team_id ) .
+					$this->getFanUpdatesURL( $sport_id, $team_id ) .
 					'&page=' . ( $page - 1 ) . '">' . $this->msg( 'userstatus-prev' )->text() .
 					'</a> ';
 			}
@@ -131,14 +137,14 @@ class ViewFanUpdates extends UnlistedSpecialPage {
 					$output .= ( $i . ' ');
 				} else {
 					$output .= '<a href="' .
-						SportsTeams::getFanUpdatesURL( $sport_id, $team_id ) .
+						$this->getFanUpdatesURL( $sport_id, $team_id ) .
 						"&page=$i\">$i</a> ";
 				}
 			}
 
 			if( ( $total - ( $per_page * $page ) ) > 0 ) {
 				$output .= ' <a href="' .
-					SportsTeams::getFanUpdatesURL( $sport_id, $team_id ) .
+					$this->getFanUpdatesURL( $sport_id, $team_id ) .
 					'&page=' . ( $page + 1 ) . '">' . $this->msg( 'userstatus-next' )->text() .
 					'</a>';
 			}
@@ -156,7 +162,7 @@ class ViewFanUpdates extends UnlistedSpecialPage {
 				var __sport_id__ = {$sport_id};
 				var __team_id__ = {$team_id};
 				var __updates_show__ = \"{$updates_show}\";
-				var __redirect_url__ = \"" . str_replace( '&amp;', '&', SportsTeams::getFanUpdatesURL( $sport_id, $team_id ) ) . "\";
+				var __redirect_url__ = \"" . str_replace( '&amp;', '&', $this->getFanUpdatesURL( $sport_id, $team_id ) ) . "\";
 			</script>";
 
 			$output .= "<div class=\"user-status-form\">
@@ -212,4 +218,16 @@ class ViewFanUpdates extends UnlistedSpecialPage {
 		$out->addHTML( $output );
 	}
 
+	/**
+	 * @return string
+	 */
+	private function getFanUpdatesURL( $sportId, $teamId ) {
+		return htmlspecialchars(
+			SpecialPage::getTitleFor( 'FanUpdates' )->getFullURL( [
+				'sport_id' => $sportId,
+				'team_id' => $teamId
+			] ),
+			ENT_QUOTES
+		);
+	}
 }

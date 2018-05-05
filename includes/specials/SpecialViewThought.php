@@ -85,7 +85,13 @@ class ViewThought extends UnlistedSpecialPage {
 
 				<div class="user-status-logo">
 
-					<a href="' . SportsTeams::getNetworkURL( $message['sport_id'], $message['team_id'] ) . '">' .
+					<a href="' . htmlspecialchars(
+						SpecialPage::getTitleFor( 'FanHome' )->getFullURL( [
+							'sport_id' => $message['sport_id'],
+							'team_id' => $message['team_id']
+						] ),
+						ENT_QUOTES
+					) . '">' .
 						SportsTeams::getLogo( $message['sport_id'], $message['team_id'], 'm' ) .
 					"</a>
 

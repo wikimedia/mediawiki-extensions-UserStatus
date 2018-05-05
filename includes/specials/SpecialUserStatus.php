@@ -173,7 +173,15 @@ class ViewUserStatus extends UnlistedSpecialPage {
 				$user = Title::makeTitle( NS_USER, $message['user_name'] );
 				$avatar = new wAvatar( $message['user_id'], 'm' );
 
-				$network_link = '<a href="' . SportsTeams::getNetworkURL( $message['sport_id'], $message['team_id'] ) . '">' .
+				$networkURL = htmlspecialchars(
+					SpecialPage::getTitleFor( 'FanHome' )->getFullURL( [
+						'sport_id' => $message['sport_id'],
+						'team_id' => $message['team_id']
+					] ),
+					ENT_QUOTES
+				);
+
+				$network_link = '<a href="' . $networkURL . '">' .
 					$this->msg(
 						'userstatus-all-team-updates',
 						SportsTeams::getNetworkName( $message['sport_id'], $message['team_id'] )
@@ -227,7 +235,7 @@ class ViewUserStatus extends UnlistedSpecialPage {
 
 					<div class="user-status-logo">
 
-						<a href="' . SportsTeams::getNetworkURL( $message['sport_id'], $message['team_id'] ) . '">' .
+						<a href="' . $networkURL . '">' .
 							SportsTeams::getLogo( $message['sport_id'], $message['team_id'], 'm' ) .
 						"</a>
 
