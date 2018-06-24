@@ -1,0 +1,17 @@
+{
+	"@metadata": {
+		"authors": [
+			"Ильнар"
+		]
+	},
+	"userstatus-prev": "алдагы",
+	"userstatus-next": "киләсе",
+	"userstatus-btn-add": "өстәү",
+	"userstatus-delete": "Бетерү",
+	"userstatus-ago": "$1 элек",
+	"userstatus-time-days": "{{PLURAL:$1|бер көн|$1 көн}}",
+	"userstatus-time-hours": "{{PLURAL:$1|бер сәгать|$1 сәгать}}",
+	"userstatus-time-minutes": "{{PLURAL:$1|бер минут|$1 минут}}",
+	"userstatus-time-seconds": "{{PLURAL:$1|бер секунд|$1 секунд}}",
+	"userstatus-woops": "Иии!"
+}
