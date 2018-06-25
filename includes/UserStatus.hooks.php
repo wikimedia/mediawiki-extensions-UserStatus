@@ -13,7 +13,7 @@ class UserStatusHooks {
 		$dbExt = '';
 
 		/*
-		if ( !in_array( $updater->getDB()->getType(), array( 'mysql', 'sqlite' ) ) ) {
+		if ( !in_array( $updater->getDB()->getType(), [ 'mysql', 'sqlite' ] ) ) {
 			$dbExt = ".{$updater->getDB()->getType()}";
 		}
 		*/
@@ -24,11 +24,11 @@ class UserStatusHooks {
 		// "user_status" and trying to create a table that already exists won't
 		// work, obviously
 		if ( $updater->getDB()->tableExists( 'user_status_history' ) ) {
-			$tablesToDrop = array(
+			$tablesToDrop = [
 				'user_status',
 				'user_status_history',
 				'user_status_likes'
-			);
+			];
 			foreach ( $tablesToDrop as $table ) {
 				$updater->getDB()->query( "DROP TABLE {$table}", __METHOD__ );
 			}
@@ -44,7 +44,7 @@ class UserStatusHooks {
 	 * @param RenameuserSQL $renameUserSQL
 	 */
 	public static function onRenameUserSQL( $renameUserSQL ) {
-		$renameUserSQL->tables['user_status'] = array( 'us_user_name', 'us_user_id' );
-		$renameUserSQL->tables['user_status_vote'] = array( 'sv_user_name', 'sv_user_id' );
+		$renameUserSQL->tables['user_status'] = [ 'us_user_name', 'us_user_id' ];
+		$renameUserSQL->tables['user_status_vote'] = [ 'sv_user_name', 'sv_user_id' ];
 	}
 }

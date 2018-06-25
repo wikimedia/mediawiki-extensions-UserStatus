@@ -99,7 +99,7 @@ class ApiUserStatus extends ApiBase {
 
 		// Top level
 		$this->getResult()->addValue( null, $this->getModuleName(),
-			array( 'result' => $output )
+			[ 'result' => $output ]
 		);
 
 		return true;
@@ -159,22 +159,22 @@ class ApiUserStatus extends ApiBase {
 		// Write new data to user_status
 		$dbw->insert(
 			'user_status',
-			array(
+			[
 				'us_user_id' => $user_id,
 				'us_user_name' => $user_name,
 				'us_text' => $text,
 				'us_date' => $date,
-			),
+			],
 			__METHOD__
 		);
 
 		// Grab all rows from user_status
 		$res = $dbw->select(
 			'user_status',
-			array(
+			[
 				'us_user_id', 'us_user_name', 'us_text', 'us_date'
-			),
-			array( 'us_id' => intval( $next_row ) ),
+			],
+			[ 'us_id' => intval( $next_row ) ],
 			__METHOD__
 		);
 
@@ -207,33 +207,33 @@ class ApiUserStatus extends ApiBase {
 	 * @return array
 	 */
 	public function getAllowedParams() {
-		return array(
-			'what' => array(
+		return [
+			'what' => [ 
 				ApiBase::PARAM_TYPE => 'string',
 				ApiBase::PARAM_REQUIRED => true
-			),
-			'sportId' => array(
+			],
+			'sportId' => [
 				ApiBase::PARAM_TYPE => 'integer'
-			),
-			'teamId' => array(
+			],
+			'teamId' => [
 				ApiBase::PARAM_TYPE => 'integer'
-			),
-			'text' => array(
+			],
+			'text' => [
 				ApiBase::PARAM_TYPE => 'string'
-			),
-			'count' => array(
+			],
+			'count' => [
 				ApiBase::PARAM_TYPE => 'integer'
-			),
-			'userId' => array(
+			],
+			'userId' => [
 				ApiBase::PARAM_TYPE => 'integer'
-			),
-			'us_id' => array(
+			],
+			'us_id' => [
 				ApiBase::PARAM_TYPE => 'integer'
-			),
-			'vote' => array(
+			],
+			'vote' => [
 				ApiBase::PARAM_TYPE => 'integer'
-			),
-		);
+			],
+		];
 	}
 
 	public function needsToken() {
@@ -246,12 +246,12 @@ class ApiUserStatus extends ApiBase {
 
 	// Get examples
 	public function getExamples() {
-		return array(
+		return [
 			'api.php?action=userstatus&what=addstatus&sportId=2&teamId=43&text=My team rocks!' => 'Adds a status message ("My team rocks!") under the team #43, sport #2',
 			'api.php?action=userstatus&what=addnetworkstatus&sportId=3&teamId=10&text=My team rocks!&count=20' => 'Adds a status message (with the text "My team rocks!") to the network page of team #10 under sport #3',
 			'api.php?action=userstatus&what=deletestatus&us_id=35' => 'Deletes the status message with the ID #35',
 			'api.php?action=userstatus&what=votestatus&us_id=47&vote=1' => 'Gives an upvote ("thumbs up") to the status message which has the ID #47',
 			'api.php?action=userstatus&what=updatestatus&user_id=367&user_name=Foo bar&text=We are the champions!&date=FIX_ME&next_row=FIX_ME' => 'Updates a status message',
-		);
+		];
 	}
 }

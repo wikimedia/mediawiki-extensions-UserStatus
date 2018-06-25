@@ -113,11 +113,11 @@ class ViewUserStatus extends UnlistedSpecialPage {
 				$output .= Linker::link(
 					$thisTitle,
 					$this->msg( 'userstatus-prev' )->plain(),
-					array(),
-					array(
+					[],
+					[
 						'user' => $user_name,
 						'page' => ( $page - 1 )
-					)
+					]
 				) . $this->msg( 'word-separator' )->plain();
 			}
 
@@ -138,11 +138,11 @@ class ViewUserStatus extends UnlistedSpecialPage {
 					$output .= Linker::link(
 						$thisTitle,
 						$i,
-						array(),
-						array(
+						[],
+						[
 							'user' => $user_name,
 							'page' => $i
-						)
+						]
 					) . $this->msg( 'word-separator' )->plain();
 				}
 			}
@@ -152,11 +152,11 @@ class ViewUserStatus extends UnlistedSpecialPage {
 					Linker::link(
 						$thisTitle,
 						$this->msg( 'userstatus-next' )->plain(),
-						array(),
-						array(
+						[],
+						[
 							'user' => $user_name,
 							'page' => ( $page + 1 )
-						)
+						]
 					);
 			}
 			$output .= '</div><p>';
@@ -203,7 +203,7 @@ class ViewUserStatus extends UnlistedSpecialPage {
 				// If there are links and their texts are tl;dr, cut 'em a bit
 				$message_text = preg_replace_callback(
 					'/(<a[^>]*>)(.*?)(<\/a>)/i',
-					array( 'UserStatus', 'cutLinkText' ),
+					[ 'UserStatus', 'cutLinkText' ],
 					$message['text']
 				);
 
@@ -227,8 +227,8 @@ class ViewUserStatus extends UnlistedSpecialPage {
 						'brackets',
 						$this->msg( 'userstatus-see-who-agrees' )->plain()
 					)->plain(),
-					array(),
-					array( 'id' => $message['id'] )
+					[],
+					[ 'id' => $message['id'] ]
 				);
 
 				$output .= '<div class="user-status-row">

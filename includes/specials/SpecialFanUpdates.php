@@ -197,7 +197,7 @@ class ViewFanUpdates extends UnlistedSpecialPage {
 
 				$message_text = preg_replace_callback(
 					'/(<a[^>]*>)(.*?)(<\/a>)/i',
-					array( 'UserStatus', 'cutLinkText' ),
+					[ 'UserStatus', 'cutLinkText' ],
 					$message['text']
 				);
 

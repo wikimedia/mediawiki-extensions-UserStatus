@@ -35,14 +35,14 @@ class UserStatus {
 
 		$dbw->insert(
 			'user_status',
-			array(
+			[
 				'us_user_id' => $wgUser->getID(),
 				'us_user_name' => $wgUser->getName(),
 				'us_sport_id' => $sport_id,
 				'us_team_id' => $team_id,
 				'us_text' => $text,
 				'us_date' => date( 'Y-m-d H:i:s' ),
-			),
+			],
 			__METHOD__
 		);
 		$us_id = $dbw->insertId();
@@ -77,13 +77,13 @@ class UserStatus {
 
 			$dbw->insert(
 				'user_status_vote',
-				array(
+				[
 					'sv_user_id' => $wgUser->getID(),
 					'sv_user_name' => $wgUser->getName(),
 					'sv_us_id' => $us_id,
 					'sv_vote_score' => $vote,
 					'sv_date' => date( 'Y-m-d H:i:s' ),
-				),
+				],
 				__METHOD__
 			);
 			$sv_id = $dbw->insertId();
@@ -109,8 +109,8 @@ class UserStatus {
 		$dbw = wfGetDB( DB_MASTER );
 		$dbw->update(
 			'user_status',
-			array( "{$field}={$field}+1" ),
-			array( 'us_id' => $us_id ),
+			[ "{$field}={$field}+1" ],
+			[ 'us_id' => $us_id ],
 			__METHOD__
 		);
 	}
@@ -147,8 +147,8 @@ class UserStatus {
 		$dbr = wfGetDB( DB_MASTER );
 		$s = $dbr->selectRow(
 			'user_status_vote',
-			array( 'sv_user_id' ),
-			array( 'sv_us_id' => $us_id, 'sv_user_id' => $user_id ),
+			[ 'sv_user_id' ],
+			[ 'sv_us_id' => $us_id, 'sv_user_id' => $user_id ],
 			__METHOD__
 		);
 
@@ -170,8 +170,8 @@ class UserStatus {
 		$dbr = wfGetDB( DB_MASTER );
 		$s = $dbr->selectRow(
 			'user_status',
-			array( 'us_user_id' ),
-			array( 'us_id' => $us_id ),
+			[ 'us_user_id' ],
+			[ 'us_id' => $us_id ],
 			__METHOD__
 		);
 
@@ -194,16 +194,16 @@ class UserStatus {
 			$dbw = wfGetDB( DB_MASTER );
 			$s = $dbw->selectRow(
 				'user_status',
-				array(
+				[
 					'us_user_id', 'us_user_name', 'us_sport_id', 'us_team_id'
-				),
-				array( 'us_id' => $us_id ),
+				],
+				[ 'us_id' => $us_id ],
 				__METHOD__
 			);
 			if ( $s !== false ) {
 				$dbw->delete(
 					'user_status',
-					array( 'us_id' => $us_id ),
+					[ 'us_id' => $us_id ],
 					__METHOD__
 				);
 
@@ -251,10 +251,10 @@ class UserStatus {
 
 		$res = $dbr->query( $sql, __METHOD__ );
 
-		$messages = array();
+		$messages = [];
 
 		foreach ( $res as $row ) {
-			$messages[] = array(
+			$messages[] = [
 				'id' => $row->us_id,
 				'timestamp' => wfTimestamp( TS_UNIX, $row->us_date ),
 				'user_id' => $row->us_user_id,
@@ -265,10 +265,10 @@ class UserStatus {
 				'minus_count' => $row->us_vote_minus,
 				'text' => $this->formatMessage( $row->us_text ),
 				'voted' => $row->AlreadyVoted
-			);
+			];
 		}
 
-		return ( isset( $messages[0] ) ? $messages[0] : array() );
+		return ( isset( $messages[0] ) ? $messages[0] : [] );
 	}
 
 	/**
@@ -327,10 +327,10 @@ class UserStatus {
 
 		$res = $dbr->query( $sql, __METHOD__ );
 
-		$messages = array();
+		$messages = [];
 
 		foreach ( $res as $row ) {
-			$messages[] = array(
+			$messages[] = [
 				'id' => $row->us_id,
 				'timestamp' => wfTimestamp( TS_UNIX, $row->us_date ),
 				'user_id' => $row->us_user_id,
@@ -341,7 +341,7 @@ class UserStatus {
 				'minus_count' => $row->us_vote_minus,
 				'text' => $this->formatMessage( $row->us_text ),
 				'voted' => $row->AlreadyVoted
-			);
+			];
 		}
 
 		return $messages;
@@ -413,7 +413,7 @@ class UserStatus {
 
 				$message_text = preg_replace_callback(
 					'/(<a[^>]*>)(.*?)(<\/a>)/i',
-					array( 'UserStatus', 'cutLinkText' ),
+					[ 'UserStatus', 'cutLinkText' ],
 					$message['text']
 				);
 
@@ -473,8 +473,8 @@ class UserStatus {
 		$dbr = wfGetDB( DB_MASTER );
 		$s = $dbr->selectRow(
 			'user_status',
-			array( 'us_vote_plus', 'us_vote_minus' ),
-			array( 'us_id' => $us_id ),
+			[ 'us_vote_plus', 'us_vote_minus' ],
+			[ 'us_id' => $us_id ],
 			__METHOD__
 		);
 
@@ -500,23 +500,23 @@ class UserStatus {
 
 		$res = $dbr->select(
 			'user_status_vote',
-			array(
+			[
 				'sv_user_id', 'sv_user_name', 'sv_date', 'sv_vote_score'
-			),
-			array( 'sv_us_id' => intval( $us_id ) ),
+			],
+			[ 'sv_us_id' => intval( $us_id ) ],
 			__METHOD__,
-			array( 'ORDER BY' => 'sv_id DESC' )
+			[ 'ORDER BY' => 'sv_id DESC' ]
 		);
 
-		$voters = array();
+		$voters = [];
 
 		foreach ( $res as $row ) {
-			$voters[] = array(
+			$voters[] = [
 				'timestamp' => wfTimestamp( TS_UNIX, $row->sv_date ),
 				'user_id' => $row->sv_user_id,
 				'user_name' => $row->sv_user_name,
 				'score' => $row->sv_vote_score
-			);
+			];
 		}
 
 		return $voters;
