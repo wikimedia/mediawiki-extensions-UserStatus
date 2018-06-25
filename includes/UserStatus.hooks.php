@@ -8,7 +8,6 @@ class UserStatusHooks {
 	 * /maintenance/update.php, the MediaWiki core updater script.
 	 *
 	 * @param DatabaseUpdater $updater
-	 * @return bool
 	 */
 	public static function onLoadExtensionSchemaUpdates( $updater ) {
 		$dbExt = '';
@@ -37,19 +36,15 @@ class UserStatusHooks {
 
 		$updater->addExtensionTable( 'user_status', __DIR__ . "/../sql/user_status$dbExt.sql" );
 		$updater->addExtensionTable( 'user_status_vote', __DIR__ . "/../sql/user_status$dbExt.sql" );
-
-		return true;
 	}
 
 	/**
 	 * For integration with the Renameuser extension.
 	 *
 	 * @param RenameuserSQL $renameUserSQL
-	 * @return bool
 	 */
 	public static function onRenameUserSQL( $renameUserSQL ) {
 		$renameUserSQL->tables['user_status'] = array( 'us_user_name', 'us_user_id' );
 		$renameUserSQL->tables['user_status_vote'] = array( 'sv_user_name', 'sv_user_id' );
-		return true;
 	}
 }
