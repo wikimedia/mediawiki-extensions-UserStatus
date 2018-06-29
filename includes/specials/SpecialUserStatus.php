@@ -18,6 +18,7 @@ class ViewUserStatus extends UnlistedSpecialPage {
 		$out = $this->getOutput();
 		$request = $this->getRequest();
 		$currentUser = $this->getUser();
+		$linkRenderer = $this->getLinkRenderer();
 
 		$messages_show = 25;
 		$output = '';
@@ -28,7 +29,7 @@ class ViewUserStatus extends UnlistedSpecialPage {
 		 * Redirect Non-logged in users to Login Page
 		 * It will automatically return them to their Status page
 		 */
-		if ( $currentUser->getID() == 0 && $user_name == '' ) {
+		if ( $currentUser->getId() == 0 && $user_name == '' ) {
 			$out->setPageTitle( $this->msg( 'userstatus-woops' )->text() );
 			$login = SpecialPage::getTitleFor( 'Userlogin' );
 			$out->redirect( $login->getFullURL( 'returnto=Special:UserStatus' ) );
@@ -76,11 +77,15 @@ class ViewUserStatus extends UnlistedSpecialPage {
 		// "Back to (your|$user_name's) profile" link
 		$output .= '<div class="gift-links">'; // @todo FIXME: this really should be renamed...
 		if ( !( $currentUser->getName() == $user_name ) ) {
-			$output .= "<a href=\"{$user->getFullURL()}\">" .
-				$this->msg( 'userstatus-back-user-profile', $user_name )->text() . '</a>';
+			$output .= $linkRenderer->makeLink(
+				$user,
+				$this->msg( 'userstatus-back-user-profile', $user_name )->text()
+			);
 		} else {
-			$output .= '<a href="' . $currentUser->getUserPage()->getFullURL() . '">' .
-				$this->msg( 'userstatus-back-your-profile' )->text() . '</a>';
+			$output .= $linkRenderer->makeLink(
+				$currentUser->getUserPage(),
+				$this->msg( 'userstatus-back-your-profile' )->text()
+			);
 		}
 		$output .= '</div>';
 
@@ -110,7 +115,7 @@ class ViewUserStatus extends UnlistedSpecialPage {
 		if ( $numofpages > 1 ) {
 			$output .= '<div class="page-nav">';
 			if ( $page > 1 ) {
-				$output .= Linker::link(
+				$output .= $linkRenderer->makeLink(
 					$thisTitle,
 					$this->msg( 'userstatus-prev' )->plain(),
 					[],
@@ -135,7 +140,7 @@ class ViewUserStatus extends UnlistedSpecialPage {
 				if ( $i == $page ) {
 					$output .= ( $i . ' ' );
 				} else {
-					$output .= Linker::link(
+					$output .= $linkRenderer->makeLink(
 						$thisTitle,
 						$i,
 						[],
@@ -149,7 +154,7 @@ class ViewUserStatus extends UnlistedSpecialPage {
 
 			if ( ( $total - ( $per_page * $page ) ) > 0 ) {
 				$output .= $this->msg( 'word-separator' )->plain() .
-					Linker::link(
+					$linkRenderer->makeLink(
 						$thisTitle,
 						$this->msg( 'userstatus-next' )->plain(),
 						[],
@@ -169,24 +174,31 @@ class ViewUserStatus extends UnlistedSpecialPage {
 		$output .= '<div class="user-status-container">';
 		$thought_link = SpecialPage::getTitleFor( 'ViewThought' );
 		if ( $messages ) {
+			$fanHome = SpecialPage::getTitleFor( 'FanHome' );
 			foreach ( $messages as $message ) {
 				$user = Title::makeTitle( NS_USER, $message['user_name'] );
 				$avatar = new wAvatar( $message['user_id'], 'm' );
 
 				$networkURL = htmlspecialchars(
-					SpecialPage::getTitleFor( 'FanHome' )->getFullURL( [
+					$fh->getFullURL( [
 						'sport_id' => $message['sport_id'],
 						'team_id' => $message['team_id']
 					] ),
 					ENT_QUOTES
 				);
 
-				$network_link = '<a href="' . $networkURL . '">' .
+				$network_link = $linkRenderer->makeLink(
+					$fh,
 					$this->msg(
 						'userstatus-all-team-updates',
 						SportsTeams::getNetworkName( $message['sport_id'], $message['team_id'] )
-					)->text() .
-				'</a>';
+					)->text(),
+					[],
+					[
+						'sport_id' => $message['sport_id'],
+						'team_id' => $message['team_id']
+					]
+				);
 
 				$delete_link = '';
 				if (
@@ -221,7 +233,7 @@ class ViewUserStatus extends UnlistedSpecialPage {
 					}
 				}
 
-				$view_thought_link = Linker::link(
+				$view_thought_link = $linkRenderer->makeLink(
 					$thought_link,
 					$this->msg(
 						'brackets',

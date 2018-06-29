@@ -36,7 +36,7 @@ class UserStatus {
 		$dbw->insert(
 			'user_status',
 			[
-				'us_user_id' => $wgUser->getID(),
+				'us_user_id' => $wgUser->getId(),
 				'us_user_name' => $wgUser->getName(),
 				'us_sport_id' => $sport_id,
 				'us_team_id' => $team_id,
@@ -47,7 +47,7 @@ class UserStatus {
 		);
 		$us_id = $dbw->insertId();
 
-		$stats = new UserStatsTrack( $wgUser->getID(), $wgUser->getName() );
+		$stats = new UserStatsTrack( $wgUser->getId(), $wgUser->getName() );
 		$stats->incStatField( 'user_status_count' );
 
 		$this->updateUserCache( $text, $sport_id, $team_id );
@@ -69,7 +69,7 @@ class UserStatus {
 		// Only registered users may vote...
 		if ( $wgUser->isLoggedIn() ) {
 			// ...and only if they haven't already voted
-			if ( $this->alreadyVotedStatusMessage( $wgUser->getID(), $us_id ) ) {
+			if ( $this->alreadyVotedStatusMessage( $wgUser->getId(), $us_id ) ) {
 				return;
 			}
 
@@ -78,7 +78,7 @@ class UserStatus {
 			$dbw->insert(
 				'user_status_vote',
 				[
-					'sv_user_id' => $wgUser->getID(),
+					'sv_user_id' => $wgUser->getId(),
 					'sv_user_name' => $wgUser->getName(),
 					'sv_us_id' => $us_id,
 					'sv_vote_score' => $vote,
@@ -236,7 +236,7 @@ class UserStatus {
 		global $wgUser;
 
 		// Paranoia, because nobody likes an SQL injection point.
-		$us_id = (int) $us_id;
+		$us_id = (int)$us_id;
 
 		$dbr = wfGetDB( DB_MASTER );
 
@@ -245,7 +245,7 @@ class UserStatus {
 			us_date,
 			(SELECT COUNT(*) FROM {$dbr->tableName( 'user_status_vote' )}
 				WHERE sv_us_id = us_id
-				AND sv_user_id =" . $wgUser->getID() . ") AS AlreadyVoted
+				AND sv_user_id =" . $wgUser->getId() . ") AS AlreadyVoted
 			FROM {$dbr->tableName( 'user_status' )}
 			WHERE us_id={$us_id} LIMIT 1";
 
@@ -319,7 +319,7 @@ class UserStatus {
 			us_date,
 			(SELECT COUNT(*) FROM {$dbr->tableName( 'user_status_vote' )}
 				WHERE sv_us_id = us_id
-				AND sv_user_id = " . $wgUser->getID() . ") AS AlreadyVoted
+				AND sv_user_id = " . $wgUser->getId() . ") AS AlreadyVoted
 			FROM {$dbr->tableName( 'user_status' )}
 			WHERE {$user_sql} {$sport_sql}
 			ORDER BY us_id DESC
