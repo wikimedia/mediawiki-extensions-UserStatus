@@ -1,11 +1,51 @@
 {
 	"@metadata": {
 		"authors": [
-			"Wirbel78"
+			"Wirbel78",
+			"Evs"
 		]
 	},
+	"userstatus-desc": "Обновления социального статуса в профилях пользователей и на страницах сети",
+	"userstatus-network-thoughts": "$1 Мысли",
+	"userstatus-back-to-network": "&lt; Вернуться в блог",
+	"userstatus-showing-thoughts": "{{PLURAL:$2|Показана одна мысль|Показаны $1 — $2 мыслей из $3}}.",
 	"userstatus-prev": "пред.",
 	"userstatus-next": "след.",
 	"userstatus-btn-add": "добавить",
-	"userstatus-delete": "Удалить"
+	"userstatus-view-all-updates": "Просмотреть все обновления $1",
+	"userstatus-delete": "Удалить",
+	"userstatus-ago": "$1 назад",
+	"userstatus-time-days": "{{PLURAL:$1|один день|$1 дня|$1 дней}}",
+	"userstatus-time-hours": "{{PLURAL:$1|один час|$1 часа|$1 часов}}",
+	"userstatus-time-minutes": "{{PLURAL:$1|одну минуту|$1 минуты|$1 минут}}",
+	"userstatus-time-seconds": "{{PLURAL:$1|одну секунду|$1 секунды|$1 секунд}}",
+	"userstatus-no-updates": "Нет обновлений",
+	"userstatus-woops": "Упс!",
+	"userstatus-no-user": "Участника, которого вы пытаетесь просмотреть, не существует.",
+	"userstatus-your-thoughts": "Ваши мысли",
+	"userstatus-user-thoughts": "Мысли $1",
+	"userstatus-user-profile": "&lt; Просмотреть профиль $1",
+	"userstatus-back-your-profile": "&lt; Вернуться в свой профиль",
+	"userstatus-back-user-profile": "Вернуться в профиль $1",
+	"userstatus-all-team-updates": "Все обновления $1",
+	"userstatus-num-agree": "{{PLURAL:$1|Один человек согласен|$1 человека согласны|$1 человек согласны}}",
+	"userstatus-agree": "согласиться",
+	"userstatus-see-who-agrees": "видеть, кто ещё согласен",
+	"userstatus-invalid-link": "Неправильная ссылка",
+	"userstatus-who-agrees": "Согласны",
+	"userstatus-nobody-agrees": "Никто не согласен с этой мыслью",
+	"userstatus-no-new-thoughts": "Нет новых мыслей. Добавить одну!",
+	"userstatus-just-added": "только что добавлено",
+	"userstatus-confirm-delete": "Вы уверены, что хотите удалить эту мысль?",
+	"right-delete-status-updates": "Удаление обновлений статуса пользователя",
+	"apihelp-userstatus-description": "API для обработки сообщений социального статуса",
+	"apihelp-userstatus-summary": "API для обработки сообщений социального статуса",
+	"apihelp-userstatus-param-what": "Что делать? Глагол + предмет, например addnetworkstatus чтобы добавить статус на страницу,, deletestatus чтобы удалить статус, итд.",
+	"apihelp-userstatus-param-sportId": "ID спорта",
+	"apihelp-userstatus-param-teamId": "ID спортивной команды",
+	"apihelp-userstatus-param-text": "Текст обновления статуса",
+	"apihelp-userstatus-param-count": "Количества обновлений статуса для отображения в ленте",
+	"apihelp-userstatus-param-userId": "ID участника",
+	"apihelp-userstatus-param-us_id": "ID сообщения статуса",
+	"apihelp-userstatus-param-vote": "1 для голосования за, -1 для голосования против"
 }
