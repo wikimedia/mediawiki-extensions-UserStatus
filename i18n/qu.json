@@ -1,0 +1,8 @@
+{
+	"@metadata": {
+		"authors": [
+			"AlimanRuna"
+		]
+	},
+	"userstatus-time-days": "{{PLURAL:$1|huk p'unchaw|$1 p'unchawkuna}}"
+}
