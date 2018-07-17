@@ -17,7 +17,7 @@ class ViewThought extends UnlistedSpecialPage {
 	/**
 	 * Show the special page
 	 *
-	 * @param $par Mixed: parameter passed to the special page or null
+	 * @param string|int|null $par Parameter passed to the special page, if any
 	 */
 	public function execute( $par ) {
 		$out = $this->getOutput();

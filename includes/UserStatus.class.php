@@ -59,9 +59,9 @@ class UserStatus {
 	 * Add a vote for the given status update.
 	 * Only registered users who haven't voted before can vote.
 	 *
-	 * @param $us_id Integer: status update ID number
-	 * @param $vote Integer: -1 or 1
-	 * @return Integer: vote ID
+	 * @param int $us_id Status update ID number
+	 * @param int $vote -1 or 1
+	 * @return int Vote ID
 	 */
 	public function addStatusVote( $us_id, $vote ) {
 		global $wgUser;
@@ -97,8 +97,8 @@ class UserStatus {
 	/**
 	 * Increase the vote count for a given status message.
 	 *
-	 * @param $us_id Integer: status message ID
-	 * @param $vote Integer: 1 to update positive (plus) votes, -1 for negative
+	 * @param int $us_id Status message ID
+	 * @param int $vote 1 to update positive (plus) votes, -1 for negative
 	 */
 	public function incStatusVoteCount( $us_id, $vote ) {
 		if ( $vote == 1 ) {
@@ -139,9 +139,9 @@ class UserStatus {
 	/**
 	 * Check if the given user has already voted on the given status message.
 	 *
-	 * @param $user_id Integer: user ID number
-	 * @param $us_id Integer: status message ID number
-	 * @return Boolean: true if the user has already voted, otherwise false
+	 * @param int $user_id User ID number
+	 * @param int $us_id Status message ID number
+	 * @return bool True if the user has already voted, otherwise false
 	 */
 	public function alreadyVotedStatusMessage( $user_id, $us_id ) {
 		$dbr = wfGetDB( DB_MASTER );
@@ -162,9 +162,9 @@ class UserStatus {
 	/**
 	 * Check if the given user is the author of the given status message.
 	 *
-	 * @param $user_id Integer: user ID number
-	 * @param $us_id Integer: status message ID number
-	 * @return Boolean: true if the user owns the status message, else false
+	 * @param int $user_id User ID number
+	 * @param int $us_id Status message ID number
+	 * @return bool True if the user owns the status message, else false
 	 */
 	public function doesUserOwnStatusMessage( $user_id, $us_id ) {
 		$dbr = wfGetDB( DB_MASTER );
@@ -187,7 +187,7 @@ class UserStatus {
 	/**
 	 * Delete a status message via its ID.
 	 *
-	 * @param $us_id Integer: ID number of the status message to delete
+	 * @param int $us_id ID number of the status message to delete
 	 */
 	public function deleteStatus( $us_id ) {
 		if ( $us_id ) {
@@ -216,8 +216,8 @@ class UserStatus {
 	/**
 	 * Format a message by passing it to the Parser.
 	 *
-	 * @param $message String: message (wikitext) to parse
-	 * @return String: parsed status message
+	 * @param string $message Message (wikitext) to parse
+	 * @return string Parsed status message
 	 */
 	static function formatMessage( $message ) {
 		global $wgOut;
@@ -228,8 +228,8 @@ class UserStatus {
 	/**
 	 * Get information about an individual status message via its ID number.
 	 *
-	 * @param $us_id Integer: status update ID number
-	 * @return Array: array containing info, such as the text and ID, about the
+	 * @param int $us_id Status update ID number
+	 * @return array Array containing info, such as the text and ID, about the
 	 *                status message
 	 */
 	public function getStatusMessage( $us_id ) {
@@ -275,12 +275,12 @@ class UserStatus {
 	 * Get the given amount of the given user's status messages; used by
 	 * displayStatusMessages().
 	 *
-	 * @param $user_id Integer: user ID whose status updates we want to display
-	 * @param $sport_id Integer: sport ID for which we want to display updates
-	 * @param $team_id Integer: sports team ID
-	 * @param $count Integer: display this many messages
-	 * @param $page Integer: page we're on; used for pagination
-	 * @return Array: array containing information such as the timestamp,
+	 * @param int $user_id User ID whose status updates we want to display
+	 * @param int $sport_id Sport ID for which we want to display updates
+	 * @param int $team_id Sports team ID
+	 * @param int $count Display this many messages
+	 * @param int $page Page we're on; used for pagination
+	 * @return array Array containing information such as the timestamp,
 	 *                status update ID number and more about each update
 	 */
 	public function getStatusMessages( $user_id = 0, $sport_id = 0, $team_id = 0, $limit = 10, $page = 0 ) {
@@ -350,12 +350,12 @@ class UserStatus {
 	/**
 	 * Display the given amount of the given user's status messages.
 	 *
-	 * @param $user_id Integer: user ID whose status updates we want to display
-	 * @param $sport_id Integer: sport ID for which we want to display updates
-	 * @param $team_id Integer: sports team ID
-	 * @param $count Integer: display this many messages
-	 * @param $page Integer: page we're on; used for pagination
-	 * @return String: HTML
+	 * @param int $user_id User ID whose status updates we want to display
+	 * @param int $sport_id Sport ID for which we want to display updates
+	 * @param int $team_id Sports team ID
+	 * @param int $count Display this many messages
+	 * @param int $page Page we're on; used for pagination
+	 * @return string HTML
 	 */
 	public function displayStatusMessages( $user_id, $sport_id = 0, $team_id = 0, $count = 10, $page = 0 ) {
 		global $wgUser;
@@ -465,8 +465,8 @@ class UserStatus {
 	/**
 	 * Get the amount of plus and minus votes a status update has, if any.
 	 *
-	 * @param $us_id Integer: status update ID number
-	 * @return Mixed: boolean false if it doesn't have any votes yet, otherwise
+	 * @param int $us_id Status update ID number
+	 * @return bool|array False if it doesn't have any votes yet, otherwise
 	 *                an array containing the plus and minus votes
 	 */
 	public function getStatusVotes( $us_id ) {
@@ -492,8 +492,8 @@ class UserStatus {
 	 * This information includes vote timestamp, the user's name and ID number
 	 * as well as the vote itself.
 	 *
-	 * @param $us_id Integer: status update ID number
-	 * @return Array
+	 * @param int $us_id Status update ID number
+	 * @return array
 	 */
 	public function getStatusVoters( $us_id ) {
 		$dbr = wfGetDB( DB_MASTER );
