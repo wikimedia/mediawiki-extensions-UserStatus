@@ -1,0 +1,16 @@
+{
+	"@metadata": {
+		"authors": [
+			"Dr Lotus Black"
+		]
+	},
+	"userstatus-prev": "ယခင်",
+	"userstatus-next": "ရှေ့",
+	"userstatus-btn-add": "ပေါင်းထည့်",
+	"userstatus-delete": "ဖျက်​ပါ​",
+	"userstatus-ago": "$1 အကြာက",
+	"userstatus-time-days": "{{PLURAL:$1|တစ်ရက်|$1 ရက်များ}}",
+	"userstatus-time-hours": "{{PLURAL:$1|တစ်နာရီ|$1 နာရီများ}}",
+	"userstatus-time-minutes": "{{PLURAL:$1|တစ်မိနစ်|$1 မိနစ်များ}}",
+	"userstatus-time-seconds": "{{PLURAL:$1|တစ်စက္ကန့်|$1 စက္ကန့်များ}}"
+}
