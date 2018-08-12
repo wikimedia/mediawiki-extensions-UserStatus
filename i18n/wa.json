@@ -1,0 +1,8 @@
+{
+	"@metadata": {
+		"authors": [
+			"Srtxg"
+		]
+	},
+	"userstatus-time-days": "{{PLURAL:$1|on djoû|$1 djoûs}}"
+}
