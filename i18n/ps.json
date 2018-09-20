@@ -4,5 +4,6 @@
 			"Baloch Khan"
 		]
 	},
+	"userstatus-ago": "$1 دمخه",
 	"userstatus-time-minutes": "{{PLURAL:$1|يوه دقيقه|$1 دقیقي}}"
 }
