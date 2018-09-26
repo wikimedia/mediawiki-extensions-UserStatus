@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Saederup92"
+		]
+	},
+	"userstatus-prev": "forrige",
+	"userstatus-next": "næste",
+	"userstatus-delete": "Slet",
+	"userstatus-agree": "enig",
+	"userstatus-see-who-agrees": "se hvem der også er enig"
+}
