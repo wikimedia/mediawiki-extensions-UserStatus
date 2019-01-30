@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Mirzali"
+		]
+	},
+	"userstatus-time-days": "{{PLURAL:$1|yew roce|$1 roci}}",
+	"userstatus-time-hours": "{{PLURAL:$1|yew saete|$1 saeti}}"
+}
