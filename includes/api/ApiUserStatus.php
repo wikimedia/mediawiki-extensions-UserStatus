@@ -30,15 +30,13 @@ class ApiUserStatus extends ApiBase {
 
 		// Sanity checks for these variables and their types is performed below,
 		// in the switch() loop
-		MediaWiki\suppressWarnings();
-		$sportId = $params['sportId'];
-		$teamId = $params['teamId'];
-		$text = $params['text'];
-		$count = $params['count'];
-		$userId = $params['userId'];
-		$us_id = $params['us_id'];
-		$vote = $params['vote'];
-		MediaWiki\restoreWarnings();
+		$sportId = $params['sportId'] ?? null;
+		$teamId = $params['teamId'] ?? null;
+		$text = $params['text'] ?? null;
+		$count = $params['count'] ?? null;
+		$userId = $params['userId'] ?? null;
+		$us_id = $params['us_id'] ?? null;
+		$vote = $params['vote'] ?? null;
 
 		// Hmm, what do we want to do?
 		switch ( $params['what'] ) {
@@ -208,7 +206,7 @@ class ApiUserStatus extends ApiBase {
 	 */
 	public function getAllowedParams() {
 		return [
-			'what' => [ 
+			'what' => [
 				ApiBase::PARAM_TYPE => 'string',
 				ApiBase::PARAM_REQUIRED => true
 			],
