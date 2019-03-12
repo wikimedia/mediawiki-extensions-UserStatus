@@ -47,7 +47,10 @@ class ApiUserStatus extends ApiBase {
 					!isset( $text ) || count( $params ) < 3
 				)
 				{
-					$this->dieUsage( 'One or more of the required three params is missing', 'zomgamissingparam' );
+					$this->dieWithError(
+						new RawMessage( 'One or more of the required three params is missing' ),
+						'zomgamissingparam'
+					);
 				}
 				$output = $this->addStatus( $sportId, $teamId, $text );
 				break;
@@ -59,7 +62,10 @@ class ApiUserStatus extends ApiBase {
 					count( $params ) < 4
 				)
 				{
-					$this->dieUsage( 'One or more of the required four params is missing', 'zomgamissingparam2' );
+					$this->dieWithError(
+						new RawMessage( 'One or more of the required four params is missing' ),
+						'zomgamissingparam2'
+					);
 				}
 				$output = $this->addNetworkStatus( $sportId, $teamId, $text, $count );
 				break;
@@ -69,13 +75,19 @@ class ApiUserStatus extends ApiBase {
 					$vote === null || count( $params ) < 2
 				)
 				{
-					$this->dieUsage( 'One or more of the required two params is missing', 'zomgamissingparam4' );
+					$this->dieWithError(
+						new RawMessage( 'One or more of the required two params is missing' ),
+						'zomgamissingparam4'
+					);
 				}
 				$output = $this->voteStatus( $us_id, $vote );
 				break;
 			case 'deletestatus':
 				if ( $us_id === null || !is_numeric( $us_id ) ) {
-					$this->dieUsage( 'The only required parameter is missing', 'zomgamissingparam5' );
+					$this->dieWithError(
+						new RawMessage( 'The only required parameter is missing' ),
+						'zomgamissingparam5'
+					);
 				}
 				$output = $this->deleteStatus( $us_id );
 				break;
@@ -86,13 +98,19 @@ class ApiUserStatus extends ApiBase {
 					$next_row === null || count( $params ) < 5
 				)
 				{
-					$this->dieUsage( 'One or more of the required five params is missing', 'zomgamissingparam6' );
+					$this->dieWithError(
+						new RawMessage( 'One or more of the required five params is missing' ),
+						'zomgamissingparam6'
+					);
 				}
 				$output = $this->updateStatus( $user_id, $user_name, $text, $date, $next_row );
 				break;
 			default:
 				// Let's see who gets the reference...
-				$this->dieUsage( 'Oh fuck off already, will ya?', 'gordon' );
+				$this->dieWithError(
+					new RawMessage( 'Oh fuck off already, will ya?' ),
+					'gordon'
+				);
 		}
 
 		// Top level
