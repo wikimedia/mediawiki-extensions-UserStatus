@@ -4,6 +4,7 @@
 			"Mirzali"
 		]
 	},
+	"userstatus-prev": "verên",
 	"userstatus-btn-add": "cı ke",
 	"userstatus-delete": "Bestere",
 	"userstatus-time-days": "{{PLURAL:$1|yew roce|$1 roci}}",
