@@ -35,6 +35,7 @@
 	"userstatus-no-new-thoughts": "There are no new thoughts. Add one!",
 	"userstatus-just-added": "just added",
 	"userstatus-confirm-delete": "Are you sure you want to delete this thought?",
+	"action-delete-status-updates": "delete users' status updates",
 	"right-delete-status-updates": "Delete users' status updates",
 	"apihelp-userstatus-description": "API for handling social status messages",
 	"apihelp-userstatus-summary": "API for handling social status messages",
