@@ -36,6 +36,7 @@
 	"userstatus-no-new-thoughts": "沒有新的看法。請增加一個！",
 	"userstatus-just-added": "剛添加",
 	"userstatus-confirm-delete": "您確定要刪除此看法？",
+	"action-delete-status-updates": "刪除使用者的狀態更新",
 	"right-delete-status-updates": "刪除使用者的狀態更新",
 	"apihelp-userstatus-description": "處理社交狀態訊息用的 API",
 	"apihelp-userstatus-summary": "處理社交狀態訊息用的 API",

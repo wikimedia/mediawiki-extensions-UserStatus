@@ -36,6 +36,7 @@
 	"userstatus-no-new-thoughts": "لا توجد أفكار جديدة، أضف واحدا!",
 	"userstatus-just-added": "فقط أُضِيفت!",
 	"userstatus-confirm-delete": "هل أنت متأكد من أنك تريد حذف هذا الفكر؟",
+	"action-delete-status-updates": "حذف تحديثات حالة المستخدمين",
 	"right-delete-status-updates": "حذف تحديثات حالة المستخدمين",
 	"apihelp-userstatus-description": "API للتعامل مع رسائل الحالة الاجتماعية",
 	"apihelp-userstatus-summary": "API للتعامل مع رسائل الحالة الاجتماعية",
