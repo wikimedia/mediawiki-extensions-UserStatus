@@ -36,6 +36,7 @@
 	"userstatus-no-new-thoughts": "Нема нови мисли. Додајте некоја!",
 	"userstatus-just-added": "штотуку додадена",
 	"userstatus-confirm-delete": "Дали сигурно сакате да ја избришете мислава?",
+	"action-delete-status-updates": "бришење на статусни поднови на корисници",
 	"right-delete-status-updates": "Бришење на статусни поднови на корисници",
 	"apihelp-userstatus-description": "Извршник за работа со друштвени статусни пораки",
 	"apihelp-userstatus-summary": "Извршник за работа со друштвени статусни пораки",

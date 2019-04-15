@@ -38,6 +38,7 @@
 	"userstatus-no-new-thoughts": "Il n’y a aucune nouvelle pensée. En ajouter une !",
 	"userstatus-just-added": "nouvellement ajouté",
 	"userstatus-confirm-delete": "Êtes-vous sûr de vouloir supprimer cette pensée ?",
+	"action-delete-status-updates": "supprimer les mises à jour de l’état des utilisateurs",
 	"right-delete-status-updates": "Supprimer les mises à jour de l’état de l’utilisateur",
 	"apihelp-userstatus-description": "API pour gérer les messages d’états sociaux",
 	"apihelp-userstatus-summary": "API pour gérer les messages des états sociaux",
