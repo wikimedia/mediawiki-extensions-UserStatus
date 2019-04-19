@@ -37,6 +37,7 @@
 	"userstatus-no-new-thoughts": "Es gibt keine neuen Gedanken. Füge jetzt einen hinzu!",
 	"userstatus-just-added": "soeben hinzugefügt",
 	"userstatus-confirm-delete": "Bist du sicher, dass du diesen Gedanken löschen möchtest?",
+	"action-delete-status-updates": "Statusaktualisierungen des Benutzers zu löschen",
 	"right-delete-status-updates": "Statusaktualisierungen des Benutzers löschen",
 	"apihelp-userstatus-description": "API zur Verarbeitung von Nachrichten des sozialen Status",
 	"apihelp-userstatus-summary": "API zur Verarbeitung von Nachrichten des sozialen Status",
