@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Piramidion"
+			"Piramidion",
+			"Vlad5250"
 		]
 	},
 	"userstatus-desc": "Оновлення соціального статусу в профілях користувачів та на сторінках мережі",
@@ -36,6 +37,7 @@
 	"userstatus-no-new-thoughts": "Немає нових міркувань. Додайте одне!",
 	"userstatus-just-added": "щойно додано",
 	"userstatus-confirm-delete": "Ви впевнені, що хочете вилучити це міркування?",
+	"action-delete-status-updates": "видалення статусних оновлень користувачів",
 	"right-delete-status-updates": "Вилучити оновлення статусу користувача",
 	"apihelp-userstatus-description": "API для роботи з повідомленнями про соціальний статус",
 	"apihelp-userstatus-summary": "API для роботи з повідомленнями про соціальний статус",
