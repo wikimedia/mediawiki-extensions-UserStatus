@@ -1,0 +1,8 @@
+{
+	"@metadata": {
+		"authors": [
+			"Yasen igra"
+		]
+	},
+	"userstatus-time-days": "{{PLURAL:$1|siku moja|siku $1}}"
+}
