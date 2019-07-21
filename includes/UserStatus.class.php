@@ -525,14 +525,36 @@ class UserStatus {
 	static function getNetworkUpdatesCount( $sport_id, $team_id ) {
 		$dbr = wfGetDB( DB_MASTER );
 		if ( !$team_id ) {
-			$where_sql = " ( ( us_sport_id = {$sport_id} AND us_team_id = 0 ) OR us_team_id IN
-				(SELECT team_id FROM {$dbr->tableName( 'sport_team' )} WHERE team_sport_id = {$sport_id} ) ) ";
+			$teamIds = [];
+			$res = $dbr->select(
+				'sport_team',
+				'team_id',
+				[ 'team_sport_id' => $sport_id ],
+				__METHOD__
+			);
+			foreach ( $res as $row ) {
+				$teamIds[] = $row->team_id;
+			}
+
+			$row = $dbr->selectRow(
+				'user_status',
+				'COUNT(*) AS the_count',
+				[
+					// @todo This should be using Database#makeList somehow, but I just couldn't
+					// figure out how
+					"( us_sport_id = {$sport_id} AND us_team_id = 0 ) " .
+						'OR us_team_id IN (' . $dbr->makeList( $teamIds ) . ')'
+				],
+				__METHOD__
+			);
 		} else {
-			$where_sql = " us_team_id = {$team_id} ";
+			$row = $dbr->selectRow(
+				'user_status',
+				'COUNT(*) AS the_count',
+				[ 'us_team_id' => $team_id ],
+				__METHOD__
+			);
 		}
-		$sql = "SELECT COUNT(*) AS the_count FROM {$dbr->tableName( 'user_status' )} WHERE {$where_sql} ";
-		$res = $dbr->query( $sql, __METHOD__ );
-		$row = $dbr->fetchObject( $res );
 		return $row->the_count;
 	}
 
