@@ -3,7 +3,8 @@
 		"authors": [
 			"Wladek92",
 			"Gomoko",
-			"Urhixidur"
+			"Urhixidur",
+			"Thibaut120094"
 		]
 	},
 	"userstatus-desc": "Mises à jour des états sociaux sur les profils utilisateur et sur les pages réseau",
@@ -49,5 +50,5 @@
 	"apihelp-userstatus-param-count": "Afficher ce nombre de mises à jour d’état dans le fil retourné",
 	"apihelp-userstatus-param-userId": "Numéro d’identification d’utilisateur",
 	"apihelp-userstatus-param-us_id": "ID du message d'état",
-	"apihelp-userstatus-param-vote": "1 pour « voter pour » un message d’état, -1 pour « voter contre »"
+	"apihelp-userstatus-param-vote": "1 pour « voter pour » un message d’état, -1 pour « voter contre »"
 }
