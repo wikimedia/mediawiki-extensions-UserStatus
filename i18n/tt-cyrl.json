@@ -1,9 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ильнар"
+			"Ильнар",
+			"Ерней"
 		]
 	},
+	"userstatus-network-thoughts": "$1 Фикерләр",
+	"userstatus-showing-thoughts": "{{PLURAL:$2|Бер генә фикер|$3 дән $1–$2 фикер}} күрсәтелгән.",
 	"userstatus-prev": "алдагы",
 	"userstatus-next": "киләсе",
 	"userstatus-btn-add": "өстәү",
@@ -13,5 +16,10 @@
 	"userstatus-time-hours": "{{PLURAL:$1|бер сәгать|$1 сәгать}}",
 	"userstatus-time-minutes": "{{PLURAL:$1|бер минут|$1 минут}}",
 	"userstatus-time-seconds": "{{PLURAL:$1|бер секунд|$1 секунд}}",
-	"userstatus-woops": "Иии!"
+	"userstatus-woops": "Иии!",
+	"userstatus-your-thoughts": "Фикерләрегез",
+	"userstatus-user-thoughts": "$1 ның фикерләре",
+	"userstatus-num-agree": "{{PLURAL:$1|Бер генә кеше|$1 кеше}} риза",
+	"userstatus-agree": "риза булу",
+	"userstatus-invalid-link": "Ярамаган сылтама"
 }
