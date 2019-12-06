@@ -1,12 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
-			"Hedda"
+			"Hedda",
+			"BaRaN6161 TURK"
 		]
 	},
 	"userstatus-desc": "Kullanıcı profilleri ile ağ sayfalarında sosyal durum güncellemeleri",
 	"userstatus-network-thoughts": "$1 Düşünce",
 	"userstatus-back-to-network": "&lt; Ağa Geri Dön",
+	"userstatus-showing-thoughts": "{{PLURAL:$2|1 Düşünceyi Gösteriliyor|$1 - $2'den $3'e Düşünce Gösteriliyor}}.",
 	"userstatus-prev": "önceki",
 	"userstatus-next": "sonraki",
 	"userstatus-btn-add": "ekle",
@@ -21,7 +23,10 @@
 	"userstatus-woops": "Hoop!",
 	"userstatus-no-user": "Görüntülemeye çalıştığınız kullanıcı mevcut değil.",
 	"userstatus-your-thoughts": "Düşüncelerin",
+	"userstatus-user-thoughts": "$1'ın Düşünceleri",
+	"userstatus-user-profile": "&lt; $1'ın Profili Görüntüle",
 	"userstatus-back-your-profile": "&lt; Profiline Geri Dön",
+	"userstatus-back-user-profile": "$1'ın Profiline Geri Dön",
 	"userstatus-all-team-updates": "Tüm $1 Güncellemeleri",
 	"userstatus-num-agree": "{{PLURAL:$1|1 Kişi Hemfikir|$1 Kişi Hemfikir}}",
 	"userstatus-agree": "hemfikir ol",
@@ -32,6 +37,7 @@
 	"userstatus-no-new-thoughts": "Yeni düşünce yok. Bir tane ekle!",
 	"userstatus-just-added": "sadece eklendi",
 	"userstatus-confirm-delete": "Bu düşünceyi silmek istediğinden emin misin?",
+	"action-delete-status-updates": "kullanıcıların durum güncellemelerini sil",
 	"right-delete-status-updates": "Kullanıcıların durum güncellemelerini silin",
 	"apihelp-userstatus-description": "Sosyal durum mesajlarını yönetmek için API",
 	"apihelp-userstatus-summary": "Sosyal durum mesajlarını yönetmek için API",
@@ -39,6 +45,8 @@
 	"apihelp-userstatus-param-sportId": "Spor ID'si",
 	"apihelp-userstatus-param-teamId": "Spor takımı ID'si",
 	"apihelp-userstatus-param-text": "Durum güncellemesi metni",
+	"apihelp-userstatus-param-count": "Döndürülen yayında bu kadar çok durum güncellemesini göster",
 	"apihelp-userstatus-param-userId": "Kullanıcı ID numarası",
-	"apihelp-userstatus-param-us_id": "Durum mesajı ID'si"
+	"apihelp-userstatus-param-us_id": "Durum mesajı ID'si",
+	"apihelp-userstatus-param-vote": "1 durum mesajını \"üst oy\", bunun yerine -1 yerine \"düşük oy\""
 }
