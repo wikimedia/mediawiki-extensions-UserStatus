@@ -14,7 +14,14 @@ module.exports = function ( grunt ) {
 				'!vendor/**'
 			]
 		},
-		banana: conf.MessagesDirs,
+		banana: Object.assign(
+			conf.MessagesDirs,
+			{
+				options: {
+					requireLowerCase: 'initial'
+				}
+			}
+		),
 		jsonlint: {
 			all: [
 				'**/*.json',
