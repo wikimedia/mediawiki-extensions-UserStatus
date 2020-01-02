@@ -45,7 +45,6 @@
 	"apihelp-userstatus-param-teamId": "ID спортивной команды",
 	"apihelp-userstatus-param-text": "Текст обновления статуса",
 	"apihelp-userstatus-param-count": "Количества обновлений статуса для отображения в ленте",
-	"apihelp-userstatus-param-userId": "ID участника",
 	"apihelp-userstatus-param-us_id": "ID сообщения статуса",
 	"apihelp-userstatus-param-vote": "1 для голосования за, -1 для голосования против"
 }

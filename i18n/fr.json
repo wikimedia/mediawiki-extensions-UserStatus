@@ -49,7 +49,6 @@
 	"apihelp-userstatus-param-teamId": "ID de l’équipe sportive",
 	"apihelp-userstatus-param-text": "Texte donnant l’état de la modification",
 	"apihelp-userstatus-param-count": "Afficher ce nombre de mises à jour d’état dans le fil retourné",
-	"apihelp-userstatus-param-userId": "Numéro d’identification d’utilisateur",
 	"apihelp-userstatus-param-us_id": "ID du message d’état",
 	"apihelp-userstatus-param-vote": "1 pour « voter pour » un message d’état, -1 pour « voter contre »"
 }

@@ -45,7 +45,6 @@
 	"apihelp-userstatus-param-teamId": "Назнака на екипата",
 	"apihelp-userstatus-param-text": "Текст на подновата",
 	"apihelp-userstatus-param-count": "Прикажи олку статусни поднови во дадениот тековник",
-	"apihelp-userstatus-param-userId": "Кориснички број",
 	"apihelp-userstatus-param-us_id": "Назнака на статусната порака",
 	"apihelp-userstatus-param-vote": "1 за допаѓање, а -1 за недопаѓање на статусната порака"
 }

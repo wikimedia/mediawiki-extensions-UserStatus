@@ -45,7 +45,6 @@
 	"apihelp-userstatus-param-teamId": "Identificador da equipa desportiva",
 	"apihelp-userstatus-param-text": "Texto da atualização de estado",
 	"apihelp-userstatus-param-count": "Apresentar este número de atualizações de estado no feed devolvido",
-	"apihelp-userstatus-param-userId": "Número de identificação de utilizador",
 	"apihelp-userstatus-param-us_id": "Identificador da mensagem de estado",
 	"apihelp-userstatus-param-vote": "1 para um voto positivo na mensagem de estado, -1 para um voto negativo"
 }

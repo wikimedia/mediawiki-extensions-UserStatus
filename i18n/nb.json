@@ -45,7 +45,6 @@
 	"apihelp-userstatus-param-teamId": "ID-en til sportslaget",
 	"apihelp-userstatus-param-text": "Statusoppdateringstekst",
 	"apihelp-userstatus-param-count": "Vis så mange statusoppdateringer i den returnerte matingen",
-	"apihelp-userstatus-param-userId": "Bruker-ID-nummer",
 	"apihelp-userstatus-param-us_id": "Statusmeldings-ID",
 	"apihelp-userstatus-param-vote": "1 for å «stemme opp» en statusmelding, -1 for å «stemme ned» i stedet"
 }

@@ -46,7 +46,6 @@
 	"apihelp-userstatus-param-teamId": "Spor takımı ID'si",
 	"apihelp-userstatus-param-text": "Durum güncellemesi metni",
 	"apihelp-userstatus-param-count": "Döndürülen yayında bu kadar çok durum güncellemesini göster",
-	"apihelp-userstatus-param-userId": "Kullanıcı ID numarası",
 	"apihelp-userstatus-param-us_id": "Durum mesajı ID'si",
 	"apihelp-userstatus-param-vote": "1 durum mesajını \"üst oy\", bunun yerine -1 yerine \"düşük oy\""
 }

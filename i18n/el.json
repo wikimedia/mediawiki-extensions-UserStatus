@@ -44,7 +44,6 @@
 	"apihelp-userstatus-param-teamId": "ID της αθλητικής ομάδας",
 	"apihelp-userstatus-param-text": "Στάτους ενημέρωσης κειμένου",
 	"apihelp-userstatus-param-count": "Προβάλετε αυτές τις πολλές ενημερώσεις των στάτους στην προηγούμενη ανατροφοδότηση",
-	"apihelp-userstatus-param-userId": "Αριθμός ταυτότητος χρήστη",
 	"apihelp-userstatus-param-us_id": "ID στάτους μηνύματος",
 	"apihelp-userstatus-param-vote": "1 για ''να ολοκληρωθεί η διαδικασία ψήφων'' του στάτους ενός μηνύματος-1 αντιθέτως για να ακυρωθεί"
 }

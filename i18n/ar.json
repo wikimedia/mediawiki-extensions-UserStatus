@@ -45,7 +45,6 @@
 	"apihelp-userstatus-param-teamId": "معرف الفريق الرياضي",
 	"apihelp-userstatus-param-text": "نص تحديث الحالة",
 	"apihelp-userstatus-param-count": "عرض هذا العديد من تحديثات الحالة في الخلاصة التي تم إرجاعها",
-	"apihelp-userstatus-param-userId": "رقم معرف المستخدم",
 	"apihelp-userstatus-param-us_id": "معرف رسالة الحالة",
 	"apihelp-userstatus-param-vote": "1 لـ\"upvote\"رسالة حالة، -1 لـ\"downvote\" بدلا من ذلك"
 }

@@ -46,7 +46,6 @@
 	"apihelp-userstatus-param-teamId": "Ідентифікатор спортивної команди",
 	"apihelp-userstatus-param-text": "Текст оновлення статусу",
 	"apihelp-userstatus-param-count": "Показати саме стільки оновлень статусу у повернутій стрічці оновлень",
-	"apihelp-userstatus-param-userId": "Цифровий ідентифікатор користувача",
 	"apihelp-userstatus-param-us_id": "Ідентифікатор повідомлення про статус",
 	"apihelp-userstatus-param-vote": "1 щоб  висловити «схвалення» повідомленню про статус, і -1 щоб висловити «несхвалення»"
 }

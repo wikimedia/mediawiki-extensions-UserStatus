@@ -44,7 +44,6 @@
 	"apihelp-userstatus-param-teamId": "Sportlagets ID",
 	"apihelp-userstatus-param-text": "Statusuppdateringens text",
 	"apihelp-userstatus-param-count": "Visa så många statusuppdateringar i den returnerade matningen",
-	"apihelp-userstatus-param-userId": "Användarens ID-nummer",
 	"apihelp-userstatus-param-us_id": "Statusmeddelande-ID",
 	"apihelp-userstatus-param-vote": "1 för att \"rösta upp\" ett statusmeddelande, -1 för att \"rösta ned\" istället"
 }

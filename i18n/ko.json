@@ -28,6 +28,5 @@
 	"userstatus-just-added": "방금 추가했습니다",
 	"right-delete-status-updates": "사용자의 상태 업데이트 삭제",
 	"apihelp-userstatus-param-text": "상태 업데이트 텍스트",
-	"apihelp-userstatus-param-userId": "사용자 ID 번호",
 	"apihelp-userstatus-param-us_id": "상태 메시지 ID"
 }

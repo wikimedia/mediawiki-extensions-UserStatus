@@ -47,6 +47,5 @@
 	"apihelp-userstatus-param-teamId": "Id. del equipo deportivo",
 	"apihelp-userstatus-param-text": "Texto de la actualización de estado",
 	"apihelp-userstatus-param-count": "Muestra este número de actualizaciones de estado devueltas por la fuente",
-	"apihelp-userstatus-param-userId": "Número de identificación de usuario",
 	"apihelp-userstatus-param-us_id": "Id. de mensaje de estado"
 }
