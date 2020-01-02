@@ -18,7 +18,7 @@ var UserStatus = {
 		if ( statusUpdateText && !UserStatus.posted ) {
 			UserStatus.posted = 1;
 
-			( new mw.Api() ).postWithToken( 'edit', {
+			( new mw.Api() ).postWithToken( 'csrf', {
 				action: 'userstatus',
 				what: 'addnetworkstatus',
 				sportId: __sport_id__,
@@ -41,7 +41,7 @@ var UserStatus = {
 	 * @param {id} vote
 	 */
 	voteStatus: function( id, vote ) {
-		( new mw.Api() ).postWithToken( 'edit', {
+		( new mw.Api() ).postWithToken( 'csrf', {
 			action: 'userstatus',
 			what: 'votestatus',
 			us_id: id,
@@ -61,7 +61,7 @@ var UserStatus = {
 	 */
 	deleteMessage: function( id ) {
 		if ( confirm( mw.msg( 'userstatus-confirm-delete' ) ) ) {
-			( new mw.Api() ).postWithToken( 'edit', {
+			( new mw.Api() ).postWithToken( 'csrf', {
 				action: 'userstatus',
 				what: 'deletestatus',
 				us_id: id,
