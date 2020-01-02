@@ -174,18 +174,19 @@ class ViewFanUpdates extends UnlistedSpecialPage {
 		$output .= '<div class="user-status-container">';
 		if ( $messages ) {
 			foreach ( $messages as $message ) {
-				$user = Title::makeTitle( NS_USER, $message['user_name'] );
-				$avatar = new wAvatar( $message['user_id'], 'm' );
+				$messageUser = User::newFromActorId( $message['actor'] );
+				$userName = $messageUser->getName();
+				$avatar = new wAvatar( $messageUser->getId(), 'm' );
 
 				$messages_link = '<a href="' .
-					UserStatus::getUserUpdatesURL( $message['user_name'] ) . '">' .
-					$this->msg( 'userstatus-view-all-updates', $message['user_name'] )->text() .
+					UserStatus::getUserUpdatesURL( $userName ) . '">' .
+					$this->msg( 'userstatus-view-all-updates', $userName )->text() .
 					'</a>';
 				$delete_link = '';
 				// Allow the owner of the status update and privileged users to
 				// delete it
 				if (
-					$user->getName() == $message['user_name'] ||
+					$user->getActorId() == $message['actor'] ||
 					$user->isAllowed( 'delete-status-updates' )
 				)
 				{
@@ -201,9 +202,10 @@ class ViewFanUpdates extends UnlistedSpecialPage {
 					$message['text']
 				);
 
+				$safeMessageUserName = htmlspecialchars( $userName, ENT_QUOTES );
 				$output .= "<div class=\"user-status-row\">
-					<a href=\"{$user->getFullURL()}\">{$avatar->getAvatarURL()}</a>
-					<a href=\"{$user->getFullURL()}\"><b>{$message['user_name']}</b></a> {$message_text}
+					<a href=\"{$messageUser->getUserPage()->getFullURL()}\">{$avatar->getAvatarURL()}</a>
+					<a href=\"{$messageUser->getUserPage()->getFullURL()}\"><b>{$safeMessageUserName}</b></a> {$message_text}
 					<span class=\"user-status-date\">" .
 						$this->msg( 'userstatus-ago', UserStatus::getTimeAgo( $message['timestamp'] ) )->text() .
 					'</span>

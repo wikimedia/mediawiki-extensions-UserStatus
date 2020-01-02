@@ -34,7 +34,6 @@ class ApiUserStatus extends ApiBase {
 		$teamId = $params['teamId'] ?? null;
 		$text = $params['text'] ?? null;
 		$count = $params['count'] ?? null;
-		$userId = $params['userId'] ?? null;
 		$us_id = $params['us_id'] ?? null;
 		$vote = $params['vote'] ?? null;
 
@@ -93,17 +92,16 @@ class ApiUserStatus extends ApiBase {
 				break;
 			case 'updatestatus':
 				if (
-					$user_id === null || !is_numeric( $user_id ) ||
 					$user_name === null || $text === null || $date === null ||
-					$next_row === null || count( $params ) < 5
+					$next_row === null || count( $params ) < 4
 				)
 				{
 					$this->dieWithError(
-						new RawMessage( 'One or more of the required five params is missing' ),
+						new RawMessage( 'One or more of the required four params is missing' ),
 						'zomgamissingparam6'
 					);
 				}
-				$output = $this->updateStatus( $user_id, $user_name, $text, $date, $next_row );
+				$output = $this->updateStatus( $user_name, $text, $date, $next_row );
 				break;
 			default:
 				// Let's see who gets the reference...
@@ -155,7 +153,7 @@ class ApiUserStatus extends ApiBase {
 	function deleteStatus( $us_id ) {
 		$user = $this->getUser();
 		if (
-			$this->userStatus->doesUserOwnStatusMessage( $user->getId(), $us_id ) ||
+			$this->userStatus->doesUserOwnStatusMessage( $user->getActorId(), $us_id ) ||
 			$user->isAllowed( 'delete-status-updates' )
 		)
 		{
@@ -165,9 +163,9 @@ class ApiUserStatus extends ApiBase {
 		return 'ok';
 	}
 
-	function updateStatus( $user_id, $user_name, $text, $date, $next_row ) {
-		$user = User::newFromId( $user_id );
-		// @todo FIXME: IS USER_ID (+user_name) REALLY NEEDED? CAN WE JUST UTILIZE $this->getUser() HERE?
+	function updateStatus( $user_name, $text, $date, $next_row ) {
+		// @todo Could just drop the $user_name param altogether and use $this->getUser(), I believe.
+		$user = User::newFromName( $user_name );
 
 		// Get a database handler
 		$dbw = wfGetDB( DB_MASTER );
@@ -176,8 +174,7 @@ class ApiUserStatus extends ApiBase {
 		$dbw->insert(
 			'user_status',
 			[
-				'us_user_id' => $user_id,
-				'us_user_name' => $user_name,
+				'us_actor' => $user->getActorId(),
 				'us_text' => $text,
 				'us_date' => $date,
 			],
@@ -187,9 +184,7 @@ class ApiUserStatus extends ApiBase {
 		// Grab all rows from user_status
 		$res = $dbw->select(
 			'user_status',
-			[
-				'us_user_id', 'us_user_name', 'us_text', 'us_date'
-			],
+			[ 'us_actor', 'us_text', 'us_date' ],
 			[ 'us_id' => intval( $next_row ) ],
 			__METHOD__
 		);
@@ -197,11 +192,11 @@ class ApiUserStatus extends ApiBase {
 		$x = 1;
 
 		foreach ( $res as $row ) {
-			$db_user_id = $row->us_user_id;
-			$db_user_name = $row->us_user_name;
+			$userObj = User::newFromActorId( $row->us_actor );
+			$db_user_name = $userObj->getName();
 			$db_status_text = $row->us_text;
 			$user_status_date = wfTimestamp( TS_UNIX, $row->us_date );
-			$avatar = new wAvatar( $db_user_id, 'ml' );
+			$avatar = new wAvatar( $userObj->getId(), 'ml' );
 			$userTitle = Title::makeTitle( NS_USER, $db_user_name );
 
 			$url = htmlspecialchars( $userTitle->getFullURL() );
@@ -240,9 +235,6 @@ class ApiUserStatus extends ApiBase {
 			'count' => [
 				ApiBase::PARAM_TYPE => 'integer'
 			],
-			'userId' => [
-				ApiBase::PARAM_TYPE => 'integer'
-			],
 			'us_id' => [
 				ApiBase::PARAM_TYPE => 'integer'
 			],
@@ -267,7 +259,7 @@ class ApiUserStatus extends ApiBase {
 			'api.php?action=userstatus&what=addnetworkstatus&sportId=3&teamId=10&text=My team rocks!&count=20' => 'Adds a status message (with the text "My team rocks!") to the network page of team #10 under sport #3',
 			'api.php?action=userstatus&what=deletestatus&us_id=35' => 'Deletes the status message with the ID #35',
 			'api.php?action=userstatus&what=votestatus&us_id=47&vote=1' => 'Gives an upvote ("thumbs up") to the status message which has the ID #47',
-			'api.php?action=userstatus&what=updatestatus&user_id=367&user_name=Foo bar&text=We are the champions!&date=FIX_ME&next_row=FIX_ME' => 'Updates a status message',
+			'api.php?action=userstatus&what=updatestatus&user_name=Foo bar&text=We are the champions!&date=FIX_ME&next_row=FIX_ME' => 'Updates a status message',
 		];
 	}
 }

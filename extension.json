@@ -1,6 +1,6 @@
 {
 	"name": "UserStatus",
-	"version": "3.5.0",
+	"version": "3.6.0",
 	"author": [
 		"Aaron Wright",
 		"David Pean",
@@ -10,6 +10,9 @@
 	"url": "https://www.mediawiki.org/wiki/Extension:UserStatus",
 	"descriptionmsg": "userstatus-desc",
 	"type": "other",
+	"requires": {
+		"MediaWiki": ">= 1.34.0"
+	},
 	"SpecialPages": {
 		"FanUpdates": "ViewFanUpdates",
 		"UserStatus": "ViewUserStatus",
@@ -35,12 +38,7 @@
 		"ViewThought": "includes/specials/SpecialViewThought.php"
 	},
 	"Hooks": {
-		"LoadExtensionSchemaUpdates": [
-			"UserStatusHooks::onLoadExtensionSchemaUpdates"
-		],
-		"RenameUserSQL": [
-			"UserStatusHooks::onRenameUserSQL"
-		]
+		"LoadExtensionSchemaUpdates": "UserStatusHooks::onLoadExtensionSchemaUpdates"
 	},
 	"ResourceFileModulePaths": {
 		"localBasePath": "",

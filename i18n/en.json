@@ -44,7 +44,6 @@
 	"apihelp-userstatus-param-teamId": "ID of the sport team",
 	"apihelp-userstatus-param-text": "Status update text",
 	"apihelp-userstatus-param-count": "Display this many status updates in the returned feed",
-	"apihelp-userstatus-param-userId": "User ID number",
 	"apihelp-userstatus-param-us_id": "Status message ID",
 	"apihelp-userstatus-param-vote": "1 to \"upvote\" a status message, -1 to \"downvote\" instead"
 }

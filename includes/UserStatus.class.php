@@ -8,17 +8,6 @@
 class UserStatus {
 
 	/**
-	 * All member variables should be considered private
-	 * Please use the accessor functions
-	 */
-
-	/**#@+
-	 * @private
-	 */
-	//var $user_id;           	# Text form (spaces not underscores) of the main part
-	//var $user_name;			# Text form (spaces not underscores) of the main part
-
-	/**
 	 * Constructor
 	 * @private
 	 */
@@ -36,8 +25,7 @@ class UserStatus {
 		$dbw->insert(
 			'user_status',
 			[
-				'us_user_id' => $wgUser->getId(),
-				'us_user_name' => $wgUser->getName(),
+				'us_actor' => $wgUser->getActorId(),
 				'us_sport_id' => $sport_id,
 				'us_team_id' => $team_id,
 				'us_text' => $text,
@@ -69,7 +57,7 @@ class UserStatus {
 		// Only registered users may vote...
 		if ( $wgUser->isLoggedIn() ) {
 			// ...and only if they haven't already voted
-			if ( $this->alreadyVotedStatusMessage( $wgUser->getId(), $us_id ) ) {
+			if ( $this->alreadyVotedStatusMessage( $wgUser->getActorId(), $us_id ) ) {
 				return;
 			}
 
@@ -78,8 +66,7 @@ class UserStatus {
 			$dbw->insert(
 				'user_status_vote',
 				[
-					'sv_user_id' => $wgUser->getId(),
-					'sv_user_name' => $wgUser->getName(),
+					'sv_actor' => $wgUser->getActorId(),
 					'sv_us_id' => $us_id,
 					'sv_vote_score' => $vote,
 					'sv_date' => date( 'Y-m-d H:i:s' ),
@@ -139,16 +126,16 @@ class UserStatus {
 	/**
 	 * Check if the given user has already voted on the given status message.
 	 *
-	 * @param int $user_id User ID number
+	 * @param int $actor_id User actor ID number
 	 * @param int $us_id Status message ID number
 	 * @return bool True if the user has already voted, otherwise false
 	 */
-	public function alreadyVotedStatusMessage( $user_id, $us_id ) {
+	public function alreadyVotedStatusMessage( $actor_id, $us_id ) {
 		$dbr = wfGetDB( DB_MASTER );
 		$s = $dbr->selectRow(
 			'user_status_vote',
-			[ 'sv_user_id' ],
-			[ 'sv_us_id' => $us_id, 'sv_user_id' => $user_id ],
+			[ 'sv_actor' ],
+			[ 'sv_us_id' => $us_id, 'sv_actor' => $actor_id ],
 			__METHOD__
 		);
 
@@ -162,21 +149,21 @@ class UserStatus {
 	/**
 	 * Check if the given user is the author of the given status message.
 	 *
-	 * @param int $user_id User ID number
+	 * @param int $actor_id User actor ID number
 	 * @param int $us_id Status message ID number
 	 * @return bool True if the user owns the status message, else false
 	 */
-	public function doesUserOwnStatusMessage( $user_id, $us_id ) {
+	public function doesUserOwnStatusMessage( $actor_id, $us_id ) {
 		$dbr = wfGetDB( DB_MASTER );
 		$s = $dbr->selectRow(
 			'user_status',
-			[ 'us_user_id' ],
+			[ 'us_actor' ],
 			[ 'us_id' => $us_id ],
 			__METHOD__
 		);
 
 		if ( $s !== false ) {
-			if ( $user_id == $s->us_user_id ) {
+			if ( $actor_id == $s->us_actor ) {
 				return true;
 			}
 		}
@@ -194,9 +181,7 @@ class UserStatus {
 			$dbw = wfGetDB( DB_MASTER );
 			$s = $dbw->selectRow(
 				'user_status',
-				[
-					'us_user_id', 'us_user_name', 'us_sport_id', 'us_team_id'
-				],
+				[ 'us_actor', 'us_sport_id', 'us_team_id' ],
 				[ 'us_id' => $us_id ],
 				__METHOD__
 			);
@@ -207,7 +192,8 @@ class UserStatus {
 					__METHOD__
 				);
 
-				$stats = new UserStatsTrack( $s->us_user_id, $s->us_user_name );
+				$user = User::newFromActorId( $s->us_actor );
+				$stats = new UserStatsTrack( $user->getId(), $user->getName() );
 				$stats->decStatField( 'user_status_count' );
 			}
 		}
@@ -221,7 +207,7 @@ class UserStatus {
 	 */
 	static function formatMessage( $message ) {
 		global $wgOut;
-		$messageText = $wgOut->parse( trim( $message ), false );
+		$messageText = $wgOut->parseAsContent( trim( $message ), false );
 		return $messageText;
 	}
 
@@ -240,12 +226,12 @@ class UserStatus {
 
 		$dbr = wfGetDB( DB_MASTER );
 
-		$sql = "SELECT us_id, us_user_id, us_user_name, us_text,
+		$sql = "SELECT us_id, us_actor, us_text,
 			us_sport_id, us_team_id, us_vote_plus, us_vote_minus,
 			us_date,
 			(SELECT COUNT(*) FROM {$dbr->tableName( 'user_status_vote' )}
 				WHERE sv_us_id = us_id
-				AND sv_user_id =" . $wgUser->getId() . ") AS AlreadyVoted
+				AND sv_actor =" . $wgUser->getActorId() . ") AS AlreadyVoted
 			FROM {$dbr->tableName( 'user_status' )}
 			WHERE us_id={$us_id} LIMIT 1";
 
@@ -257,8 +243,7 @@ class UserStatus {
 			$messages[] = [
 				'id' => $row->us_id,
 				'timestamp' => wfTimestamp( TS_UNIX, $row->us_date ),
-				'user_id' => $row->us_user_id,
-				'user_name' => $row->us_user_name,
+				'actor' => $row->us_actor,
 				'sport_id' => $row->us_sport_id,
 				'team_id' => $row->us_team_id,
 				'plus_count' => $row->us_vote_plus,
@@ -275,7 +260,7 @@ class UserStatus {
 	 * Get the given amount of the given user's status messages; used by
 	 * displayStatusMessages().
 	 *
-	 * @param int $user_id User ID whose status updates we want to display
+	 * @param int $actor_id User actor ID whose status updates we want to display
 	 * @param int $sport_id Sport ID for which we want to display updates
 	 * @param int $team_id Sports team ID
 	 * @param int $count Display this many messages
@@ -283,22 +268,22 @@ class UserStatus {
 	 * @return array Array containing information such as the timestamp,
 	 *                status update ID number and more about each update
 	 */
-	public function getStatusMessages( $user_id = 0, $sport_id = 0, $team_id = 0, $limit = 10, $page = 0 ) {
+	public function getStatusMessages( $actor_id = 0, $sport_id = 0, $team_id = 0, $limit = 10, $page = 0 ) {
 		global $wgUser;
 
 		$dbr = wfGetDB( DB_MASTER );
 		$user_sql = $sport_sql = '';
 
 		if ( $limit > 0 ) {
-			$limitvalue = 0;
+			$offset = 0;
 			if ( $page ) {
-				$limitvalue = $page * $limit - ( $limit );
+				$offset = $page * $limit - ( $limit );
 			}
-			$limit_sql = " LIMIT {$limitvalue},{$limit} ";
+			$limit_sql = " LIMIT {$offset},{$limit} ";
 		}
 
-		if ( $user_id > 0 ) {
-			$user_sql .= " us_user_id = {$user_id} ";
+		if ( $actor_id > 0 ) {
+			$user_sql .= " us_actor = {$actor_id} ";
 		}
 
 		if ( $sport_id > 0 && $team_id == 0 ) {
@@ -314,12 +299,12 @@ class UserStatus {
 			$user_sql .= ' AND ';
 		}
 
-		$sql = "SELECT us_id, us_user_id, us_user_name, us_text,
+		$sql = "SELECT us_id, us_actor, us_text,
 			us_sport_id, us_team_id, us_vote_plus, us_vote_minus,
 			us_date,
 			(SELECT COUNT(*) FROM {$dbr->tableName( 'user_status_vote' )}
 				WHERE sv_us_id = us_id
-				AND sv_user_id = " . $wgUser->getId() . ") AS AlreadyVoted
+				AND sv_actor = " . $wgUser->getActorId() . ") AS AlreadyVoted
 			FROM {$dbr->tableName( 'user_status' )}
 			WHERE {$user_sql} {$sport_sql}
 			ORDER BY us_id DESC
@@ -333,8 +318,7 @@ class UserStatus {
 			$messages[] = [
 				'id' => $row->us_id,
 				'timestamp' => wfTimestamp( TS_UNIX, $row->us_date ),
-				'user_id' => $row->us_user_id,
-				'user_name' => $row->us_user_name,
+				'actor' => $row->us_actor,
 				'sport_id' => $row->us_sport_id,
 				'team_id' => $row->us_team_id,
 				'plus_count' => $row->us_vote_plus,
@@ -350,20 +334,20 @@ class UserStatus {
 	/**
 	 * Display the given amount of the given user's status messages.
 	 *
-	 * @param int $user_id User ID whose status updates we want to display
+	 * @param int $actor_id User actor ID whose status updates we want to display
 	 * @param int $sport_id Sport ID for which we want to display updates
 	 * @param int $team_id Sports team ID
 	 * @param int $count Display this many messages
 	 * @param int $page Page we're on; used for pagination
 	 * @return string HTML
 	 */
-	public function displayStatusMessages( $user_id, $sport_id = 0, $team_id = 0, $count = 10, $page = 0 ) {
+	public function displayStatusMessages( $actor_id, $sport_id = 0, $team_id = 0, $count = 10, $page = 0 ) {
 		global $wgUser;
 
 		$output = '';
 
 		$messages = $this->getStatusMessages(
-			$user_id,
+			$actor_id,
 			$sport_id,
 			$team_id,
 			$count,
@@ -376,19 +360,20 @@ class UserStatus {
 
 		if ( $messages ) {
 			foreach ( $messages as $message ) {
-				$user = Title::makeTitle( NS_USER, $message['user_name'] );
-				$avatar = new wAvatar( $message['user_id'], 'm' );
+				$user = User::newFromActorId( $message['actor'] );
+				$userName = $user->getName();
+				$avatar = new wAvatar( $user->getId(), 'm' );
 
 				$messages_link = '<a href="' .
-					UserStatus::getUserUpdatesURL( $message['user_name'] ) . '">' .
-					wfMessage( 'userstatus-view-all-updates', $message['user_name'] )->text() .
+					UserStatus::getUserUpdatesURL( $userName ) . '">' .
+					wfMessage( 'userstatus-view-all-updates', $userName )->text() .
 				'</a>';
 				$delete_link = '';
 
 				$vote_count = wfMessage( 'userstatus-num-agree', $message['plus_count'] )->parse();
 
 				if (
-					$wgUser->getName() == $message['user_name'] ||
+					$wgUser->getActorId() == $message['actor'] ||
 					$wgUser->isAllowed( 'delete-status-updates' )
 				)
 				{
@@ -399,7 +384,7 @@ class UserStatus {
 				}
 
 				$vote_link = '';
-				if ( $wgUser->isLoggedIn() && $wgUser->getName() != $message['user_name'] ) {
+				if ( $wgUser->isLoggedIn() && $wgUser->getActorId() != $message['actor'] ) {
 					if ( !$message['voted'] ) {
 						$vote_link = "<a class=\"vote-status-link\" href=\"javascript:void(0);\" data-message-id=\"{$message['id']}\">[" .
 							wfMessage( 'userstatus-agree' )->text() . ']</a>';
@@ -425,15 +410,16 @@ class UserStatus {
 					$output .= '<div class="user-status-row-bottom">';
 				}
 
+				$safeUserName = htmlspecialchars( $userName, ENT_QUOTES );
 				$output .= "
 
 				<div class=\"user-status-logo\">
-					<a href=\"{$user->getFullURL()}\">{$avatar->getAvatarURL()}</a>
+					<a href=\"{$user->getUserPage()->getFullURL()}\">{$avatar->getAvatarURL()}</a>
 				</div>
 
 				<div class=\"user-status-message\">
 
-					<a href=\"{$user->getFullURL()}\"><b>{$message['user_name']}</b></a> {$message_text}
+					<a href=\"{$user->getUserPage()->getFullURL()}\"><b>{$safeUserName}</b></a> {$message_text}
 
 					<div class=\"user-status-date\">" .
 						wfMessage( 'userstatus-ago', self::getTimeAgo( $message['timestamp'] ) )->text() .
@@ -453,7 +439,6 @@ class UserStatus {
 				</div>";
 
 				$x++;
-
 			}
 		} else {
 			$output .= '<p>' . wfMessage( 'userstatus-no-new-thoughts' )->text() . '</p>';
@@ -500,9 +485,7 @@ class UserStatus {
 
 		$res = $dbr->select(
 			'user_status_vote',
-			[
-				'sv_user_id', 'sv_user_name', 'sv_date', 'sv_vote_score'
-			],
+			[ 'sv_actor', 'sv_date', 'sv_vote_score' ],
 			[ 'sv_us_id' => intval( $us_id ) ],
 			__METHOD__,
 			[ 'ORDER BY' => 'sv_id DESC' ]
@@ -513,8 +496,7 @@ class UserStatus {
 		foreach ( $res as $row ) {
 			$voters[] = [
 				'timestamp' => wfTimestamp( TS_UNIX, $row->sv_date ),
-				'user_id' => $row->sv_user_id,
-				'user_name' => $row->sv_user_name,
+				'actor' => $row->sv_actor,
 				'score' => $row->sv_vote_score
 			];
 		}

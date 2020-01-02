@@ -37,14 +37,4 @@ class UserStatusHooks {
 		$updater->addExtensionTable( 'user_status', __DIR__ . "/../sql/user_status$dbExt.sql" );
 		$updater->addExtensionTable( 'user_status_vote', __DIR__ . "/../sql/user_status$dbExt.sql" );
 	}
-
-	/**
-	 * For integration with the Renameuser extension.
-	 *
-	 * @param RenameuserSQL $renameUserSQL
-	 */
-	public static function onRenameUserSQL( $renameUserSQL ) {
-		$renameUserSQL->tables['user_status'] = [ 'us_user_name', 'us_user_id' ];
-		$renameUserSQL->tables['user_status_vote'] = [ 'sv_user_name', 'sv_user_id' ];
-	}
 }

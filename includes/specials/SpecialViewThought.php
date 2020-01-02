@@ -61,8 +61,8 @@ class ViewThought extends UnlistedSpecialPage {
 			return;
 		}
 
-		$user_name = $message['user_name'];
-		$user = Title::makeTitle( NS_USER, $user_name );
+		$user = User::newFromActorId( $message['actor'] );
+		$user_name = $user->getName();
 
 		// Different page title, depending on whose status updates we're
 		// viewing
@@ -76,7 +76,7 @@ class ViewThought extends UnlistedSpecialPage {
 		$out->addModules( 'ext.userStatus.viewThought' );
 
 		$output .= "<div class=\"view-thought-links\">
-			<a href=\"{$user->getFullURL()}\">" .
+			<a href=\"{$user->getUserPage()->getFullURL()}\">" .
 				$this->msg( 'userstatus-user-profile', $user_name )->text() .
 			'</a>
 		</div>';
@@ -84,7 +84,6 @@ class ViewThought extends UnlistedSpecialPage {
 		$output .= '<div class="user-status-row">
 
 				<div class="user-status-logo">
-
 					<a href="' . htmlspecialchars(
 						SpecialPage::getTitleFor( 'FanHome' )->getFullURL( [
 							'sport_id' => $message['sport_id'],
@@ -94,21 +93,17 @@ class ViewThought extends UnlistedSpecialPage {
 					) . '">' .
 						SportsTeams::getLogo( $message['sport_id'], $message['team_id'], 'm' ) .
 					"</a>
-
 				</div>
 
 				<div class=\"user-status-message\">
-
 					{$message['text']}
 
 					<div class=\"user-status-date\">" .
 						$this->msg( 'userstatus-ago', UserStatus::getTimeAgo( $message['timestamp'] ) )->text() .
 					'</div>
-
 				</div>
 
 				<div class="visualClear"></div>
-
 		</div>
 		</div>';
 
@@ -118,12 +113,13 @@ class ViewThought extends UnlistedSpecialPage {
 		// Get the people who agree with this status update, if any
 		if ( $voters ) {
 			foreach ( $voters as $voter ) {
-				$user = Title::makeTitle( NS_USER, $voter['user_name'] );
-				$avatar = new wAvatar( $voter['user_id'], 'm' );
+				$votingUser = User::newFromActorId( $voter['actor'] );
+				$avatar = new wAvatar( $votingUser->getId(), 'm' );
+				$safeVotingUserName = htmlspecialchars( $votingUser->getName() );
 
 				$output .= "<div class=\"who-agrees-row\">
-					<a href=\"{$user->getFullURL()}\">{$avatar->getAvatarURL()}</a>
-					<a href=\"{$user->getFullURL()}\">{$voter['user_name']}</a>
+					<a href=\"{$votingUser->getUserPage()->getFullURL()}\">{$avatar->getAvatarURL()}</a>
+					<a href=\"{$votingUser->getUserPage()->getFullURL()}\">{$safeVotingUserName}</a>
 				</div>";
 			}
 		} else {

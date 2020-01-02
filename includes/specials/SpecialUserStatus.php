@@ -42,8 +42,9 @@ class ViewUserStatus extends UnlistedSpecialPage {
 		if ( !$user_name ) {
 			$user_name = $currentUser->getName();
 		}
-		$user_id = User::idFromName( $user_name );
-		$user = Title::makeTitle( NS_USER, $user_name );
+		$user = User::newFromName( $user_name );
+		$user_id = $user->getId();
+		$actor_id = $user->getActorId();
 
 		/**
 		 * Error message for username that does not exist (from URL)
@@ -64,7 +65,7 @@ class ViewUserStatus extends UnlistedSpecialPage {
 		$total = $stats_data['user_status_count'];
 
 		$s = new UserStatus();
-		$messages = $s->getStatusMessages( $user_id, 0, 0, $messages_show, $page );
+		$messages = $s->getStatusMessages( $actor_id, 0, 0, $messages_show, $page );
 
 		// Set a different page title depending on whose thoughts (yours or
 		// someone else's) we're viewing
@@ -78,7 +79,7 @@ class ViewUserStatus extends UnlistedSpecialPage {
 		$output .= '<div class="gift-links">'; // @todo FIXME: this really should be renamed...
 		if ( !( $currentUser->getName() == $user_name ) ) {
 			$output .= $linkRenderer->makeLink(
-				$user,
+				$user->getUserPage(),
 				$this->msg( 'userstatus-back-user-profile', $user_name )->text()
 			);
 		} else {
@@ -176,8 +177,8 @@ class ViewUserStatus extends UnlistedSpecialPage {
 		if ( $messages ) {
 			$fanHome = SpecialPage::getTitleFor( 'FanHome' );
 			foreach ( $messages as $message ) {
-				$user = Title::makeTitle( NS_USER, $message['user_name'] );
-				$avatar = new wAvatar( $message['user_id'], 'm' );
+				$user = User::newFromActorId( $message['actor'] );
+				$avatar = new wAvatar( $user->getId(), 'm' );
 
 				$networkURL = htmlspecialchars(
 					$fh->getFullURL( [
@@ -202,7 +203,7 @@ class ViewUserStatus extends UnlistedSpecialPage {
 
 				$delete_link = '';
 				if (
-					$currentUser->getName() == $message['user_name'] ||
+					$currentUser->getActorId() == $message['actor'] ||
 					$currentUser->isAllowed( 'delete-status-updates' )
 				)
 				{
@@ -224,7 +225,7 @@ class ViewUserStatus extends UnlistedSpecialPage {
 				$vote_link = '';
 				// Only registered users who aren't the author of the particular
 				// thought can vote for it
-				if ( $currentUser->isLoggedIn() && $currentUser->getName() != $message['user_name'] ) {
+				if ( $currentUser->isLoggedIn() && $currentUser->getActorId() != $message['actor'] ) {
 					if ( !$message['voted'] ) {
 						$vote_link = "<a class=\"vote-status-link\" href=\"javascript:void(0);\" data-message-id=\"{$message['id']}\">[" .
 							$this->msg( 'userstatus-agree' )->text() . ']</a>';
@@ -246,15 +247,12 @@ class ViewUserStatus extends UnlistedSpecialPage {
 				$output .= '<div class="user-status-row">
 
 					<div class="user-status-logo">
-
 						<a href="' . $networkURL . '">' .
 							SportsTeams::getLogo( $message['sport_id'], $message['team_id'], 'm' ) .
 						"</a>
-
 					</div>
 
 					<div class=\"user-status-message\">
-
 						{$message_text}
 
 						<div class=\"user-status-date\">" .
