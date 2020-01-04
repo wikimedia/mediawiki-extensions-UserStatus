@@ -64,7 +64,7 @@ class ViewUserStatus extends UnlistedSpecialPage {
 		$stats_data = $stats->getUserStats();
 		$total = $stats_data['user_status_count'];
 
-		$s = new UserStatus();
+		$s = new UserStatus( $currentUser );
 		$messages = $s->getStatusMessages( $actor_id, 0, 0, $messages_show, $page );
 
 		// Set a different page title depending on whose thoughts (yours or
