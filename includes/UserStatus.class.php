@@ -6,26 +6,31 @@
  * @ingroup Extensions
  */
 class UserStatus {
+	/**
+	 * @var User
+	 */
+	public $user;
 
 	/**
 	 * Constructor
-	 * @private
+	 *
+	 * @param User $user
 	 */
-	/* private */ function __construct() {}
+	public function __construct( $user ) {
+		$this->user = $user;
+	}
 
 	public function addStatus( $sport_id, $team_id, $text ) {
-		global $wgUser;
-
 		$dbw = wfGetDB( DB_MASTER );
 
-		if ( $wgUser->isBlocked() ) {
+		if ( $this->user->isBlocked() ) {
 			return '';
 		}
 
 		$dbw->insert(
 			'user_status',
 			[
-				'us_actor' => $wgUser->getActorId(),
+				'us_actor' => $this->user->getActorId(),
 				'us_sport_id' => $sport_id,
 				'us_team_id' => $team_id,
 				'us_text' => $text,
@@ -35,7 +40,7 @@ class UserStatus {
 		);
 		$us_id = $dbw->insertId();
 
-		$stats = new UserStatsTrack( $wgUser->getId(), $wgUser->getName() );
+		$stats = new UserStatsTrack( $this->user->getId(), $this->user->getName() );
 		$stats->incStatField( 'user_status_count' );
 
 		$this->updateUserCache( $text, $sport_id, $team_id );
@@ -52,12 +57,10 @@ class UserStatus {
 	 * @return int Vote ID
 	 */
 	public function addStatusVote( $us_id, $vote ) {
-		global $wgUser;
-
 		// Only registered users may vote...
-		if ( $wgUser->isLoggedIn() ) {
+		if ( $this->user->isLoggedIn() ) {
 			// ...and only if they haven't already voted
-			if ( $this->alreadyVotedStatusMessage( $wgUser->getActorId(), $us_id ) ) {
+			if ( $this->alreadyVotedStatusMessage( $this->user->getActorId(), $us_id ) ) {
 				return;
 			}
 
@@ -66,7 +69,7 @@ class UserStatus {
 			$dbw->insert(
 				'user_status_vote',
 				[
-					'sv_actor' => $wgUser->getActorId(),
+					'sv_actor' => $this->user->getActorId(),
 					'sv_us_id' => $us_id,
 					'sv_vote_score' => $vote,
 					'sv_date' => date( 'Y-m-d H:i:s' ),
@@ -103,9 +106,9 @@ class UserStatus {
 	}
 
 	public function updateUserCache( $text, $sport_id, $team_id = 0 ) {
-		global $wgUser, $wgMemc;
+		global $wgMemc;
 
-		$key = $wgMemc->makeKey( 'user', 'status-last-update', $wgUser->getId() );
+		$key = $wgMemc->makeKey( 'user', 'status-last-update', $this->user->getId() );
 
 		$data['text'] = $this->formatMessage( $text );
 		$data['sport_id'] = $sport_id;
@@ -192,6 +195,10 @@ class UserStatus {
 					__METHOD__
 				);
 
+				// Why not $this->user? Because it is possible for an admin or other privileged
+				// user to be deleting someone else's thoughts than only their own, and in
+				// that case, we do *not* want to be decrementing the _admin's_ thought count,
+				// but rather the target user's.
 				$user = User::newFromActorId( $s->us_actor );
 				$stats = new UserStatsTrack( $user->getId(), $user->getName() );
 				$stats->decStatField( 'user_status_count' );
@@ -219,8 +226,6 @@ class UserStatus {
 	 *                status message
 	 */
 	public function getStatusMessage( $us_id ) {
-		global $wgUser;
-
 		// Paranoia, because nobody likes an SQL injection point.
 		$us_id = (int)$us_id;
 
@@ -231,7 +236,7 @@ class UserStatus {
 			us_date,
 			(SELECT COUNT(*) FROM {$dbr->tableName( 'user_status_vote' )}
 				WHERE sv_us_id = us_id
-				AND sv_actor =" . $wgUser->getActorId() . ") AS AlreadyVoted
+				AND sv_actor =" . $this->user->getActorId() . ") AS AlreadyVoted
 			FROM {$dbr->tableName( 'user_status' )}
 			WHERE us_id={$us_id} LIMIT 1";
 
@@ -269,8 +274,6 @@ class UserStatus {
 	 *                status update ID number and more about each update
 	 */
 	public function getStatusMessages( $actor_id = 0, $sport_id = 0, $team_id = 0, $limit = 10, $page = 0 ) {
-		global $wgUser;
-
 		$dbr = wfGetDB( DB_MASTER );
 		$user_sql = $sport_sql = '';
 
@@ -304,7 +307,7 @@ class UserStatus {
 			us_date,
 			(SELECT COUNT(*) FROM {$dbr->tableName( 'user_status_vote' )}
 				WHERE sv_us_id = us_id
-				AND sv_actor = " . $wgUser->getActorId() . ") AS AlreadyVoted
+				AND sv_actor = " . $this->user->getActorId() . ") AS AlreadyVoted
 			FROM {$dbr->tableName( 'user_status' )}
 			WHERE {$user_sql} {$sport_sql}
 			ORDER BY us_id DESC
@@ -342,8 +345,6 @@ class UserStatus {
 	 * @return string HTML
 	 */
 	public function displayStatusMessages( $actor_id, $sport_id = 0, $team_id = 0, $count = 10, $page = 0 ) {
-		global $wgUser;
-
 		$output = '';
 
 		$messages = $this->getStatusMessages(
@@ -373,8 +374,8 @@ class UserStatus {
 				$vote_count = wfMessage( 'userstatus-num-agree', $message['plus_count'] )->parse();
 
 				if (
-					$wgUser->getActorId() == $message['actor'] ||
-					$wgUser->isAllowed( 'delete-status-updates' )
+					$this->user->getActorId() == $message['actor'] ||
+					$this->user->isAllowed( 'delete-status-updates' )
 				)
 				{
 					$delete_link = "<span class=\"user-status-delete-link\">
@@ -384,7 +385,7 @@ class UserStatus {
 				}
 
 				$vote_link = '';
-				if ( $wgUser->isLoggedIn() && $wgUser->getActorId() != $message['actor'] ) {
+				if ( $this->user->isLoggedIn() && $this->user->getActorId() != $message['actor'] ) {
 					if ( !$message['voted'] ) {
 						$vote_link = "<a class=\"vote-status-link\" href=\"javascript:void(0);\" data-message-id=\"{$message['id']}\">[" .
 							wfMessage( 'userstatus-agree' )->text() . ']</a>';

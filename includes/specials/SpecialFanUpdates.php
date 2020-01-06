@@ -71,7 +71,7 @@ class ViewFanUpdates extends UnlistedSpecialPage {
 		 */
 		$per_page = $messages_show;
 
-		$s = new UserStatus();
+		$s = new UserStatus( $user );
 		$total = $s->getNetworkUpdatesCount( $sport_id, $team_id );
 		$messages = $s->getStatusMessages(
 			0,

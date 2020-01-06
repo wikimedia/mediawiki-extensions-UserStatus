@@ -39,7 +39,7 @@ class ViewThought extends UnlistedSpecialPage {
 		 */
 		$per_page = $messages_show;
 
-		$s = new UserStatus();
+		$s = new UserStatus( $this->getUser() );
 		$message = $s->getStatusMessage( $us_id );
 
 		// Before doing any further processing, check if we got an empty array.

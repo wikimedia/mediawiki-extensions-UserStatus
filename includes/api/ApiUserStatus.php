@@ -14,11 +14,11 @@ class ApiUserStatus extends ApiBase {
 	private $userStatus;
 
 	public function execute() {
+		$user = $this->getUser();
+
 		// Set the private variable which is used all over the place in the
 		// *Status() functions
-		$this->userStatus = new UserStatus();
-
-		$user = $this->getUser();
+		$this->userStatus = new UserStatus( $user );
 
 		// Don't do anything if the user is blocked or the DB is read-only
 		if ( $user->isBlocked() || wfReadOnly() ) {
