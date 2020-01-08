@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"ديفيد"
+			"ديفيد",
+			"Sonic N800"
 		]
 	},
 	"userstatus-desc": "تحديثات الحالة الاجتماعية في ملفات المستخدمين الشخصية وفي صفحات الشبكة",
@@ -13,7 +14,7 @@
 	"userstatus-btn-add": "إضافة",
 	"userstatus-view-all-updates": "عرض جميع تحديثات $1",
 	"userstatus-delete": "حذف",
-	"userstatus-ago": "منذ $1",
+	"userstatus-ago": "قبل $1",
 	"userstatus-time-days": "{{PLURAL:$1||يوم واحد|$1 أيام}}",
 	"userstatus-time-hours": "{{PLURAL:$1|ساعة واحدة|$1 ساعات}}",
 	"userstatus-time-minutes": "{{PLURAL:$1|دقيقة واحدة|$1 دقائق}}",
