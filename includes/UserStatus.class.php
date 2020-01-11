@@ -275,14 +275,11 @@ class UserStatus {
 	 */
 	public function getStatusMessages( $actor_id = 0, $sport_id = 0, $team_id = 0, $limit = 10, $page = 0 ) {
 		$dbr = wfGetDB( DB_MASTER );
-		$user_sql = $sport_sql = '';
+		$user_sql = $sport_sql = $where = '';
 
-		if ( $limit > 0 ) {
-			$offset = 0;
-			if ( $page ) {
-				$offset = $page * $limit - ( $limit );
-			}
-			$limit_sql = " LIMIT {$offset},{$limit} ";
+		$offset = 0;
+		if ( $limit > 0 && $page ) {
+			$offset = $page * $limit - ( $limit );
 		}
 
 		if ( $actor_id > 0 ) {
@@ -301,6 +298,9 @@ class UserStatus {
 		if ( $user_sql && $sport_sql ) {
 			$user_sql .= ' AND ';
 		}
+		if ( $user_sql || $sport_sql ) {
+			$where = "WHERE {$user_sql} {$sport_sql}";
+		}
 
 		$sql = "SELECT us_id, us_actor, us_text,
 			us_sport_id, us_team_id, us_vote_plus, us_vote_minus,
@@ -309,11 +309,10 @@ class UserStatus {
 				WHERE sv_us_id = us_id
 				AND sv_actor = " . $this->user->getActorId() . ") AS AlreadyVoted
 			FROM {$dbr->tableName( 'user_status' )}
-			WHERE {$user_sql} {$sport_sql}
-			ORDER BY us_id DESC
-			{$limit_sql}";
+			{$where}
+			ORDER BY us_id DESC";
 
-		$res = $dbr->query( $sql, __METHOD__ );
+		$res = $dbr->query( $dbr->limitResult( $sql, $limit, $offset ), __METHOD__ );
 
 		$messages = [];
 
