@@ -1,5 +1,5 @@
 DROP SEQUENCE IF EXISTS user_status_us_id_seq CASCADE;
-CREATE SEQUENCE user_status_us_id_seq MINVALUE 0 START WITH 0;
+CREATE SEQUENCE user_status_us_id_seq;
 
 CREATE TABLE user_status (
 	us_id INTEGER NOT NULL PRIMARY KEY DEFAULT nextval('user_status_us_id_seq'),

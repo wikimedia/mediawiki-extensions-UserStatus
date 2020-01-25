@@ -307,7 +307,7 @@ class UserStatus {
 			us_date,
 			(SELECT COUNT(*) FROM {$dbr->tableName( 'user_status_vote' )}
 				WHERE sv_us_id = us_id
-				AND sv_actor = " . $this->user->getActorId() . ") AS AlreadyVoted
+				AND sv_actor = " . $this->user->getActorId() . ") AS alreadyvoted
 			FROM {$dbr->tableName( 'user_status' )}
 			{$where}
 			ORDER BY us_id DESC";
@@ -326,7 +326,7 @@ class UserStatus {
 				'plus_count' => $row->us_vote_plus,
 				'minus_count' => $row->us_vote_minus,
 				'text' => $this->formatMessage( $row->us_text ),
-				'voted' => $row->AlreadyVoted
+				'voted' => $row->alreadyvoted
 			];
 		}
 
