@@ -181,7 +181,7 @@ class ViewUserStatus extends UnlistedSpecialPage {
 				$avatar = new wAvatar( $user->getId(), 'm' );
 
 				$networkURL = htmlspecialchars(
-					$fh->getFullURL( [
+					$fanHome->getFullURL( [
 						'sport_id' => $message['sport_id'],
 						'team_id' => $message['team_id']
 					] ),
@@ -189,7 +189,7 @@ class ViewUserStatus extends UnlistedSpecialPage {
 				);
 
 				$network_link = $linkRenderer->makeLink(
-					$fh,
+					$fanHome,
 					$this->msg(
 						'userstatus-all-team-updates',
 						SportsTeams::getNetworkName( $message['sport_id'], $message['team_id'] )
