@@ -11,3 +11,5 @@ CREATE TABLE user_status (
 	us_vote_plus INTEGER NOT NULL default 0,
 	us_vote_minus INTEGER NOT NULL default 0
 );
+
+ALTER SEQUENCE user_status_us_id_seq OWNED BY user_status.us_id;

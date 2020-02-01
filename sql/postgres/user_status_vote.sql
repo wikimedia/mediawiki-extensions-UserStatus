@@ -8,3 +8,5 @@ CREATE TABLE user_status_vote (
 	sv_vote_score SMALLINT NOT NULL default 0,
 	sv_date TIMESTAMPTZ default null
 );
+
+ALTER SEQUENCE user_status_vote_sv_id_seq OWNED BY user_status_vote.sv_id;
