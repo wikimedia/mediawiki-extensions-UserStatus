@@ -43,8 +43,6 @@ class UserStatus {
 		$stats = new UserStatsTrack( $this->user->getId(), $this->user->getName() );
 		$stats->incStatField( 'user_status_count' );
 
-		$this->updateUserCache( $text, $sport_id, $team_id );
-
 		return $us_id;
 	}
 
@@ -103,27 +101,6 @@ class UserStatus {
 			[ 'us_id' => $us_id ],
 			__METHOD__
 		);
-	}
-
-	public function updateUserCache( $text, $sport_id, $team_id = 0 ) {
-		global $wgMemc;
-
-		$key = $wgMemc->makeKey( 'user', 'status-last-update', $this->user->getId() );
-
-		$data['text'] = $this->formatMessage( $text );
-		$data['sport_id'] = $sport_id;
-		$data['team_id'] = $team_id;
-		$data['timestamp'] = time();
-
-		if ( $team_id ) {
-			$team = SportsTeams::getTeam( $team_id );
-			$data['network'] = $team['name'];
-		} else {
-			$sport = SportsTeams::getSport( $sport_id );
-			$data['network'] = $sport['name'];
-		}
-
-		$wgMemc->set( $key, $data );
 	}
 
 	/**
