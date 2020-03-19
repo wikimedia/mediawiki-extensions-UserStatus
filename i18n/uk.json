@@ -38,7 +38,7 @@
 	"userstatus-just-added": "щойно додано",
 	"userstatus-confirm-delete": "Ви впевнені, що хочете вилучити це міркування?",
 	"action-delete-status-updates": "видалення статусних оновлень користувачів",
-	"right-delete-status-updates": "Вилучити оновлення статусу користувача",
+	"right-delete-status-updates": "Вилучення оновлень статусу користувачів",
 	"apihelp-userstatus-description": "API для роботи з повідомленнями про соціальний статус",
 	"apihelp-userstatus-summary": "API для роботи з повідомленнями про соціальний статус",
 	"apihelp-userstatus-param-what": "Що зробити? Дієслово + об'єкт, тобто addnetworkstatus — щоб додати статус до сторінки мережі, deletestatus — щоб вилучити повідомлення про статус тощо.",
