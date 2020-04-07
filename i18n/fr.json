@@ -1,11 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Wladek92",
 			"Gomoko",
-			"Urhixidur",
 			"Thibaut120094",
-			"Verdy p"
+			"Urhixidur",
+			"Verdy p",
+			"Wladek92"
 		]
 	},
 	"userstatus-desc": "Mises à jour des états sociaux sur les profils utilisateur et sur les pages réseau",
