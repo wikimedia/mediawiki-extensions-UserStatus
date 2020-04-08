@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"FarsiNevis"
+		]
+	},
+	"userstatus-view-all-updates": "مشاهدهٔ همهٔ $1 روزآمدسازی",
+	"userstatus-no-updates": "هیچ روزآمدسازی‌ای وجود ندارد",
+	"userstatus-all-team-updates": "همهٔ $1 روزآمدسازی"
+}
