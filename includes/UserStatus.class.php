@@ -34,7 +34,7 @@ class UserStatus {
 				'us_sport_id' => $sport_id,
 				'us_team_id' => $team_id,
 				'us_text' => $text,
-				'us_date' => date( 'Y-m-d H:i:s' ),
+				'us_date' => $dbw->timestamp( date( 'Y-m-d H:i:s' ) ),
 			],
 			__METHOD__
 		);
@@ -70,7 +70,7 @@ class UserStatus {
 					'sv_actor' => $this->user->getActorId(),
 					'sv_us_id' => $us_id,
 					'sv_vote_score' => $vote,
-					'sv_date' => date( 'Y-m-d H:i:s' ),
+					'sv_date' => $dbw->timestamp( date( 'Y-m-d H:i:s' ) ),
 				],
 				__METHOD__
 			);
