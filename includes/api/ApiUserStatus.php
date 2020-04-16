@@ -20,8 +20,8 @@ class ApiUserStatus extends ApiBase {
 		// *Status() functions
 		$this->userStatus = new UserStatus( $user );
 
-		// Don't do anything if the user is blocked or the DB is read-only
-		if ( $user->isBlocked() || wfReadOnly() ) {
+		// Don't do anything if the user is blocked
+		if ( $user->isBlocked() ) {
 			return '';
 		}
 
