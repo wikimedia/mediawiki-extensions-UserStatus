@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Evs",
+			"Okras",
 			"Wirbel78"
 		]
 	},
@@ -37,6 +38,7 @@
 	"userstatus-no-new-thoughts": "Нет новых мыслей. Добавить одну!",
 	"userstatus-just-added": "только что добавлено",
 	"userstatus-confirm-delete": "Вы уверены, что хотите удалить эту мысль?",
+	"action-delete-status-updates": "удаление обновлений статусов участников",
 	"right-delete-status-updates": "Удаление обновлений статуса пользователя",
 	"apihelp-userstatus-description": "API для обработки сообщений социального статуса",
 	"apihelp-userstatus-summary": "API для обработки сообщений социального статуса",
@@ -46,5 +48,5 @@
 	"apihelp-userstatus-param-text": "Текст обновления статуса",
 	"apihelp-userstatus-param-count": "Количества обновлений статуса для отображения в ленте",
 	"apihelp-userstatus-param-us_id": "ID сообщения статуса",
-	"apihelp-userstatus-param-vote": "1 для голосования за, -1 для голосования против"
+	"apihelp-userstatus-param-vote": "1 — для голосования «за», -1 — для голосования «против»"
 }
