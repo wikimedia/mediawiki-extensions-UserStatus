@@ -40,7 +40,7 @@
 	"right-delete-status-updates": "Бришење на статусни поднови на корисници",
 	"apihelp-userstatus-description": "Извршник за работа со друштвени статусни пораки",
 	"apihelp-userstatus-summary": "Извршник за работа со друштвени статусни пораки",
-	"apihelp-userstatus-param-what": "Што да правите? Глагол + подмет, т.е. addnetworkstatus за да додадете статус во мрежна страница, deletestatus за да избришете статусна порака и тн.",
+	"apihelp-userstatus-param-what": "Што да правите? Глагол + подмет, т.е. addnetworkstatus за да додадете статус во мрежна страница, deletestatus за да избришете статусна порака итн.",
 	"apihelp-userstatus-param-sportId": "Назнака на спортот",
 	"apihelp-userstatus-param-teamId": "Назнака на екипата",
 	"apihelp-userstatus-param-text": "Текст на подновата",
