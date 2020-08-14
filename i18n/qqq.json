@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Liuxinyu970226",
-			"Robby"
+			"Robby",
+			"Umherirrender"
 		]
 	},
 	"userstatus-desc": "{{desc|name=UserStatus|url=https://www.mediawiki.org/wiki/Extension:UserStatus}}",
@@ -28,7 +29,7 @@
 	"userstatus-back-your-profile": "A link text",
 	"userstatus-back-user-profile": "A link text",
 	"userstatus-all-team-updates": "A link text",
-	"userstatus-delete-thought-text": "A link text",
+	"userstatus-delete-thought-text": "{{notranslate}}\nA link text",
 	"userstatus-num-agree": "Make count readable",
 	"userstatus-agree": "A link text\n{{Identical|Agree}}",
 	"userstatus-see-who-agrees": "A link text",
