@@ -13,7 +13,7 @@ var UserStatus = {
 	/**
 	 * Adds a status update to a network page and then reloads the page.
 	 */
-	addStatus: function() {
+	addStatus: function () {
 		var statusUpdateText = document.getElementById( 'user_status_text' ).value;
 		if ( statusUpdateText && !UserStatus.posted ) {
 			UserStatus.posted = 1;
@@ -26,7 +26,7 @@ var UserStatus = {
 				text: encodeURIComponent( statusUpdateText ),
 				count: __updates_show__,
 				format: 'json'
-			} ).done( function() {
+			} ).done( function () {
 				UserStatus.posted = 0;
 				window.location = __redirect_url__;
 			} );
@@ -37,17 +37,17 @@ var UserStatus = {
 	 * Votes for a status update with the given ID.
 	 * 'Vote' in this context is similar to 'like'.
 	 *
-	 * @param {id} number ID of the status message to vote for
-	 * @param {id} vote
+	 * @param {number} id ID of the status message to vote for
+	 * @param {number} vote
 	 */
-	voteStatus: function( id, vote ) {
+	voteStatus: function ( id, vote ) {
 		( new mw.Api() ).postWithToken( 'csrf', {
 			action: 'userstatus',
 			what: 'votestatus',
 			us_id: id,
 			vote: vote,
 			format: 'json'
-		} ).done( function( data ) {
+		} ).done( function ( data ) {
 			$( '#user-status-vote-' + id ).text( data.userstatus.result );
 		} );
 	},
@@ -57,37 +57,37 @@ var UserStatus = {
 	 * status message with the supplied ID and then hides the relevant DOM node
 	 * on the page.
 	 *
-	 * @param {id} number Status message ID
+	 * @param {number} id Status message ID
 	 */
-	deleteMessage: function( id ) {
+	deleteMessage: function ( id ) {
 		if ( confirm( mw.msg( 'userstatus-confirm-delete' ) ) ) {
 			( new mw.Api() ).postWithToken( 'csrf', {
 				action: 'userstatus',
 				what: 'deletestatus',
 				us_id: id,
 				format: 'json'
-			} ).done( function() {
+			} ).done( function () {
 				$( 'span#user-status-vote-' + id ).parent().parent()
 					.parent().hide( 1000 );
-				//window.location = mw.config.get( 'wgArticlePath' ).replace( '$1', 'Special:UserStatus' );
+				// window.location = mw.config.get( 'wgArticlePath' ).replace( '$1', 'Special:UserStatus' );
 			} );
 		}
 	}
 };
 
-$( function() {
+$( function () {
 	// Both Special:FanUpdates and Special:UserStatus have "delete" links, so...
 	// UserStatus::displayStatusMessages() (UserStatusClass.php) also depends
 	// on this
-	$( 'span.user-status-delete-link a' ).each( function( index ) {
-		$( this ).on( 'click', function() {
+	$( 'span.user-status-delete-link a' ).each( function ( index ) {
+		$( this ).on( 'click', function () {
 			UserStatus.deleteMessage( $( this ).data( 'message-id' ) );
 		} );
 	} );
 
 	// Code specific to Special:FanUpdates
 	if ( mw.config.get( 'wgCanonicalSpecialPageName' ) == 'FanUpdates' ) {
-		$( 'div.user-status-form input[type="button"]' ).on( 'click', function() {
+		$( 'div.user-status-form input[type="button"]' ).on( 'click', function () {
 			UserStatus.addStatus();
 		} );
 	}
@@ -95,8 +95,8 @@ $( function() {
 	// Code specific to Special:UserStatus
 	if ( mw.config.get( 'wgCanonicalSpecialPageName' ) == 'UserStatus' ) {
 		// Voting links
-		$( 'a.vote-status-link' ).each( function( index ) {
-			$( this ).on( 'click', function() {
+		$( 'a.vote-status-link' ).each( function ( index ) {
+			$( this ).on( 'click', function () {
 				UserStatus.voteStatus( $( this ).data( 'message-id' ), 1 );
 			} );
 		} );
