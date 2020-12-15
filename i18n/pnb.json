@@ -4,5 +4,6 @@
 			"Abbas dhothar"
 		]
 	},
-	"userstatus-time-days": "{{PLURAL:$1|اک دن|$1 دناں}}"
+	"userstatus-time-days": "{{PLURAL:$1|اک دن|$1 دناں}}",
+	"userstatus-time-seconds": "$1 {{PLURAL:$1|سکنٹ|سکنٹاں}}"
 }
