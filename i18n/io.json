@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"Joao Xavier"
+		]
+	},
+	"userstatus-ago": "$1 ante nun",
+	"userstatus-time-hours": "{{PLURAL:$1|un horo|$1 hori}}",
+	"userstatus-time-minutes": "{{PLURAL:$1|un minuto|$1 minuti}}",
+	"userstatus-time-seconds": "{{PLURAL:$1|un sekundo|$1 sekundi}}"
+}
