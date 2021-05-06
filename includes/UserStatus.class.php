@@ -56,7 +56,7 @@ class UserStatus {
 	 */
 	public function addStatusVote( $us_id, $vote ) {
 		// Only registered users may vote...
-		if ( $this->user->isLoggedIn() ) {
+		if ( $this->user->isRegistered() ) {
 			// ...and only if they haven't already voted
 			if ( $this->alreadyVotedStatusMessage( $this->user->getActorId(), $us_id ) ) {
 				return;
@@ -361,7 +361,7 @@ class UserStatus {
 				}
 
 				$vote_link = '';
-				if ( $this->user->isLoggedIn() && $this->user->getActorId() != $message['actor'] ) {
+				if ( $this->user->isRegistered() && $this->user->getActorId() != $message['actor'] ) {
 					if ( !$message['voted'] ) {
 						$vote_link = "<a class=\"vote-status-link\" href=\"javascript:void(0);\" data-message-id=\"{$message['id']}\">[" .
 							wfMessage( 'userstatus-agree' )->text() . ']</a>';

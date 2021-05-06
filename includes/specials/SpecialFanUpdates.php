@@ -52,7 +52,7 @@ class ViewFanUpdates extends UnlistedSpecialPage {
 				"\" onclick=\"window.location='" .
 				htmlspecialchars( Title::newMainPage()->getFullURL() ) . "'\"/>";
 			/* removed because I was too lazy to port the error message over :P
-			if ( $user->isLoggedIn() ) {
+			if ( $user->isRegistered() ) {
 				$output .= ' <input type="button" class="site-button" value="' .
 					$this->msg( 'st_network_your_profile' )->text() .
 					"\" onclick=\"window.location='" .
@@ -157,7 +157,7 @@ class ViewFanUpdates extends UnlistedSpecialPage {
 
 		// Registered users who are not blocked can add status updates when the
 		// database is not locked
-		if ( $user->isLoggedIn() && !$user->isBlocked() && !wfReadOnly() ) {
+		if ( $user->isRegistered() && !$user->isBlocked() && !wfReadOnly() ) {
 			$output .= "<script>
 				var __sport_id__ = {$sport_id};
 				var __team_id__ = {$team_id};
