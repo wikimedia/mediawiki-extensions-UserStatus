@@ -225,7 +225,7 @@ class ViewUserStatus extends UnlistedSpecialPage {
 				$vote_link = '';
 				// Only registered users who aren't the author of the particular
 				// thought can vote for it
-				if ( $currentUser->isLoggedIn() && $currentUser->getActorId() != $message['actor'] ) {
+				if ( $currentUser->isRegistered() && $currentUser->getActorId() != $message['actor'] ) {
 					if ( !$message['voted'] ) {
 						$vote_link = "<a class=\"vote-status-link\" href=\"javascript:void(0);\" data-message-id=\"{$message['id']}\">[" .
 							$this->msg( 'userstatus-agree' )->text() . ']</a>';
