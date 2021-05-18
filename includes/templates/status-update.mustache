@@ -1,0 +1,38 @@
+<div class="{{containerClass}}">
+	<div class="user-status-logo">
+		{{ !This is for UserStatus.class.php }}
+		{{#showUserAvatar}}
+		<a href="{{userPageURL}}">{{{avatarElement}}}</a>
+		{{/showUserAvatar}}
+		{{^showUserAvatar}}
+		{{ !This is for the non-UserStatus.class.php callers of this template file }}
+		<a href="{{networkURL}}">
+			{{{networkLogo}}}
+		</a>
+		{{/showUserAvatar}}
+	</div>
+
+	<div class="user-status-message">
+		{{#showUserAvatar}}
+		<a href="{{userPageURL}}"><b>{{userName}}</b></a> {{{messageText}}}
+		{{/showUserAvatar}}
+		{{^showUserAvatar}}
+		{{{messageText}}}
+		{{/showUserAvatar}}
+
+		<div class="user-status-date">
+			{{{postedAgo}}}
+			{{#showActionLinks}}
+			<span class="user-status-vote" id="user-status-vote-{{messageId}}">
+				{{{voteLink}}}
+			</span>
+			{{{viewThoughtLink}}}
+			<span class="user-status-links">
+				{{{deleteLink}}}
+			</span>
+			{{/showActionLinks}}
+		</div>
+	</div>
+
+	<div class="visualClear"></div>
+</div>

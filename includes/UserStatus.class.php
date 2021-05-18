@@ -52,7 +52,7 @@ class UserStatus {
 	 *
 	 * @param int $us_id Status update ID number
 	 * @param int $vote -1 or 1
-	 * @return int Vote ID
+	 * @return void|int Vote ID on success, void if they already voted
 	 */
 	public function addStatusVote( $us_id, $vote ) {
 		// Only registered users may vote...
@@ -192,6 +192,7 @@ class UserStatus {
 	static function formatMessage( $message ) {
 		global $wgOut;
 		$messageText = $wgOut->parseAsContent( trim( $message ), false );
+		$messageText = str_replace( [ '<p>', '</p>' ], '', $messageText );
 		return $messageText;
 	}
 
@@ -245,7 +246,7 @@ class UserStatus {
 	 * @param int $actor_id User actor ID whose status updates we want to display
 	 * @param int $sport_id Sport ID for which we want to display updates
 	 * @param int $team_id Sports team ID
-	 * @param int $count Display this many messages
+	 * @param int $limit Display this many messages
 	 * @param int $page Page we're on; used for pagination
 	 * @return array Array containing information such as the timestamp,
 	 *                status update ID number and more about each update
@@ -336,6 +337,9 @@ class UserStatus {
 		$thought_link = SpecialPage::getTitleFor( 'ViewThought' );
 
 		if ( $messages ) {
+			$statusPage = SpecialPage::getTitleFor( 'UserStatus' );
+			$templateParser = new TemplateParser( __DIR__ . '/templates' );
+
 			foreach ( $messages as $message ) {
 				$user = User::newFromActorId( $message['actor'] );
 				$userName = $user->getName();
@@ -354,8 +358,15 @@ class UserStatus {
 					$this->user->isAllowed( 'delete-status-updates' )
 				)
 				{
+					$deleteURL = htmlspecialchars(
+						$statusPage->getFullURL( [
+							'action' => 'delete',
+							'us_id' => $message['id']
+						] ),
+						ENT_QUOTES
+					);
 					$delete_link = "<span class=\"user-status-delete-link\">
-						<a href=\"javascript:void(0);\" data-message-id=\"{$message['id']}\">" .
+						<a href=\"{$deleteURL}\" data-message-id=\"{$message['id']}\">" .
 						wfMessage( 'userstatus-delete-thought-text' )->text() . '</a>
 					</span>';
 				}
@@ -363,7 +374,14 @@ class UserStatus {
 				$vote_link = '';
 				if ( $this->user->isRegistered() && $this->user->getActorId() != $message['actor'] ) {
 					if ( !$message['voted'] ) {
-						$vote_link = "<a class=\"vote-status-link\" href=\"javascript:void(0);\" data-message-id=\"{$message['id']}\">[" .
+						$voteURL = htmlspecialchars(
+							$statusPage->getFullURL( [
+								'action' => 'vote',
+								'us_id' => $message['id']
+							] ),
+							ENT_QUOTES
+						);
+						$vote_link = "<a class=\"vote-status-link\" href=\"{$voteURL}\" data-message-id=\"{$message['id']}\">[" .
 							wfMessage( 'userstatus-agree' )->text() . ']</a>';
 					} else {
 						$vote_link = $vote_count;
@@ -379,41 +397,32 @@ class UserStatus {
 					$message['text']
 				);
 
+				$containerClass = '';
 				if ( $x == 1 ) {
-					$output .= '<div class="user-status-row-top">';
+					$containerClass = 'user-status-row-top';
 				} elseif ( $x < $messages_count ) {
-					$output .= '<div class="user-status-row">';
+					$containerClass = 'user-status-row';
 				} else {
-					$output .= '<div class="user-status-row-bottom">';
+					$containerClass = 'user-status-row-bottom';
 				}
 
-				$safeUserName = htmlspecialchars( $userName, ENT_QUOTES );
-				$output .= "
-
-				<div class=\"user-status-logo\">
-					<a href=\"{$user->getUserPage()->getFullURL()}\">{$avatar->getAvatarURL()}</a>
-				</div>
-
-				<div class=\"user-status-message\">
-
-					<a href=\"{$user->getUserPage()->getFullURL()}\"><b>{$safeUserName}</b></a> {$message_text}
-
-					<div class=\"user-status-date\">" .
-						wfMessage( 'userstatus-ago', self::getTimeAgo( $message['timestamp'] ) )->text() .
-						"<span class=\"user-status-vote\" id=\"user-status-vote-{$message['id']}\">
-							{$vote_link}
-						</span>
-						{$view_thought_link}
-						<span class=\"user-status-links\">
-							{$delete_link}
-						</span>
-					</div>
-
-				</div>
-
-				<div class=\"visualClear\"></div>
-
-				</div>";
+				$output .= $templateParser->processTemplate(
+					'status-update',
+					[
+						'containerClass' => $containerClass,
+						'userPageURL' => $user->getUserPage()->getFullURL(),
+						'showUserAvatar' => true,
+						'avatarElement' => $avatar->getAvatarURL(),
+						'userName' => $userName,
+						'messageId' => $message['id'],
+						'messageText' => $message_text,
+						'postedAgo' => wfMessage( 'userstatus-ago', self::getTimeAgo( $message['timestamp'] ) )->text(),
+						'showActionLinks' => true,
+						'voteLink' => $vote_link,
+						'viewThoughtLink' => $view_thought_link,
+						'deleteLink' => $delete_link
+					]
+				);
 
 				$x++;
 			}
@@ -441,6 +450,7 @@ class UserStatus {
 		);
 
 		if ( $s !== false ) {
+			$votes = [];
 			$votes['plus'] = $s->us_vote_plus;
 			$votes['minus'] = $s->us_vote_minus;
 			return $votes;
@@ -527,6 +537,7 @@ class UserStatus {
 
 		$totalDays = intval( $dtDiff / ( 24 * 60 * 60 ) );
 		$totalSecs = $dtDiff - ( $totalDays * 24 * 60 * 60 );
+		$dif = [];
 		$dif['w'] = intval( $totalDays / 7 );
 		$dif['d'] = $totalDays;
 		$dif['h'] = $h = intval( $totalSecs / ( 60 * 60 ) );

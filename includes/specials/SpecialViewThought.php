@@ -30,7 +30,8 @@ class ViewThought extends UnlistedSpecialPage {
 
 		// No ID? Show an error message then.
 		if ( !$us_id || !is_numeric( $us_id ) ) {
-			$out->addHTML( $this->msg( 'userstatus-invalid-link' )->text() );
+			$out->setPageTitle( $this->msg( 'userstatus-woops' )->escaped() );
+			$out->addHTML( $this->msg( 'userstatus-invalid-link' )->escaped() );
 			return false;
 		}
 
@@ -46,13 +47,13 @@ class ViewThought extends UnlistedSpecialPage {
 		// It occurs when someone is trying to access this special page with
 		// the ID of a deleted status update.
 		if ( empty( $message ) ) {
-			$out->setPageTitle( $this->msg( 'userstatus-woops' )->plain() );
+			$out->setPageTitle( $this->msg( 'userstatus-woops' )->escaped() );
 
 			$output = '<div class="relationship-request-message">' .
-				$this->msg( 'userstatus-invalid-link' )->plain() . '</div>';
+				$this->msg( 'userstatus-invalid-link' )->escaped() . '</div>';
 			$output .= '<div class="relationship-request-buttons">';
 			$output .= '<input type="button" class="site-button" value="' .
-				$this->msg( 'mainpage' )->text() .
+				$this->msg( 'mainpage' )->escaped() .
 				"\" onclick=\"window.location='" .
 				htmlspecialchars( Title::newMainPage()->getFullURL() ) . "'\"/>";
 			$output .= '</div>';
@@ -75,40 +76,36 @@ class ViewThought extends UnlistedSpecialPage {
 		// Add CSS
 		$out->addModules( 'ext.userStatus.viewThought' );
 
+		$templateParser = new TemplateParser( __DIR__ . '/../templates' );
+
+		// Start building the HTML
 		$output .= "<div class=\"view-thought-links\">
 			<a href=\"{$user->getUserPage()->getFullURL()}\">" .
-				$this->msg( 'userstatus-user-profile', $user_name )->text() .
+				$this->msg( 'userstatus-user-profile', $user_name )->escaped() .
 			'</a>
 		</div>';
+
 		$output .= '<div class="user-status-container">';
-		$output .= '<div class="user-status-row">
-
-				<div class="user-status-logo">
-					<a href="' . htmlspecialchars(
-						SpecialPage::getTitleFor( 'FanHome' )->getFullURL( [
-							'sport_id' => $message['sport_id'],
-							'team_id' => $message['team_id']
-						] ),
-						ENT_QUOTES
-					) . '">' .
-						SportsTeams::getLogo( $message['sport_id'], $message['team_id'], 'm' ) .
-					"</a>
-				</div>
-
-				<div class=\"user-status-message\">
-					{$message['text']}
-
-					<div class=\"user-status-date\">" .
-						$this->msg( 'userstatus-ago', UserStatus::getTimeAgo( $message['timestamp'] ) )->text() .
-					'</div>
-				</div>
-
-				<div class="visualClear"></div>
-		</div>
-		</div>';
+		$output .= $templateParser->processTemplate(
+			'status-update',
+			[
+				'containerClass' => 'user-status-row',
+				'showUserAvatar' => false,
+				'networkURL' => SpecialPage::getTitleFor( 'FanHome' )->getFullURL( [
+					'sport_id' => $message['sport_id'],
+					'team_id' => $message['team_id']
+				] ),
+				'networkLogo' => SportsTeams::getLogo( $message['sport_id'], $message['team_id'], 'm' ),
+				'messageText' => $message['text'],
+				'messageId' => $message['id'],
+				'postedAgo' => $this->msg( 'userstatus-ago', UserStatus::getTimeAgo( $message['timestamp'] ) )->text(),
+				'showActionLinks' => false
+			]
+		);
+		$output .= '</div>';
 
 		$output .= '<div class="who-agrees">';
-		$output .= '<h1>' . $this->msg( 'userstatus-who-agrees' )->text() . '</h1>';
+		$output .= '<h1>' . $this->msg( 'userstatus-who-agrees' )->escaped() . '</h1>';
 		$voters = $s->getStatusVoters( $us_id );
 		// Get the people who agree with this status update, if any
 		if ( $voters ) {
@@ -123,7 +120,7 @@ class ViewThought extends UnlistedSpecialPage {
 				</div>";
 			}
 		} else {
-			$output .= '<p>' . $this->msg( 'userstatus-nobody-agrees' )->text() . '</p>';
+			$output .= '<p>' . $this->msg( 'userstatus-nobody-agrees' )->escaped() . '</p>';
 		}
 
 		$output .= '</div>';

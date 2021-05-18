@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
+
 class ViewUserStatus extends UnlistedSpecialPage {
 
 	/**
@@ -7,6 +9,17 @@ class ViewUserStatus extends UnlistedSpecialPage {
 	 */
 	public function __construct() {
 		parent::__construct( 'UserStatus' );
+	}
+
+	/**
+	 * Indicate that we do perform write operations, or at least we have the technical
+	 * capability to do that (though this page is primarily used for write actions
+	 * only by users who have JavaScript disabled).
+	 *
+	 * @return bool
+	 */
+	public function doesWrites() {
+		return true;
 	}
 
 	/**
@@ -51,8 +64,88 @@ class ViewUserStatus extends UnlistedSpecialPage {
 		 */
 		if ( $user_id == 0 ) {
 			$out->setPageTitle( $this->msg( 'userstatus-woops' )->text() );
-			$out->addHTML( $this->msg( 'userstatus-no-user' )->text() );
+			$out->addHTML( $this->msg( 'userstatus-no-user' )->escaped() );
 			return false;
+		}
+
+		$s = new UserStatus( $currentUser );
+
+		// Add CSS (needed by the no-JS render*Form() stuff below)
+		$out->addModuleStyles( 'ext.userStatus.styles' );
+
+		/**
+		 * Handle support for no-JS users
+		 */
+		$wasPosted = $request->wasPosted();
+		$action = $request->getVal( 'action' );
+		$isDelete = ( $action === 'delete' );
+		$us_id = $request->getInt( 'us_id' );
+
+		$isVote = ( $action === 'vote' );
+		$vote = $request->getInt( 'vote' );
+
+		$isAdd = ( $action === 'add' );
+		// @todo FIXME: add action=add to simulate "add thought" from user profile,
+		// then change the profile hooks to point to this page w/ ?action=add
+		/*
+		if ( $isAdd && !$wasPosted ) {
+			$out->setPageTitle( $this->msg( 'userstatus-add-page-title' ) );
+			$output .= $this->renderAddForm();
+			$out->addHTML( $output );
+			return;
+		}
+		*/
+
+		if ( $isDelete && !$wasPosted && $us_id ) {
+			$out->setPageTitle( $this->msg( 'userstatus-delete-page-title' ) );
+			$output .= $this->renderConfirmDeleteForm( $us_id );
+			$out->addHTML( $output );
+			return;
+		}
+
+		if ( $isVote && !$wasPosted && $us_id && $vote ) {
+			$out->setPageTitle( $this->msg( 'userstatus-vote-page-title' ) );
+			$output .= $this->renderConfirmVoteForm( $us_id, $vote );
+			$out->addHTML( $output );
+			return;
+		}
+
+		if ( $wasPosted && !MediaWikiServices::getInstance()->getReadOnlyMode()->isReadOnly() ) {
+			// @todo FIXME: add handling for action=add here
+			/*
+			if ( $isAdd ) {
+				( new UserStatus() )->addStatus(
+					$request->getInt( 'sport_id' ),
+					$request->getInt( 'team_id' ),
+					urldecode( $request->getText( 'user_status_text' ) )
+				);
+			} else
+			*/
+			// Deletions
+			if ( $isDelete ) {
+				if (
+					(
+						$s->doesUserOwnStatusMessage( $currentUser->getActorId(), $us_id ) ||
+						$currentUser->isAllowed( 'delete-status-updates' )
+					) &&
+					$currentUser->matchEditToken( $request->getVal( 'wpDeleteToken' ) )
+				) {
+					$s->deleteStatus( $us_id );
+					$output .= Html::successBox( $this->msg( 'userstatus-delete-success' )->escaped() );
+				} else {
+					// CSRF attempt or something...display an informational message in that case
+					$output .= Html::errorBox( $this->msg( 'sessionfailure' )->escaped() );
+				}
+			} elseif ( $isVote ) {
+				// Voting for a thought (=agreeing with it)
+				if ( $currentUser->matchEditToken( $request->getVal( 'wpEditToken' ) ) ) {
+					$s->addStatusVote( $us_id, $vote );
+					$output .= Html::successBox( $this->msg( 'userstatus-vote-success' )->escaped() );
+				} else {
+					// CSRF attempt or something...display an informational message in that case
+					$output .= Html::errorBox( $this->msg( 'sessionfailure' )->escaped() );
+				}
+			}
 		}
 
 		/**
@@ -64,7 +157,6 @@ class ViewUserStatus extends UnlistedSpecialPage {
 		$stats_data = $stats->getUserStats();
 		$total = $stats_data['user_status_count'];
 
-		$s = new UserStatus( $currentUser );
 		$messages = $s->getStatusMessages( $actor_id, 0, 0, $messages_show, $page );
 
 		// Set a different page title depending on whose thoughts (yours or
@@ -118,13 +210,13 @@ class ViewUserStatus extends UnlistedSpecialPage {
 			if ( $page > 1 ) {
 				$output .= $linkRenderer->makeLink(
 					$thisTitle,
-					$this->msg( 'userstatus-prev' )->plain(),
+					$this->msg( 'userstatus-prev' )->text(),
 					[],
 					[
 						'user' => $user_name,
 						'page' => ( $page - 1 )
 					]
-				) . $this->msg( 'word-separator' )->plain();
+				) . $this->msg( 'word-separator' )->escaped();
 			}
 
 			if ( ( $total % $per_page ) != 0 ) {
@@ -143,21 +235,21 @@ class ViewUserStatus extends UnlistedSpecialPage {
 				} else {
 					$output .= $linkRenderer->makeLink(
 						$thisTitle,
-						$i,
+						(string)$i,
 						[],
 						[
 							'user' => $user_name,
 							'page' => $i
 						]
-					) . $this->msg( 'word-separator' )->plain();
+					) . $this->msg( 'word-separator' )->escaped();
 				}
 			}
 
 			if ( ( $total - ( $per_page * $page ) ) > 0 ) {
-				$output .= $this->msg( 'word-separator' )->plain() .
+				$output .= $this->msg( 'word-separator' )->escaped() .
 					$linkRenderer->makeLink(
 						$thisTitle,
-						$this->msg( 'userstatus-next' )->plain(),
+						$this->msg( 'userstatus-next' )->text(),
 						[],
 						[
 							'user' => $user_name,
@@ -168,14 +260,16 @@ class ViewUserStatus extends UnlistedSpecialPage {
 			$output .= '</div><p>';
 		}
 
-		// Add CSS & JS
-		$out->addModuleStyles( 'ext.userStatus.styles' );
+		// Add JS
 		$out->addModules( 'ext.userStatus.scripts' );
 
 		$output .= '<div class="user-status-container">';
 		$thought_link = SpecialPage::getTitleFor( 'ViewThought' );
 		if ( $messages ) {
 			$fanHome = SpecialPage::getTitleFor( 'FanHome' );
+			$templateParser = new TemplateParser( __DIR__ . '/../templates' );
+
+			// @todo I get the feeling that this massively duplicates UserStatus#displayStatusMessages
 			foreach ( $messages as $message ) {
 				$user = User::newFromActorId( $message['actor'] );
 				$avatar = new wAvatar( $user->getId(), 'm' );
@@ -207,9 +301,16 @@ class ViewUserStatus extends UnlistedSpecialPage {
 					$currentUser->isAllowed( 'delete-status-updates' )
 				)
 				{
+					$deleteURL = htmlspecialchars(
+						$thisTitle->getFullURL( [
+							'action' => 'delete',
+							'us_id' => $message['id']
+						] ),
+						ENT_QUOTES
+					);
 					$delete_link = "<span class=\"user-status-delete-link\">
-						<a href=\"javascript:void(0);\" data-message-id=\"{$message['id']}\">" .
-						$this->msg( 'userstatus-delete-thought-text' )->text() ."</a>
+						<a href=\"{$deleteURL}\" data-message-id=\"{$message['id']}\">" .
+						$this->msg( 'userstatus-delete-thought-text' )->escaped() ."</a>
 					</span>";
 				}
 
@@ -227,8 +328,15 @@ class ViewUserStatus extends UnlistedSpecialPage {
 				// thought can vote for it
 				if ( $currentUser->isRegistered() && $currentUser->getActorId() != $message['actor'] ) {
 					if ( !$message['voted'] ) {
-						$vote_link = "<a class=\"vote-status-link\" href=\"javascript:void(0);\" data-message-id=\"{$message['id']}\">[" .
-							$this->msg( 'userstatus-agree' )->text() . ']</a>';
+						$voteURL = htmlspecialchars(
+							$thisTitle->getFullURL( [
+								'action' => 'vote',
+								'us_id' => $message['id']
+							] ),
+							ENT_QUOTES
+						);
+						$vote_link = "<a class=\"vote-status-link\" href=\"{$voteURL}\" data-message-id=\"{$message['id']}\">[" .
+							$this->msg( 'userstatus-agree' )->escaped() . ']</a>';
 					} else {
 						$vote_link = $vote_count;
 					}
@@ -244,40 +352,164 @@ class ViewUserStatus extends UnlistedSpecialPage {
 					[ 'id' => $message['id'] ]
 				);
 
-				$output .= '<div class="user-status-row">
-
-					<div class="user-status-logo">
-						<a href="' . $networkURL . '">' .
-							SportsTeams::getLogo( $message['sport_id'], $message['team_id'], 'm' ) .
-						"</a>
-					</div>
-
-					<div class=\"user-status-message\">
-						{$message_text}
-
-						<div class=\"user-status-date\">" .
-							$this->msg( 'userstatus-ago', UserStatus::getTimeAgo( $message['timestamp'] ) )->text() .
-							"<span class=\"user-status-vote\" id=\"user-status-vote-{$message['id']}\">
-								{$vote_link}
-							</span>
-							{$view_thought_link}
-							<span class=\"user-status-links\">
-								{$delete_link}
-							</span>
-						</div>
-
-					</div>
-
-					<div class=\"visualClear\"></div>
-
-				</div>";
+				$output .= $templateParser->processTemplate(
+					'status-update',
+					[
+						'containerClass' => 'user-status-row',
+						'showUserAvatar' => false,
+						'networkURL' => $networkURL,
+						'networkLogo' => SportsTeams::getLogo( $message['sport_id'], $message['team_id'], 'm' ),
+						'messageText' => $message_text,
+						'messageId' => $message['id'],
+						'postedAgo' => $this->msg( 'userstatus-ago', UserStatus::getTimeAgo( $message['timestamp'] ) )->text(),
+						'showActionLinks' => true,
+						'voteLink' => $vote_link,
+						'viewThoughtLink' => $view_thought_link,
+						'deleteLink' => $delete_link
+					]
+				);
 			}
 		} else {
-			$output .= '<p>' . $this->msg( 'userstatus-no-updates' )->text() . '</p>';
+			$output .= '<p>' . $this->msg( 'userstatus-no-updates' )->escaped() . '</p>';
 		}
 
 		$output .= '</div>';
 
 		$out->addHTML( $output );
 	}
+
+	/**
+	 * Render the form for adding a new thought.
+	 * Primarily used by no-JS users.
+	 *
+	 * @return string HTML
+	 */
+	private function renderAddForm() {
+		$form = '';
+		/*
+		$form .= '<form method="post" name="add-thought" action="">';
+		$form .= $this->msg( 'userstatus-add-thought' )->parseAsBlock();
+		$form .= '<br />';
+		// @todo FIXME: Team & sport selector here somehow...
+		$form .= Html::input( 'text',
+		$form .= Html::hidden( 'wpEditToken', $this->getUser()->getEditToken() );
+		$form .= '</form>';
+		*/
+		return $form;
+	}
+
+	/**
+	 * Render the "are you sure you REALLY want to delete this thought?" <form>.
+	 * Primarily used by no-JS users.
+	 *
+	 * @param int $us_id ID of the thought to be deleted
+	 * @return string HTML
+	 */
+	private function renderConfirmDeleteForm( $us_id ) {
+		$form = '';
+		$user = $this->getUser();
+		$s = new UserStatus( $user );
+
+		if (
+			$s->doesUserOwnStatusMessage( $user->getActorId(), $us_id ) ||
+			$user->isAllowed( 'delete-status-updates' )
+
+		) {
+			if ( !$user->isAllowed( 'delete-status-updates' ) ) {
+				throw new PermissionsError( 'delete-status-updates' );
+			}
+		}
+
+		$form .= '<form method="post" name="delete-thought" action="">';
+		// parseAsBlock() to force the <p> tags to give it some nice spacing and whatnot
+		$form .= $this->msg( 'userstatus-confirm-delete' )->parseAsBlock();
+		$form .= '<br />';
+
+		// @todo FIXME: This should ideally be UserStatus#displayMessage
+		// (to complement the existing displayMessage*s* method)
+		// Then again doing it like this allows us slightly more fine-grained control
+		// over the variables passed to the template
+		$message = $s->getStatusMessage( $us_id );
+		$statusUpdateAuthor = User::newFromActorId( $message['actor'] );
+		$form .= ( new TemplateParser( __DIR__ . '/../templates' ) )->processTemplate(
+			'status-update',
+			[
+				'containerClass' => 'user-status-row',
+				'userPageURL' => $statusUpdateAuthor->getUserPage()->getFullURL(),
+				'showUserAvatar' => true,
+				'avatarElement' => ( new wAvatar( $statusUpdateAuthor->getId(), 'm' ) )->getAvatarURL(),
+				'userName' => $statusUpdateAuthor->getName(),
+				'messageId' => $message['id'],
+				'messageText' => preg_replace_callback(
+					'/(<a[^>]*>)(.*?)(<\/a>)/i',
+					[ 'UserStatus', 'cutLinkText' ],
+					$message['text']
+				),
+				'postedAgo' => $this->msg( 'userstatus-ago', UserStatus::getTimeAgo( $message['timestamp'] ) )->text(),
+				'showActionLinks' => false,
+			]
+		);
+
+		$form .= Html::hidden( 'wpDeleteToken', $user->getEditToken() );
+		$form .= Html::hidden( 'us_id', $us_id );
+		$form .= Html::hidden( 'action', 'delete' );
+		$form .= Html::submitButton( $this->msg( 'delete' )->text(), [ 'name' => 'wpSubmit', 'class' => 'site-button' ] );
+		$form .= '</form>';
+
+		return $form;
+	}
+
+	/**
+	 * Render the "are you sure you REALLY want to agree with this thought?" <form>.
+	 * Primarily used by no-JS users.
+	 *
+	 * @param int $us_id ID of the thought to be agreed with
+	 * @param int $vote Vote, either 1 (upvote) or -1 (downvote, i.e. revocation of an existing upvote)
+	 * @return string HTML
+	 */
+	private function renderConfirmVoteForm( $us_id, $vote ) {
+		$form = '';
+		$user = $this->getUser();
+		$s = new UserStatus( $user );
+
+		$form .= '<form method="post" name="vote-thought" action="">';
+		$form .= $this->msg( 'userstatus-confirm-vote' )->parseAsBlock();
+		$form .= '<br />';
+
+		// @todo FIXME: This should ideally be UserStatus#displayMessage
+		// (to complement the existing displayMessage*s* method)
+		// Then again doing it like this allows us slightly more fine-grained control
+		// over the variables passed to the template
+		$message = $s->getStatusMessage( $us_id );
+		$statusUpdateAuthor = User::newFromActorId( $message['actor'] );
+		$form .= ( new TemplateParser( __DIR__ . '/../templates' ) )->processTemplate(
+			'status-update',
+			[
+				'containerClass' => 'user-status-row',
+				'userPageURL' => $statusUpdateAuthor->getUserPage()->getFullURL(),
+				'showUserAvatar' => true,
+				'avatarElement' => ( new wAvatar( $statusUpdateAuthor->getId(), 'm' ) )->getAvatarURL(),
+				'userName' => $statusUpdateAuthor->getName(),
+				'messageId' => $message['id'],
+				'messageText' => preg_replace_callback(
+					'/(<a[^>]*>)(.*?)(<\/a>)/i',
+					[ 'UserStatus', 'cutLinkText' ],
+					$message['text']
+				),
+				'postedAgo' => $this->msg( 'userstatus-ago', UserStatus::getTimeAgo( $message['timestamp'] ) )->text(),
+				'showActionLinks' => false,
+			]
+		);
+
+		$form .= Html::hidden( 'wpEditToken', $user->getEditToken() );
+		$form .= Html::hidden( 'us_id', $us_id );
+		$form .= Html::hidden( 'vote', $vote );
+		$form .= Html::hidden( 'user', $statusUpdateAuthor->getName() );
+		$form .= Html::hidden( 'action', 'vote' );
+		$form .= Html::submitButton( $this->msg( 'userstatus-vote' )->text(), [ 'name' => 'wpSubmit', 'class' => 'site-button' ] );
+		$form .= '</form>';
+
+		return $form;
+	}
+
 }
