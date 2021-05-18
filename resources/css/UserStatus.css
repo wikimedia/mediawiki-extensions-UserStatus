@@ -50,6 +50,10 @@
 	padding: 0px 0px 0px 10px;
 }
 
+span.user-status-delete-link a {
+	color: #ff0000;
+}
+
 .user-status-vote {
 	margin: 0px 0px 0px 5px;
 }

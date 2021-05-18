@@ -45,16 +45,16 @@ class ViewFanUpdates extends UnlistedSpecialPage {
 			// error...
 			$out->setPageTitle( $this->msg( 'userstatus-woops' )->plain() );
 			$output = '<div class="relationship-request-message">' .
-				$this->msg( 'userstatus-invalid-link' )->text() . '</div>';
+				$this->msg( 'userstatus-invalid-link' )->escaped() . '</div>';
 			$output .= '<div class="relationship-request-buttons">';
 			$output .= '<input type="button" class="site-button" value="' .
-				$this->msg( 'mainpage' )->text() .
+				$this->msg( 'mainpage' )->escaped() .
 				"\" onclick=\"window.location='" .
 				htmlspecialchars( Title::newMainPage()->getFullURL() ) . "'\"/>";
 			/* removed because I was too lazy to port the error message over :P
 			if ( $user->isRegistered() ) {
 				$output .= ' <input type="button" class="site-button" value="' .
-					$this->msg( 'st_network_your_profile' )->text() .
+					$this->msg( 'st_network_your_profile' )->escaped() .
 					"\" onclick=\"window.location='" .
 					htmlspecialchars( Title::makeTitle( NS_USER, $wgUser->getName() )->getFullURL() ) . "'\"/>";
 			}
@@ -90,7 +90,7 @@ class ViewFanUpdates extends UnlistedSpecialPage {
 				] ),
 				ENT_QUOTES
 			) .
-			'">' . $this->msg( 'userstatus-back-to-network' )->text() . '</a>';
+			'">' . $this->msg( 'userstatus-back-to-network' )->escaped() . '</a>';
 		$output .= '</div>';
 
 		if ( $page == 1 ) {
@@ -118,7 +118,7 @@ class ViewFanUpdates extends UnlistedSpecialPage {
 			if ( $page > 1 ) {
 				$output .= '<a href="' .
 					$this->getFanUpdatesURL( $sport_id, $team_id ) .
-					'&page=' . ( $page - 1 ) . '">' . $this->msg( 'userstatus-prev' )->text() .
+					'&page=' . ( $page - 1 ) . '">' . $this->msg( 'userstatus-prev' )->escaped() .
 					'</a> ';
 			}
 
@@ -134,7 +134,7 @@ class ViewFanUpdates extends UnlistedSpecialPage {
 
 			for ( $i = 1; $i <= $numofpages; $i++ ) {
 				if ( $i == $page ) {
-					$output .= ( $i . ' ');
+					$output .= ( $i . ' ' );
 				} else {
 					$output .= '<a href="' .
 						$this->getFanUpdatesURL( $sport_id, $team_id ) .
@@ -142,10 +142,10 @@ class ViewFanUpdates extends UnlistedSpecialPage {
 				}
 			}
 
-			if( ( $total - ( $per_page * $page ) ) > 0 ) {
+			if ( ( $total - ( $per_page * $page ) ) > 0 ) {
 				$output .= ' <a href="' .
 					$this->getFanUpdatesURL( $sport_id, $team_id ) .
-					'&page=' . ( $page + 1 ) . '">' . $this->msg( 'userstatus-next' )->text() .
+					'&page=' . ( $page + 1 ) . '">' . $this->msg( 'userstatus-next' )->escaped() .
 					'</a>';
 			}
 			$output .= '</div><p>';
@@ -165,14 +165,17 @@ class ViewFanUpdates extends UnlistedSpecialPage {
 				var __redirect_url__ = \"" . str_replace( '&amp;', '&', $this->getFanUpdatesURL( $sport_id, $team_id ) ) . "\";
 			</script>";
 
-			$output .= "<div class=\"user-status-form\">
-			<span class=\"user-name-top\">{$user->getName()}</span> <input type=\"text\" name=\"user_status_text\" id=\"user_status_text\" size=\"40\"/>
-			<input type=\"button\" value=\"" . $this->msg( 'userstatus-btn-add' )->text() . '" class="site-button" />
+			$output .= '<div class="user-status-form">';
+			$output .= '<span class="user-name-top">' . htmlspecialchars( $user->getName(), ENT_QUOTES ) . '</span>';
+			$output .= '<input type="text" name="user_status_text" id="user_status_text" size="40" />
+			<input type="button" value="' . $this->msg( 'userstatus-btn-add' )->escaped() . '" class="site-button" />
 			</div>';
 		}
 
 		$output .= '<div class="user-status-container">';
 		if ( $messages ) {
+			$statusPage = SpecialPage::getTitleFor( 'UserStatus' );
+
 			foreach ( $messages as $message ) {
 				$messageUser = User::newFromActorId( $message['actor'] );
 				$userName = $messageUser->getName();
@@ -180,7 +183,7 @@ class ViewFanUpdates extends UnlistedSpecialPage {
 
 				$messages_link = '<a href="' .
 					UserStatus::getUserUpdatesURL( $userName ) . '">' .
-					$this->msg( 'userstatus-view-all-updates', $userName )->text() .
+					$this->msg( 'userstatus-view-all-updates', $userName )->escaped() .
 					'</a>';
 				$delete_link = '';
 				// Allow the owner of the status update and privileged users to
@@ -190,9 +193,16 @@ class ViewFanUpdates extends UnlistedSpecialPage {
 					$user->isAllowed( 'delete-status-updates' )
 				)
 				{
+					$deleteURL = htmlspecialchars(
+						$statusPage->getFullURL( [
+							'action' => 'delete',
+							'us_id' => $message['id']
+						] ),
+						ENT_QUOTES
+					);
 					$delete_link = "<span class=\"user-status-delete-link\">
-							<a href=\"javascript:void(0);\" data-message-id=\"{$message['id']}\">" .
-						$this->msg( 'userstatus-delete' )->text() . '</a>
+							<a href=\"{$deleteURL}\" data-message-id=\"{$message['id']}\">" .
+						$this->msg( 'userstatus-delete' )->escaped() . '</a>
 					</span>';
 				}
 
@@ -202,17 +212,19 @@ class ViewFanUpdates extends UnlistedSpecialPage {
 					$message['text']
 				);
 
+				// @todo With some changes to the Mustache template, we might be able to use it here as well
 				$safeMessageUserName = htmlspecialchars( $userName, ENT_QUOTES );
 				$output .= "<div class=\"user-status-row\">
 					<a href=\"{$messageUser->getUserPage()->getFullURL()}\">{$avatar->getAvatarURL()}</a>
-					<a href=\"{$messageUser->getUserPage()->getFullURL()}\"><b>{$safeMessageUserName}</b></a> {$message_text}
-					<span class=\"user-status-date\">" .
-						$this->msg( 'userstatus-ago', UserStatus::getTimeAgo( $message['timestamp'] ) )->text() .
+					<a href=\"{$messageUser->getUserPage()->getFullURL()}\"><b>{$safeMessageUserName}</b></a> " .
+						htmlspecialchars( $message_text, ENT_QUOTES ) .
+					'<span class="user-status-date">' .
+						$this->msg( 'userstatus-ago', UserStatus::getTimeAgo( $message['timestamp'] ) )->parse() .
 					'</span>
 				</div>';
 			}
 		} else {
-			$output .= '<p>' . $this->msg( 'userstatus-no-updates' )->text() . '</p>';
+			$output .= $this->msg( 'userstatus-no-updates' )->parseAsBlock();
 		}
 
 		$output .= '</div>';

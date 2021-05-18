@@ -36,6 +36,7 @@ class ApiUserStatus extends ApiBase {
 		$count = $params['count'] ?? null;
 		$us_id = $params['us_id'] ?? null;
 		$vote = $params['vote'] ?? null;
+		$date = $params['date'] ?? null;
 
 		// Hmm, what do we want to do?
 		switch ( $params['what'] ) {
@@ -91,17 +92,13 @@ class ApiUserStatus extends ApiBase {
 				$output = $this->deleteStatus( $us_id );
 				break;
 			case 'updatestatus':
-				if (
-					$user_name === null || $text === null || $date === null ||
-					$next_row === null || count( $params ) < 4
-				)
-				{
+				if ( $text === null || $date === null || $us_id === null || count( $params ) < 3 ) {
 					$this->dieWithError(
-						new RawMessage( 'One or more of the required four params is missing' ),
+						new RawMessage( 'One or more of the required three params is missing' ),
 						'zomgamissingparam6'
 					);
 				}
-				$output = $this->updateStatus( $user_name, $text, $date, $next_row );
+				$output = $this->updateStatus( $text, $date, $us_id );
 				break;
 			default:
 				// Let's see who gets the reference...
@@ -112,9 +109,8 @@ class ApiUserStatus extends ApiBase {
 		}
 
 		// Top level
-		$this->getResult()->addValue( null, $this->getModuleName(),
-			[ 'result' => $output ]
-		);
+		// @phan-suppress-next-line PhanPossiblyUndeclaredVariable
+		$this->getResult()->addValue( null, $this->getModuleName(), [ 'result' => $output ] );
 
 		return true;
 	}
@@ -163,9 +159,8 @@ class ApiUserStatus extends ApiBase {
 		return 'ok';
 	}
 
-	function updateStatus( $user_name, $text, $date, $next_row ) {
-		// @todo Could just drop the $user_name param altogether and use $this->getUser(), I believe.
-		$user = User::newFromName( $user_name );
+	function updateStatus( $text, $date, $next_row ) {
+		$user = $this->getUser();
 
 		// Get a database handler
 		$dbw = wfGetDB( DB_MASTER );
@@ -191,6 +186,7 @@ class ApiUserStatus extends ApiBase {
 
 		$x = 1;
 
+		$output = '';
 		foreach ( $res as $row ) {
 			$userObj = User::newFromActorId( $row->us_actor );
 			$db_user_name = $userObj->getName();

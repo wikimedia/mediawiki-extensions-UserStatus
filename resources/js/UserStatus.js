@@ -2,8 +2,8 @@
  * JavaScript functions used by UserStatus.
  *
  * When updating this file, please remember to update
- * /extensions/SportsTeams/fanhome.js too, because these functions are
- * duplicated over there.
+ * /extensions/SportsTeams/resources/js/fanhome.js too, because these functions
+ * are duplicated over there.
  *
  * @file
  */
@@ -80,7 +80,8 @@ $( function () {
 	// UserStatus::displayStatusMessages() (UserStatusClass.php) also depends
 	// on this
 	$( 'span.user-status-delete-link a' ).each( function ( index ) {
-		$( this ).on( 'click', function () {
+		$( this ).on( 'click', function ( e ) {
+			e.preventDefault();
 			UserStatus.deleteMessage( $( this ).data( 'message-id' ) );
 		} );
 	} );
@@ -96,7 +97,8 @@ $( function () {
 	if ( mw.config.get( 'wgCanonicalSpecialPageName' ) == 'UserStatus' ) {
 		// Voting links
 		$( 'a.vote-status-link' ).each( function ( index ) {
-			$( this ).on( 'click', function () {
+			$( this ).on( 'click', function ( e ) {
+				e.preventDefault();
 				UserStatus.voteStatus( $( this ).data( 'message-id' ), 1 );
 			} );
 		} );
