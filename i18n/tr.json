@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"BaRaN6161 TURK",
-			"Hedda"
+			"Hedda",
+			"Melissadilara"
 		]
 	},
 	"userstatus-desc": "Kullanıcı profilleri ile ağ sayfalarında sosyal durum güncellemeleri",
@@ -37,6 +38,7 @@
 	"userstatus-no-new-thoughts": "Yeni düşünce yok. Bir tane ekle!",
 	"userstatus-just-added": "yalnızca eklendi",
 	"userstatus-confirm-delete": "Bu düşünceyi silmek istediğinden emin misin?",
+	"userstatus-vote": "Oyla",
 	"action-delete-status-updates": "kullanıcıların durum güncellemelerini sil",
 	"right-delete-status-updates": "Kullanıcıların durum güncellemelerini sil",
 	"apihelp-userstatus-description": "Sosyal durum mesajlarını yönetmek için API",
