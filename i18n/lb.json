@@ -20,7 +20,7 @@
 	"userstatus-no-user": "De Benotzer deen Dir probéiert Iech unzekucke gëtt et net.",
 	"userstatus-your-thoughts": "Är Iwwerleeungen",
 	"userstatus-user-thoughts": "Iwwerleeunge vum $1",
-	"userstatus-back-your-profile": "&lt; Zréck op Äre Profil",
+	"userstatus-back-your-profile": "< Zréck op Äre Profil",
 	"userstatus-back-user-profile": "Zréck op dem $1 säi Profil",
 	"userstatus-agree": "zoustëmmen",
 	"userstatus-see-who-agrees": "kuckt wien nach d'Accord ass",
@@ -28,5 +28,6 @@
 	"userstatus-who-agrees": "Wien ass d'Accord",
 	"userstatus-nobody-agrees": "Et ass kee mat dësen Iwwerleeungen d'Accord",
 	"userstatus-just-added": "elo grad bäigesat",
-	"userstatus-confirm-delete": "Sidd dir sécher datt Dir dës Iwwerleeunge läsche wëllt?"
+	"userstatus-confirm-delete": "Sidd dir sécher datt Dir dës Iwwerleeunge läsche wëllt?",
+	"userstatus-vote": "Ofstëmmen"
 }
