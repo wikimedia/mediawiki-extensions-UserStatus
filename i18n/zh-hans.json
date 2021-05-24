@@ -1,12 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
+			"FakeGreenHand",
 			"Liuxinyu970226"
 		]
 	},
 	"userstatus-desc": "在用户个人资料以及在网络页面上的社交状态更新",
 	"userstatus-network-thoughts": "$1个想法",
-	"userstatus-back-to-network": "&lt;返回网络",
+	"userstatus-back-to-network": "< 返回网络",
 	"userstatus-showing-thoughts": "{{PLURAL:$2|显示1个想法|显示$1~$2个（共$3个）想法}}。",
 	"userstatus-prev": "上一个",
 	"userstatus-next": "下一个",
