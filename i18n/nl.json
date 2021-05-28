@@ -14,5 +14,6 @@
 	"userstatus-time-minutes": "{{PLURAL:$1|één minuut|$1 minuten}}",
 	"userstatus-time-seconds": "{{PLURAL:$1|één seconde|$1 seconden}}",
 	"userstatus-no-updates": "Er zijn geen updates",
-	"userstatus-your-thoughts": "Uw gedachten"
+	"userstatus-your-thoughts": "Uw gedachten",
+	"userstatus-agree": "akkoord"
 }
