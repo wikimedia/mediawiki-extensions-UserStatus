@@ -4,6 +4,7 @@
 			"BaRaN6161 TURK",
 			"Hedda",
 			"Melissadilara",
+			"Mim.saitkilic",
 			"SaldırganSincap"
 		]
 	},
@@ -39,7 +40,12 @@
 	"userstatus-no-new-thoughts": "Yeni düşünce yok. Bir tane ekle!",
 	"userstatus-just-added": "yalnızca eklendi",
 	"userstatus-confirm-delete": "Bu düşünceyi silmek istediğinden emin misin?",
+	"userstatus-delete-page-title": "Düşünceyi sil",
+	"userstatus-delete-success": "Düşünce başarıyla silindi!",
+	"userstatus-confirm-vote": "Bu düşünceye katılmak istediğinizden emin misiniz?",
 	"userstatus-vote": "Oyla",
+	"userstatus-vote-page-title": "Bir düşünce için oy verin",
+	"userstatus-vote-success": "Bu düşünceye başarıyla oy verdiniz.",
 	"action-delete-status-updates": "kullanıcıların durum güncellemelerini sil",
 	"right-delete-status-updates": "Kullanıcıların durum güncellemelerini sil",
 	"apihelp-userstatus-description": "Sosyal durum mesajlarını yönetmek için API",
