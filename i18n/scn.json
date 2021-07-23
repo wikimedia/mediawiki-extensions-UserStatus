@@ -4,5 +4,6 @@
 			"Ajeje Brazorf"
 		]
 	},
+	"userstatus-delete": "Cancella",
 	"userstatus-time-days": "{{PLURAL:$1|nu jornu|$1 jorna}}"
 }
