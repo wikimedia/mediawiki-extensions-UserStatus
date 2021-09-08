@@ -109,7 +109,6 @@ class ApiUserStatus extends ApiBase {
 		}
 
 		// Top level
-		// @phan-suppress-next-line PhanPossiblyUndeclaredVariable
 		$this->getResult()->addValue( null, $this->getModuleName(), [ 'result' => $output ] );
 
 		return true;
