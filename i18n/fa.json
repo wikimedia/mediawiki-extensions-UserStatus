@@ -1,11 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"FarsiNevis"
+			"FarsiNevis",
+			"Jeeputer"
 		]
 	},
 	"userstatus-network-thoughts": "اندیشه‌های $1",
-	"userstatus-back-to-network": "&lt؛ بازگشت به شبکه",
+	"userstatus-back-to-network": "< بازگشت به شبکه",
 	"userstatus-showing-thoughts": "{{PLURAL:$2|در حال نمایش ۱ اندیشه|در حال نمایش $1 - $2 اندیشه از مجموع $3 تا}}.",
 	"userstatus-prev": "قبلی",
 	"userstatus-next": "بعدی",
