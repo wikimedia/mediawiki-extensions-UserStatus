@@ -21,7 +21,7 @@ class ApiUserStatus extends ApiBase {
 		$this->userStatus = new UserStatus( $user );
 
 		// Don't do anything if the user is blocked
-		if ( $user->isBlocked() ) {
+		if ( $user->getBlock() ) {
 			return '';
 		}
 

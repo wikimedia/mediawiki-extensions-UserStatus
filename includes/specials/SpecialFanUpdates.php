@@ -157,7 +157,7 @@ class ViewFanUpdates extends UnlistedSpecialPage {
 
 		// Registered users who are not blocked can add status updates when the
 		// database is not locked
-		if ( $user->isRegistered() && !$user->isBlocked() && !wfReadOnly() ) {
+		if ( $user->isRegistered() && !$user->getBlock() && !wfReadOnly() ) {
 			$output .= "<script>
 				var __sport_id__ = {$sport_id};
 				var __team_id__ = {$team_id};
