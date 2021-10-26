@@ -23,7 +23,7 @@ class UserStatus {
 	public function addStatus( $sport_id, $team_id, $text ) {
 		$dbw = wfGetDB( DB_MASTER );
 
-		if ( $this->user->isBlocked() ) {
+		if ( $this->user->getBlock() ) {
 			return '';
 		}
 
