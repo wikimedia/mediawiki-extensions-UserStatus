@@ -1,0 +1,18 @@
+{
+	"@metadata": {
+		"authors": [
+			"ಮಲ್ನಾಡಾಚ್ ಕೊಂಕ್ಣೊ"
+		]
+	},
+	"userstatus-prev": "ಹಿಂದಿನ",
+	"userstatus-next": "ಮುಂದಿನ",
+	"userstatus-btn-add": "ಸೇರಿಸು",
+	"userstatus-delete": "ಅಳಿಸು",
+	"userstatus-ago": "$1 ಮುಂಚೆ",
+	"userstatus-time-days": "{{PLURAL:$1|ಒಂದು ದಿನ|$1 ದಿನಗಳು}}",
+	"userstatus-time-hours": "{{PLURAL:$1|ಒಂದು ಗಂಟೆ|$1 ಗಂಟೆಗಳು}}",
+	"userstatus-time-minutes": "{{PLURAL:$1|ಒಂದು ನಿಮಿಷ|$1 ನಿಮಿಷಗಳು}}",
+	"userstatus-time-seconds": "{{PLURAL:$1|ಒಂದು ಸೆಕೆಂಡ್|$1 ಸೆಕೆಂಡುಗಳು}}",
+	"userstatus-no-user": "ನೀವು ನೋಡಲು ಪ್ರಯತ್ನಿಸುತ್ತಿರುವ ಬಳಕೆದಾರ ಅಸ್ತಿತ್ವದಲ್ಲಿಲ್ಲ.",
+	"userstatus-invalid-link": "ಅಮಾನ್ಯ ಕೊಂಡಿ"
+}
