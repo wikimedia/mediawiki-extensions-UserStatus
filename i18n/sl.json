@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Eleassar"
+		]
+	},
+	"userstatus-next": "naprej",
+	"userstatus-btn-add": "dodaj",
+	"userstatus-time-minutes": "{{PLURAL:$1|ena minuta|dve minuti|$1 minute|$1 minut}}"
+}

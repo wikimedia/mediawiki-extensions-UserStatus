@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Liuxinyu970226",
-			"Robby"
+			"Robby",
+			"Umherirrender"
 		]
 	},
 	"userstatus-desc": "{{desc|name=UserStatus|url=https://www.mediawiki.org/wiki/Extension:UserStatus}}",
@@ -20,7 +21,7 @@
 	"userstatus-time-minutes": "Phrase for indicating how long ago something happened.\n{{Identical|Minute}}",
 	"userstatus-time-seconds": "Phrase for indicating how long ago something happened.\n{{Identical|Second}}",
 	"userstatus-no-updates": "A hint about a empty result",
-	"userstatus-woops": "A page title\n{{Identical|Oops}}",
+	"userstatus-woops": "Page title for when an error of some kind has occurred\n{{Identical|Oops}}",
 	"userstatus-no-user": "An error message",
 	"userstatus-your-thoughts": "A page title",
 	"userstatus-user-thoughts": "A page title\n{{Identical|Thought}}",
@@ -28,7 +29,7 @@
 	"userstatus-back-your-profile": "A link text",
 	"userstatus-back-user-profile": "A link text",
 	"userstatus-all-team-updates": "A link text",
-	"userstatus-delete-thought-text": "A link text",
+	"userstatus-delete-thought-text": "{{notranslate}}\nLink text for a link that allows you to delete a status update",
 	"userstatus-num-agree": "Make count readable",
 	"userstatus-agree": "A link text\n{{Identical|Agree}}",
 	"userstatus-see-who-agrees": "A link text",
@@ -37,7 +38,7 @@
 	"userstatus-nobody-agrees": "A hint about a empty result",
 	"userstatus-no-new-thoughts": "A hint about a empty result",
 	"userstatus-just-added": "Phrase for indicating how long ago something happened.",
-	"userstatus-confirm-delete": "A button text used in javascript",
+	"userstatus-confirm-delete": "Confirmation message used in JavaScript as well as on Special:UserStatus for users who have JavaScript disabled shown prior to deleting a status update",
 	"action-delete-status-updates": "{{doc-action|delete-status-updates}}",
 	"right-delete-status-updates": "{{doc-right|delete-status-updates}}",
 	"apihelp-userstatus-description": "{{doc-apihelp-description|userstatus}}",

@@ -1,13 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
-			"Robby"
+			"Robby",
+			"Les Meloures"
 		]
 	},
 	"userstatus-network-thoughts": "Iwwerleeunge vum $1",
 	"userstatus-prev": "vireg",
 	"userstatus-next": "nächst",
-	"userstatus-btn-add": "dobäisetzen",
+	"userstatus-btn-add": "derbäisetzen",
 	"userstatus-view-all-updates": "All $1 Aktualisatioune weisen",
 	"userstatus-delete": "Läschen",
 	"userstatus-ago": "viru(n) $1",

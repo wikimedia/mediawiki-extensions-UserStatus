@@ -6,7 +6,10 @@
 	},
 	"userstatus-prev": "forrige",
 	"userstatus-next": "næste",
+	"userstatus-btn-add": "tilføj",
 	"userstatus-delete": "Slet",
+	"userstatus-woops": "Ups!",
 	"userstatus-agree": "enig",
-	"userstatus-see-who-agrees": "se hvem der også er enig"
+	"userstatus-see-who-agrees": "se hvem der også er enig",
+	"userstatus-just-added": "lige tilføjet"
 }
