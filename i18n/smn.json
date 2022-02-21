@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
+			"Seipinne",
 			"Yupik"
 		]
 	},
 	"userstatus-next": "čuávuvâš",
-	"userstatus-btn-add": "lasseet"
+	"userstatus-btn-add": "lasseet",
+	"userstatus-time-days": "{{PLURAL:$1|ohtâ peivi|$1 peivid}}"
 }
