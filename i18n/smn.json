@@ -7,5 +7,5 @@
 	},
 	"userstatus-next": "čuávuvâš",
 	"userstatus-btn-add": "lasseet",
-	"userstatus-time-days": "{{PLURAL:$1|ohtâ peivi|$1 peivid}}"
+	"userstatus-time-days": "{{PLURAL:$1|ohtâ peivi|$1 peeivi|$1 peeivi|$1 peivid}}"
 }
