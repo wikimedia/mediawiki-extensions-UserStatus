@@ -35,5 +35,12 @@
 	"userstatus-no-new-thoughts": "Ajatuksia ei ole. Lisää yksi!",
 	"userstatus-just-added": "äskettäin lisätty",
 	"userstatus-confirm-delete": "Haluatko varmasti poistaa tämän ajatuksen?",
+	"userstatus-delete-page-title": "Poista ajatus",
+	"userstatus-delete-success": "Ajatus poistettiin onnistuneesti!",
+	"userstatus-confirm-vote": "Haluatko varmasti olla samaa mieltä tämän ajatuksen kanssa?",
+	"userstatus-vote": "Äänestä",
+	"userstatus-vote-page-title": "Äänestä ajatuksen puolesta",
+	"userstatus-vote-success": "Olet onnistuneesti äänestänyt tämän ajatuksen puolesta.",
+	"action-delete-status-updates": "poistaa käyttäjien tilapäivityksiä",
 	"right-delete-status-updates": "Poistaa käyttäjien tilapäivityksiä"
 }
