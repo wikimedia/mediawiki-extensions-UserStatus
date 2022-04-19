@@ -35,5 +35,6 @@
 	"userstatus-no-new-thoughts": "Ajatuksia ei ole. Lisää yksi!",
 	"userstatus-just-added": "äskettäin lisätty",
 	"userstatus-confirm-delete": "Haluatko varmasti poistaa tämän ajatuksen?",
+	"action-delete-status-updates": "poistaa käyttäjien tilapäivityksiä",
 	"right-delete-status-updates": "Poistaa käyttäjien tilapäivityksiä"
 }
