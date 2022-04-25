@@ -1,12 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
+			"Jack Phoenix",
 			"KATRINE1992"
 		]
 	},
 	"userstatus-desc": "Ενημερώσεις κοινωνικού στάτους στα προφίλ χρηστών και στις σελίδες διαδικτύου",
 	"userstatus-network-thoughts": "$1 Σκέψεις",
-	"userstatus-back-to-network": "& Επιστροφή στο Δίαδίκτυο",
+	"userstatus-back-to-network": "< Επιστροφή στο Δίαδίκτυο",
 	"userstatus-showing-thoughts": "{{PLURAL:$2|Showing 1 Thought|Showing $1 - $2 of $3 Thoughts}}.",
 	"userstatus-prev": "προηγούμενο",
 	"userstatus-next": "επόμενο",
@@ -23,8 +24,8 @@
 	"userstatus-no-user": "Ο χρήστης που προσπαθείτε να δείτε δεν υπάρχει.",
 	"userstatus-your-thoughts": "Οι Σκέψεις Σας",
 	"userstatus-user-thoughts": "Σκέψεις του $1's",
-	"userstatus-user-profile": "&lt Δέστε το Προφίλ $1's",
-	"userstatus-back-your-profile": "&ltΕπιστροφή στο Προφίλ σας",
+	"userstatus-user-profile": "< Δέστε το Προφίλ $1's",
+	"userstatus-back-your-profile": "< Επιστροφή στο Προφίλ σας",
 	"userstatus-back-user-profile": "Πίσω στο Προφίλ $1's",
 	"userstatus-all-team-updates": "Όλες οι Ενημερώσεις $1",
 	"userstatus-num-agree": "{{PLURAL:$1|1 Person Agrees|$1 People Agree}}",

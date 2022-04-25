@@ -1,13 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
+			"Jack Phoenix",
 			"Sonic N800",
 			"ديفيد"
 		]
 	},
 	"userstatus-desc": "تحديثات الحالة الاجتماعية في ملفات المستخدمين الشخصية وفي صفحات الشبكة",
 	"userstatus-network-thoughts": "أفكار $1",
-	"userstatus-back-to-network": "&lt; العودة إلى الشبكة",
+	"userstatus-back-to-network": "< العودة إلى الشبكة",
 	"userstatus-showing-thoughts": "{{PLURAL:$2|عرض فكرة واحدة |عرض $1 - $2 من $3 أفكار}}.",
 	"userstatus-prev": "سا",
 	"userstatus-next": "التالي",
@@ -24,8 +25,8 @@
 	"userstatus-no-user": "المستخدم الذي تحاول عرضه غير موجود.",
 	"userstatus-your-thoughts": "أفكارك",
 	"userstatus-user-thoughts": "أفكار $1",
-	"userstatus-user-profile": "&lt; عرض ملف $1 الشخصي",
-	"userstatus-back-your-profile": "&lt; العودة إلى ملفك الشخصي",
+	"userstatus-user-profile": "< عرض ملف $1 الشخصي",
+	"userstatus-back-your-profile": "< العودة إلى ملفك الشخصي",
 	"userstatus-back-user-profile": "العودة إلى ملف $1 الشخصي",
 	"userstatus-all-team-updates": "جميع تحديثات $1",
 	"userstatus-num-agree": "{{PLURAL:$1|شخص واحد يوافق|يوافق $1 أشخاص}}",
