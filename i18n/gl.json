@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Elisardojm"
+			"Elisardojm",
+			"Jack Phoenix"
 		]
 	},
 	"userstatus-prev": "ant",
@@ -16,8 +17,8 @@
 	"userstatus-woops": "Vaites!",
 	"userstatus-no-user": "O usuario que intenta consultar non existe.",
 	"userstatus-your-thoughts": "Os seus pensamentos",
-	"userstatus-user-profile": "&lt; Ver o perfil de $1",
-	"userstatus-back-your-profile": "&lt; Volver ó seu perfil",
+	"userstatus-user-profile": "< Ver o perfil de $1",
+	"userstatus-back-your-profile": "< Volver ó seu perfil",
 	"userstatus-back-user-profile": "Volver ó perfil de $1",
 	"userstatus-agree": "de acordo",
 	"userstatus-invalid-link": "Ligazón non válida",
