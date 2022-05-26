@@ -7,7 +7,7 @@
 	},
 	"userstatus-desc": "Soziale Statusaktualisierungen auf Benutzerprofilen und Netzwerkseiten",
 	"userstatus-network-thoughts": "Gedanken von $1",
-	"userstatus-back-to-network": "< Zurück zum Netzwerk",
+	"userstatus-back-to-network": "&lt; Zurück zum Netzwerk",
 	"userstatus-showing-thoughts": "Es wird {{PLURAL:$2|ein Gedanke|der Gedanke $1 bis $2 von insgesamt $3 Gedanken}} angezeigt.",
 	"userstatus-prev": "vorherige",
 	"userstatus-next": "nächste",
