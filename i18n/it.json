@@ -13,7 +13,7 @@
 	"userstatus-time-hours": "{{PLURAL:$1|un'ora|$1 ore}}",
 	"userstatus-time-minutes": "{{PLURAL:$1|un minuto|$1 minuti}}",
 	"userstatus-woops": "Oops!",
-	"userstatus-back-your-profile": "< Torna al tuo profilo",
+	"userstatus-back-your-profile": "$lt; Torna al tuo profilo",
 	"userstatus-back-user-profile": "Torna al profilo di $1",
 	"userstatus-invalid-link": "Collegamento non valido",
 	"userstatus-just-added": "appena aggiunto",
