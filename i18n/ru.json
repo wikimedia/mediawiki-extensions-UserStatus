@@ -3,12 +3,15 @@
 		"authors": [
 			"Evs",
 			"Okras",
-			"Wirbel78"
+			"Wirbel78",
+			"DDPAT",
+			"Ice bulldog",
+			"WindEwriX"
 		]
 	},
 	"userstatus-desc": "Обновления социального статуса в профилях пользователей и на страницах сети",
 	"userstatus-network-thoughts": "$1 Мысли",
-	"userstatus-back-to-network": "&lt; Вернуться в блог",
+	"userstatus-back-to-network": "$lt; Вернуться в блог",
 	"userstatus-showing-thoughts": "{{PLURAL:$2|Показана одна мысль|Показаны $1 — $2 мыслей из $3}}.",
 	"userstatus-prev": "пред.",
 	"userstatus-next": "след.",
@@ -25,7 +28,7 @@
 	"userstatus-no-user": "Участника, которого вы пытаетесь просмотреть, не существует.",
 	"userstatus-your-thoughts": "Ваши мысли",
 	"userstatus-user-thoughts": "Мысли $1",
-	"userstatus-user-profile": "&lt; Просмотреть профиль $1",
+	"userstatus-user-profile": "$lt; Просмотреть профиль $1",
 	"userstatus-back-your-profile": "&lt; Вернуться в свой профиль",
 	"userstatus-back-user-profile": "Вернуться в профиль $1",
 	"userstatus-all-team-updates": "Все обновления $1",

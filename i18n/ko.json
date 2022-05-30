@@ -4,7 +4,7 @@
 			"Ykhwong"
 		]
 	},
-	"userstatus-back-to-network": "&lt; 네트워크로 돌아가기",
+	"userstatus-back-to-network": "$lt; 네트워크로 돌아가기",
 	"userstatus-prev": "이전",
 	"userstatus-next": "다음",
 	"userstatus-btn-add": "추가",
@@ -18,7 +18,7 @@
 	"userstatus-no-updates": "업데이트가 없습니다",
 	"userstatus-woops": "이런!",
 	"userstatus-no-user": "보려고 하는 사용자가 존재하지 않습니다.",
-	"userstatus-user-profile": "&lt; $1님의 프로필 보기",
+	"userstatus-user-profile": "$lt; $1님의 프로필 보기",
 	"userstatus-back-your-profile": "&lt; 내 프로필로 돌아가기",
 	"userstatus-back-user-profile": "$1님의 프로파일로 돌아가기",
 	"userstatus-all-team-updates": "모든 $1개 업데이트",

@@ -4,12 +4,14 @@
 			"Fitoschido",
 			"Hamilton Abreu",
 			"Jelou",
-			"KATRINE1992"
+			"KATRINE1992",
+			"DDPAT",
+			"Ice bulldog"
 		]
 	},
 	"userstatus-desc": "Actualizaciones del estado social en los perfiles de usuarios y en las páginas de la red",
 	"userstatus-network-thoughts": "Pensamientos de $1",
-	"userstatus-back-to-network": "&lt; Volver a la red",
+	"userstatus-back-to-network": "< Volver a la red",
 	"userstatus-showing-thoughts": "{{PLURAL:$2|Mostrando 1 pensamiento|Mostrando $1 - $2 de $3 pensamientos}}.",
 	"userstatus-prev": "ant",
 	"userstatus-next": "sig",
@@ -26,7 +28,7 @@
 	"userstatus-no-user": "No existe la cuenta de usuario que intentas ver.",
 	"userstatus-your-thoughts": "Tus pensamientos",
 	"userstatus-user-thoughts": "Pensamientos de $1",
-	"userstatus-user-profile": "&lt; Ver perfil de $1",
+	"userstatus-user-profile": "< Ver perfil de $1",
 	"userstatus-back-your-profile": "&lt; Volver a tu perfil",
 	"userstatus-back-user-profile": "Volver al perfil de $1",
 	"userstatus-all-team-updates": "Todas las actualizaciones de $1",
