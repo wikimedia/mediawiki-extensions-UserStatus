@@ -1,12 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"WikiPhoenix"
+			"WikiPhoenix",
+			"Jack Phoenix"
 		]
 	},
 	"userstatus-desc": "Sociala statusuppdateringar på användarprofiler och på nätverkssidor",
 	"userstatus-network-thoughts": "$1 tankar",
-	"userstatus-back-to-network": "&lt; Tillbaka till nätverk",
+	"userstatus-back-to-network": "< Tillbaka till nätverk",
 	"userstatus-showing-thoughts": "{{PLURAL:$2|Visar 1 tanke|Visar $1 - $2 av $3 tankar}}.",
 	"userstatus-prev": "föreg",
 	"userstatus-next": "nästa",
@@ -23,7 +24,7 @@
 	"userstatus-no-user": "Användaren du försöker se finns inte.",
 	"userstatus-your-thoughts": "Dina tankar",
 	"userstatus-user-thoughts": "$1s tankar",
-	"userstatus-user-profile": "&lt; Se $1s profil",
+	"userstatus-user-profile": "< Se $1s profil",
 	"userstatus-back-your-profile": "&lt; Tillbaka till din profil",
 	"userstatus-back-user-profile": "Tillbaka till $1s profil",
 	"userstatus-all-team-updates": "Alla $1 uppdateringar",

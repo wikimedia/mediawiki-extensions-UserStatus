@@ -5,6 +5,7 @@
 		]
 	},
 	"userstatus-network-thoughts": "$1 ఆలోచనలు",
+	"userstatus-back-to-network": "< తిరిగి నెట్‌వర్కుకు",
 	"userstatus-showing-thoughts": "{{PLURAL:$2|1 ఆలోచనను చూపిస్తున్నాం|$3 ఆలోచనల్లో $1 - $2 చూపిస్తున్నాం}}.",
 	"userstatus-prev": "గత",
 	"userstatus-next": "తరువాతి",
@@ -21,6 +22,7 @@
 	"userstatus-no-user": "మీరు చూడదలచిన వాడుకరి ఉనికిలో లేరు.",
 	"userstatus-your-thoughts": "మీ ఆలోచనలు",
 	"userstatus-user-thoughts": "$1 ఆలోచనలు",
+	"userstatus-user-profile": "< $1 ప్రొఫైలు చూడండి",
 	"userstatus-back-user-profile": "తిరిగి $1 ప్రొఫైలుకు",
 	"userstatus-all-team-updates": "మొత్తం $1 తాజాకరణలూ",
 	"userstatus-num-agree": "{{PLURAL:$1|ఒక వ్యక్తి అంగీకరిస్తున్నారు|$1 మంది వ్యక్తులు అంగీకరిస్తున్నారు}}",
