@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ajeje Brazorf"
+			"Ajeje Brazorf",
+			"MathXplore"
 		]
 	},
 	"userstatus-btn-add": "追加",
-	"userstatus-delete": "削除"
+	"userstatus-delete": "削除",
+	"userstatus-back-your-profile": "あなたのプロフィールへ戻る"
 }
