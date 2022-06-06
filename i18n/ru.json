@@ -6,7 +6,8 @@
 			"Wirbel78",
 			"DDPAT",
 			"Ice bulldog",
-			"WindEwriX"
+			"WindEwriX",
+			"Kareyac"
 		]
 	},
 	"userstatus-desc": "Обновления социального статуса в профилях пользователей и на страницах сети",
@@ -28,7 +29,7 @@
 	"userstatus-no-user": "Участника, которого вы пытаетесь просмотреть, не существует.",
 	"userstatus-your-thoughts": "Ваши мысли",
 	"userstatus-user-thoughts": "Мысли $1",
-	"userstatus-user-profile": "$lt; Просмотреть профиль $1",
+	"userstatus-user-profile": "&lt; Просмотреть профиль $1",
 	"userstatus-back-your-profile": "&lt; Вернуться в свой профиль",
 	"userstatus-back-user-profile": "Вернуться в профиль $1",
 	"userstatus-all-team-updates": "Все обновления $1",
