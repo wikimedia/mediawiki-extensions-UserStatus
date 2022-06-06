@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Asma",
 			"Jack Phoenix",
 			"Sonic N800",
 			"ديفيد"
@@ -8,7 +9,7 @@
 	},
 	"userstatus-desc": "تحديثات الحالة الاجتماعية في ملفات المستخدمين الشخصية وفي صفحات الشبكة",
 	"userstatus-network-thoughts": "أفكار $1",
-	"userstatus-back-to-network": "< العودة إلى الشبكة",
+	"userstatus-back-to-network": "&tl; العودة إلى الشبكة",
 	"userstatus-showing-thoughts": "{{PLURAL:$2|عرض فكرة واحدة |عرض $1 - $2 من $3 أفكار}}.",
 	"userstatus-prev": "سا",
 	"userstatus-next": "التالي",
