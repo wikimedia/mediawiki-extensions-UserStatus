@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Joanmp17"
+		]
+	},
+	"userstatus-ago": "ቅድሚ $1",
+	"userstatus-time-days": "{{PLURAL:$1|ሓደ መዓልቲ|$1 መዓልታት}}",
+	"userstatus-time-hours": "{{PLURAL:$1|ሓደ ሰዓት|$1 ሰዓታት}}",
+	"userstatus-time-minutes": "{{PLURAL:$1|ሓንቲ ደቒቕ|$1 ደቓይቕ}}",
+	"userstatus-time-seconds": "{{PLURAL:$1|ሓደ ካልኢት|$1 ካልኢታት}}"
+}
