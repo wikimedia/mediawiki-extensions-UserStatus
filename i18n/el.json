@@ -8,7 +8,6 @@
 	"userstatus-desc": "Ενημερώσεις κοινωνικού στάτους στα προφίλ χρηστών και στις σελίδες διαδικτύου",
 	"userstatus-network-thoughts": "$1 Σκέψεις",
 	"userstatus-back-to-network": "< Επιστροφή στο Δίαδίκτυο",
-	"userstatus-showing-thoughts": "{{PLURAL:$2|Showing 1 Thought|Showing $1 - $2 of $3 Thoughts}}.",
 	"userstatus-prev": "προηγούμενο",
 	"userstatus-next": "επόμενο",
 	"userstatus-btn-add": "προσθέστε",
