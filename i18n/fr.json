@@ -28,7 +28,7 @@
 	"userstatus-your-thoughts": "Vos pensées",
 	"userstatus-user-thoughts": "Pensées de $1",
 	"userstatus-user-profile": "&lt; Afficher le profil de $1",
-	"userstatus-back-your-profile": "< Retour à votre profil",
+	"userstatus-back-your-profile": "◂ Retour à votre profil",
 	"userstatus-back-user-profile": "Retour au profil de $1",
 	"userstatus-all-team-updates": "Toutes les mises à jour de $1",
 	"userstatus-num-agree": "{{PLURAL:$1|Une personne approuve|$1 personnes approuvent}}",
