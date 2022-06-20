@@ -5,7 +5,7 @@
 		]
 	},
 	"userstatus-network-thoughts": "Ajatuksia aiheesta $1",
-	"userstatus-back-to-network": "< Takaisin verkostoon",
+	"userstatus-back-to-network": "&lt; Takaisin verkostoon",
 	"userstatus-showing-thoughts": "{{PLURAL:$2|Näytetään yksi ajatus|Näytetään $1 - $2 ajatusta; yhteensä $3}}.",
 	"userstatus-prev": "edell.",
 	"userstatus-next": "seur.",
@@ -22,7 +22,7 @@
 	"userstatus-no-user": "Käyttäjää, jota yrität tarkastella, ei ole olemassa.",
 	"userstatus-your-thoughts": "Ajatuksiasi",
 	"userstatus-user-thoughts": "Käyttäjän $1 ajatuksia",
-	"userstatus-user-profile": "< Katso käyttäjän $1 profiili",
+	"userstatus-user-profile": "&lt; Katso käyttäjän $1 profiili",
 	"userstatus-back-your-profile": "< Takaisin profiiliisi",
 	"userstatus-back-user-profile": "Takaisin käyttäjän $1 profiiliin",
 	"userstatus-all-team-updates": "Kaikki päivitykset aiheesta $1",
