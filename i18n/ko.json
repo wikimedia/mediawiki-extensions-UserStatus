@@ -2,10 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"Ykhwong",
-			"Theshinster123"
+			"Theshinster123",
+			"Jack Phoenix"
 		]
 	},
-	"userstatus-back-to-network": "$lt; 네트워크로 돌아가기",
+	"userstatus-back-to-network": "&lt; 네트워크로 돌아가기",
 	"userstatus-prev": "이전",
 	"userstatus-next": "다음",
 	"userstatus-btn-add": "추가",
