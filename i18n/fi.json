@@ -5,7 +5,7 @@
 		]
 	},
 	"userstatus-network-thoughts": "Ajatuksia aiheesta $1",
-	"userstatus-back-to-network": "< Takaisin verkostoon",
+	"userstatus-back-to-network": "&lt; Takaisin verkostoon",
 	"userstatus-showing-thoughts": "{{PLURAL:$2|Näytetään yksi ajatus|Näytetään $1 - $2 ajatusta; yhteensä $3}}.",
 	"userstatus-prev": "edell.",
 	"userstatus-next": "seur.",
