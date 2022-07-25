@@ -4,12 +4,13 @@
 			"DDPAT",
 			"Ice bulldog",
 			"Piramidion",
-			"Vlad5250"
+			"Vlad5250",
+			"Ата"
 		]
 	},
 	"userstatus-desc": "Оновлення соціального статусу в профілях користувачів та на сторінках мережі",
 	"userstatus-network-thoughts": "Міркування $1",
-	"userstatus-back-to-network": "< Назад до мережі",
+	"userstatus-back-to-network": "&lt; Назад до мережі",
 	"userstatus-showing-thoughts": "{{PLURAL:$2|Показано одне міркування|Показано $1 — $2 з $3 міркувань}}.",
 	"userstatus-prev": "попер.",
 	"userstatus-next": "наст.",
@@ -26,8 +27,8 @@
 	"userstatus-no-user": "Користувач, якого Ви намагаєтесь переглянути, не існує.",
 	"userstatus-your-thoughts": "Ваші міркування",
 	"userstatus-user-thoughts": "Міркування $1",
-	"userstatus-user-profile": "< Переглянути профіль $1",
-	"userstatus-back-your-profile": "< Назад до свого профілю",
+	"userstatus-user-profile": "〈 Переглянути профіль $1",
+	"userstatus-back-your-profile": "〈 Назад до свого профілю",
 	"userstatus-back-user-profile": "Назад до профілю $1",
 	"userstatus-all-team-updates": "Усі оновлення $1",
 	"userstatus-num-agree": "{{PLURAL:$1|$1 особа згодна|$1 особи згодні|$1 осіб згодні}}",
