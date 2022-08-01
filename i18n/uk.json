@@ -4,12 +4,13 @@
 			"Piramidion",
 			"Vlad5250",
 			"DDPAT",
-			"Ice bulldog"
+			"Ice bulldog",
+			"Ата"
 		]
 	},
 	"userstatus-desc": "Оновлення соціального статусу в профілях користувачів та на сторінках мережі",
 	"userstatus-network-thoughts": "Міркування $1",
-	"userstatus-back-to-network": "< Назад до мережі",
+	"userstatus-back-to-network": "&lt; Назад до мережі",
 	"userstatus-showing-thoughts": "{{PLURAL:$2|Показано одне міркування|Показано $1 — $2 з $3 міркувань}}.",
 	"userstatus-prev": "попер.",
 	"userstatus-next": "наст.",
