@@ -54,14 +54,6 @@ class ViewFanUpdates extends UnlistedSpecialPage {
 				$this->msg( 'mainpage' )->escaped() .
 				"\" onclick=\"window.location='" .
 				htmlspecialchars( Title::newMainPage()->getFullURL() ) . "'\"/>";
-			/* removed because I was too lazy to port the error message over :P
-			if ( $user->isRegistered() ) {
-				$output .= ' <input type="button" class="site-button" value="' .
-					$this->msg( 'st_network_your_profile' )->escaped() .
-					"\" onclick=\"window.location='" .
-					htmlspecialchars( Title::makeTitle( NS_USER, $wgUser->getName() )->getFullURL() ) . "'\"/>";
-			}
-			*/
 			$output .= '</div>';
 			$out->addHTML( $output );
 			return true;
