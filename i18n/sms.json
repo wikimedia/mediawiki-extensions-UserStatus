@@ -6,6 +6,7 @@
 	},
 	"userstatus-btn-add": "lââʹzzet",
 	"userstatus-delete": "Jaukkâd",
+	"userstatus-time-days": "{{PLURAL:$1|õhtt peiʹvv|$1 peeiʹv|$1 peiʹvved}}",
 	"userstatus-time-hours": "{{PLURAL:$1|õhtt čiâss|$1 čiâss|$1 čiâssâd}}",
 	"userstatus-time-minutes": "{{PLURAL:$1|õhtt minutt|$1 minuutt|$1 minuttâd}}",
 	"userstatus-time-seconds": "{{PLURAL:$1|õhtt sekuntt|$1 sekuunt|$1 sekunttâd}}",
