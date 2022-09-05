@@ -24,7 +24,7 @@
 	"userstatus-time-seconds": "{{PLURAL:$1|une seconde|$1 secondes}}",
 	"userstatus-no-updates": "Il n’y a aucune mise à jour",
 	"userstatus-woops": "Oups !",
-	"userstatus-no-user": "L’utilisateur que vous essayez d’afficher n’existe pas.",
+	"userstatus-no-user": "L’utilisateur ou l’utilisatrice que vous essayez d’afficher n’existe pas.",
 	"userstatus-your-thoughts": "Vos pensées",
 	"userstatus-user-thoughts": "Pensées de $1",
 	"userstatus-user-profile": "&lt; Afficher le profil de $1",
