@@ -7,5 +7,6 @@
 	"userstatus-next": "naprej",
 	"userstatus-btn-add": "dodaj",
 	"userstatus-delete": "Izbriši",
+	"userstatus-time-hours": "{{PLURAL:$1|ena ura|$1 uri|$1 ure|$1 ur}}",
 	"userstatus-time-minutes": "{{PLURAL:$1|ena minuta|dve minuti|$1 minute|$1 minut}}"
 }
