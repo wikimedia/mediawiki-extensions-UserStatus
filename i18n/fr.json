@@ -51,7 +51,7 @@
 	"apihelp-userstatus-description": "API pour gérer les messages d’états sociaux",
 	"apihelp-userstatus-summary": "API pour gérer les messages des états sociaux",
 	"apihelp-userstatus-param-what": "Que faire ? Verbe + objet, par exemple ''addnetworkstatus'' pour ajouter un statut (''add'') à une page de réseau (''networkstatus''), ''deletestatus'' pour supprimer (''delete'') un message d'état (''status''), etc.",
-	"apihelp-userstatus-param-sportId": "ID du sport",
+	"apihelp-userstatus-param-sportId": "Identifiant du sport",
 	"apihelp-userstatus-param-teamId": "ID de l’équipe sportive",
 	"apihelp-userstatus-param-text": "Texte donnant l’état de la modification",
 	"apihelp-userstatus-param-count": "Afficher ce nombre de mises à jour d’état dans le fil retourné",
