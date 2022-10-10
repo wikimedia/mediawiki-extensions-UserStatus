@@ -1,13 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
+			"EdoAug",
 			"Jack Phoenix",
 			"Jon Harald Søby"
 		]
 	},
 	"userstatus-desc": "Sosiale statusoppdateringer på brukerprofiler og nettverkssider",
 	"userstatus-network-thoughts": "$1-tanker",
-	"userstatus-back-to-network": "< Tilbake til nettverk",
+	"userstatus-back-to-network": "&lt; Tilbake til nettverk",
 	"userstatus-showing-thoughts": "Viser {{PLURAL:$2|én tanke|$1–$2 av $3 tanker}}.",
 	"userstatus-prev": "forrige",
 	"userstatus-next": "neste",
@@ -24,8 +25,8 @@
 	"userstatus-no-user": "Brukeren du prøver å vise finnes ikke.",
 	"userstatus-your-thoughts": "Dine tanker",
 	"userstatus-user-thoughts": "{{GRAMMAR:genitive|$1}} tanker",
-	"userstatus-user-profile": "< Vis {{GRAMMAR:genitive|$1}} profil",
-	"userstatus-back-your-profile": "< Tilbake til profilen din",
+	"userstatus-user-profile": "〈 Vis {{GRAMMAR:genitive|$1}} profil",
+	"userstatus-back-your-profile": "〈 Tilbake til profilen din",
 	"userstatus-back-user-profile": "Tilbake til {{GRAMMAR:genitive|$1}} profil",
 	"userstatus-all-team-updates": "ALle $1-opdateringer",
 	"userstatus-num-agree": "{{PLURAL:$1|Én person er enig|$1 personer er enige}}",
