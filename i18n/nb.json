@@ -2,12 +2,13 @@
 	"@metadata": {
 		"authors": [
 			"Jon Harald Søby",
-			"Jack Phoenix"
+			"Jack Phoenix",
+			"EdoAug"
 		]
 	},
 	"userstatus-desc": "Sosiale statusoppdateringer på brukerprofiler og nettverkssider",
 	"userstatus-network-thoughts": "$1-tanker",
-	"userstatus-back-to-network": "< Tilbake til nettverk",
+	"userstatus-back-to-network": "&lt; Tilbake til nettverk",
 	"userstatus-showing-thoughts": "Viser {{PLURAL:$2|én tanke|$1–$2 av $3 tanker}}.",
 	"userstatus-prev": "forrige",
 	"userstatus-next": "neste",
