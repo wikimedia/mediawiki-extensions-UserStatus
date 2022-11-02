@@ -3,7 +3,9 @@
 		"authors": [
 			"Sonic N800",
 			"ديفيد",
-			"Jack Phoenix"
+			"Jack Phoenix",
+			"Asma",
+			"Meno25"
 		]
 	},
 	"userstatus-desc": "تحديثات الحالة الاجتماعية في ملفات المستخدمين الشخصية وفي صفحات الشبكة",
@@ -38,6 +40,12 @@
 	"userstatus-no-new-thoughts": "لا توجد أفكار جديدة، أضف واحدا!",
 	"userstatus-just-added": "فقط أُضِيفت!",
 	"userstatus-confirm-delete": "هل أنت متأكد من أنك تريد حذف هذا الفكر؟",
+	"userstatus-delete-page-title": "حذف الفكر",
+	"userstatus-delete-success": "تم حذف الفكرة بنجاح!",
+	"userstatus-confirm-vote": "هل أنت متأكد أنك ترغب في الموافقة على هذا الفكر؟",
+	"userstatus-vote": "تصويت",
+	"userstatus-vote-page-title": "التصويت للفكرة",
+	"userstatus-vote-success": "لقد قمت بالتصويت بنجاح لهذا الفكر.",
 	"action-delete-status-updates": "حذف تحديثات حالة المستخدمين",
 	"right-delete-status-updates": "حذف تحديثات حالة المستخدمين",
 	"apihelp-userstatus-description": "API للتعامل مع رسائل الحالة الاجتماعية",
