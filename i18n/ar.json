@@ -4,7 +4,8 @@
 			"Asma",
 			"Jack Phoenix",
 			"Sonic N800",
-			"ديفيد"
+			"ديفيد",
+			"Meno25"
 		]
 	},
 	"userstatus-desc": "تحديثات الحالة الاجتماعية في ملفات المستخدمين الشخصية وفي صفحات الشبكة",
@@ -26,8 +27,8 @@
 	"userstatus-no-user": "المستخدم الذي تحاول عرضه غير موجود.",
 	"userstatus-your-thoughts": "أفكارك",
 	"userstatus-user-thoughts": "أفكار $1",
-	"userstatus-user-profile": "< عرض ملف $1 الشخصي",
-	"userstatus-back-your-profile": "< العودة إلى ملفك الشخصي",
+	"userstatus-user-profile": "〈عرض ملف $1 الشخصي",
+	"userstatus-back-your-profile": "〈العودة إلى ملف التعريف الخاص بك",
 	"userstatus-back-user-profile": "العودة إلى ملف $1 الشخصي",
 	"userstatus-all-team-updates": "جميع تحديثات $1",
 	"userstatus-num-agree": "{{PLURAL:$1|شخص واحد يوافق|يوافق $1 أشخاص}}",
@@ -39,6 +40,12 @@
 	"userstatus-no-new-thoughts": "لا توجد أفكار جديدة، أضف واحدا!",
 	"userstatus-just-added": "فقط أُضِيفت!",
 	"userstatus-confirm-delete": "هل أنت متأكد من أنك تريد حذف هذا الفكر؟",
+	"userstatus-delete-page-title": "حذف الفكر",
+	"userstatus-delete-success": "تم حذف الفكرة بنجاح!",
+	"userstatus-confirm-vote": "هل أنت متأكد أنك ترغب في الموافقة على هذا الفكر؟",
+	"userstatus-vote": "تصويت",
+	"userstatus-vote-page-title": "التصويت للفكرة",
+	"userstatus-vote-success": "لقد قمت بالتصويت بنجاح لهذا الفكر.",
 	"action-delete-status-updates": "حذف تحديثات حالة المستخدمين",
 	"right-delete-status-updates": "حذف تحديثات حالة المستخدمين",
 	"apihelp-userstatus-description": "API للتعامل مع رسائل الحالة الاجتماعية",
