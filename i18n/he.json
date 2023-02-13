@@ -1,8 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ex-Diktator"
+			"Ex-Diktator",
+			"Amire80"
 		]
 	},
+	"userstatus-prev": "הקודם",
+	"userstatus-next": "הבא",
 	"userstatus-delete": "מחיקה"
 }
