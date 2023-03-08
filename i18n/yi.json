@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"Pacha Tchernof"
+		]
+	},
+	"userstatus-time-days": "{{PLURAL:$1|איין טאָג|$1 טעג}}",
+	"userstatus-time-hours": "{{PLURAL:$1|איין שעה|$1 שעהן}}",
+	"userstatus-time-minutes": "{{PLURAL:$1|איין מינוט|$1 מינוטן}}",
+	"userstatus-time-seconds": "{{PLURAL:$1|איין סעקונדע|$1 סעקונדעס}}"
+}
