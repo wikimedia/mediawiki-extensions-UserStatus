@@ -13,7 +13,6 @@
 		"no-alert": "warn",
 		"no-unused-vars": "warn",
 		"no-jquery/no-animate-toggle": "warn",
-		"no-jquery/no-global-selector": "warn",
-		"compat/compat": "warn"
+		"no-jquery/no-global-selector": "warn"
 	}
 }
