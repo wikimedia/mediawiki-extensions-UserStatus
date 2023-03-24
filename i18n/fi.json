@@ -23,7 +23,7 @@
 	"userstatus-no-user": "Käyttäjää, jota yrität tarkastella, ei ole olemassa.",
 	"userstatus-your-thoughts": "Ajatuksiasi",
 	"userstatus-user-thoughts": "Käyttäjän $1 ajatuksia",
-	"userstatus-user-profile": "&lt; Katso käyttäjän $1 profiili",
+	"userstatus-user-profile": "〈 Katso käyttäjän $1 profiili",
 	"userstatus-back-your-profile": "〈 Takaisin profiiliisi",
 	"userstatus-back-user-profile": "Takaisin käyttäjän $1 profiiliin",
 	"userstatus-all-team-updates": "Kaikki päivitykset aiheesta $1",
