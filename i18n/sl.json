@@ -20,7 +20,7 @@
 	"userstatus-time-seconds": "{{PLURAL:$1|ena sekunda|$1 sekundi|$1 sekunde|$1 sekund}}",
 	"userstatus-no-updates": "Ni posodobitev",
 	"userstatus-woops": "Ups!",
-	"userstatus-no-user": "Uporavnik, ki si ga želite ogledati, ne obstaja.",
+	"userstatus-no-user": "Uporabnik, ki si ga želite ogledati, ne obstaja.",
 	"userstatus-your-thoughts": "Vaše misli",
 	"userstatus-user-thoughts": "Misli osebe $1",
 	"userstatus-user-profile": "〈 Ogled profila osebe $1",
