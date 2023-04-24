@@ -1,0 +1,43 @@
+{
+	"@metadata": {
+		"authors": [
+			"Nokeoo"
+		]
+	},
+	"userstatus-desc": "Socialinės būsenos atnaujinimai naudotojų profiliuose ir tinklo puslapiuose",
+	"userstatus-network-thoughts": "$1 mintys",
+	"userstatus-back-to-network": "&lt; Atgal į tinklą",
+	"userstatus-showing-thoughts": "{{PLURAL:$2|Rodoma 1 mintis|Rodomos $1 – $2 mintys iš $3}}.",
+	"userstatus-prev": "ankstesnis",
+	"userstatus-next": "kitas",
+	"userstatus-btn-add": "pridėti",
+	"userstatus-view-all-updates": "Peržiūrėti visus $1 atnaujinimus",
+	"userstatus-delete": "Ištrinti",
+	"userstatus-ago": "prieš $1",
+	"userstatus-time-days": "{{PLURAL:$1|vieną dieną|$1 dienas}}",
+	"userstatus-time-hours": "{{PLURAL:$1|vieną valandą|$1 valandas}}",
+	"userstatus-time-minutes": "{{PLURAL: $1|vieną minutę|$1 minutes}}",
+	"userstatus-time-seconds": "{{PLURAL:$1|vieną sekundę|$1 sekundes}}",
+	"userstatus-no-updates": "Atnaujinimų nėra",
+	"userstatus-woops": "Oi!",
+	"userstatus-no-user": "Naudotojas, kurį bandote peržiūrėti, neegzistuoja.",
+	"userstatus-your-thoughts": "Jūsų mintys",
+	"userstatus-user-thoughts": "$1 mintys",
+	"userstatus-back-user-profile": "Grįžti į $1 profilį",
+	"userstatus-all-team-updates": "Visi $1 atnaujinimai",
+	"userstatus-num-agree": "{{PLURAL:$1|1 asmuo sutinka|$1 žmonės sutinka}}",
+	"userstatus-agree": "sutinku",
+	"userstatus-see-who-agrees": "pažiūrėkite, kas dar sutinka",
+	"userstatus-invalid-link": "Negalima nuoroda",
+	"userstatus-who-agrees": "Kas sutinka",
+	"userstatus-nobody-agrees": "Niekas nesutinka su šia mintimi",
+	"userstatus-no-new-thoughts": "Naujų minčių nėra. Pridėkite!",
+	"userstatus-just-added": "ką tik pridėta",
+	"userstatus-confirm-delete": "Ar tikrai norite ištrinti šią mintį?",
+	"action-delete-status-updates": "ištrinti naudotoju būsenos atnaujinimus",
+	"right-delete-status-updates": "Ištrinti naudotoju būsenos atnaujinimus",
+	"apihelp-userstatus-param-sportId": "Sporto ID",
+	"apihelp-userstatus-param-teamId": "Sporto komandos ID",
+	"apihelp-userstatus-param-text": "Būsenos atnaujinimo tekstas",
+	"apihelp-userstatus-param-us_id": "Būsenos pranešimo ID"
+}
