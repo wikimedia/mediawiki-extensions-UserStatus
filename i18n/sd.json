@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Tweety"
+			"Tweety",
+			"Mehtab ahmed"
 		]
 	},
-	"userstatus-next": "اڳيون"
+	"userstatus-next": "اڳيون",
+	"userstatus-vote": "ووٽ ڏيو"
 }
