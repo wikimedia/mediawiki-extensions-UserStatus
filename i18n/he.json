@@ -7,5 +7,9 @@
 	},
 	"userstatus-prev": "הקודם",
 	"userstatus-next": "הבא",
-	"userstatus-delete": "מחיקה"
+	"userstatus-delete": "מחיקה",
+	"userstatus-time-days": "{{PLURAL:$1|יום|יומיים|$1 ימים}}",
+	"userstatus-time-hours": "{{PLURAL:$1|שעה|שעתיים|$1 שעות}}",
+	"userstatus-time-minutes": "{{PLURAL:$1|דקה|$1 דקות}}",
+	"userstatus-time-seconds": "{{PLURAL:$1|שנייה|$1 שניות}}"
 }
