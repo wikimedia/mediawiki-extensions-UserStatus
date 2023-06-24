@@ -47,7 +47,6 @@
 	"userstatus-vote-success": "Success message shown for users who don't have JavaScript enabled after they've agreed with a status update (\"thought\").",
 	"action-delete-status-updates": "{{doc-action|delete-status-updates}}",
 	"right-delete-status-updates": "{{doc-right|delete-status-updates}}",
-	"apihelp-userstatus-description": "{{doc-apihelp-description|userstatus}}",
 	"apihelp-userstatus-summary": "{{doc-apihelp-summary|userstatus}}",
 	"apihelp-userstatus-param-what": "{{doc-important|Do not translate \"addnetworkstatus\" and \"deletestatus\".}}\n{{doc-apihelp-param|userstatus|what}}",
 	"apihelp-userstatus-param-sportId": "{{doc-apihelp-param|userstatus|sportId}}",
