@@ -44,7 +44,6 @@
 	"userstatus-vote-success": "Tu ha votate pro iste pensata.",
 	"action-delete-status-updates": "deler actualisationes de stato de usatores",
 	"right-delete-status-updates": "Deler actualisationes de stato de usatores",
-	"apihelp-userstatus-description": "API pro gerer messages de stato social",
 	"apihelp-userstatus-summary": "API pro gerer messages de stato social",
 	"apihelp-userstatus-param-what": "Que facer? Verbo + subjecto, i.e. addnetworkstatus pro adder un stato a un pagina de rete, deletestatus pro deler un message de stato, etc.",
 	"apihelp-userstatus-param-sportId": "ID del sport",

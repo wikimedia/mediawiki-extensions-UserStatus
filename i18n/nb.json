@@ -40,7 +40,6 @@
 	"userstatus-confirm-delete": "Er du sikker på at du vil slette denne tanken?",
 	"action-delete-status-updates": "slette brukeres statusoppdateringer",
 	"right-delete-status-updates": "Slette brukeres statusoppdateringer",
-	"apihelp-userstatus-description": "API for å behandle sosiale statusmeldinger",
 	"apihelp-userstatus-summary": "API for å behandle sosiale statusmeldinger",
 	"apihelp-userstatus-param-what": "Hva skal gjøres? Verb + subjekt, f.eks. attnetworkstatus for å legge til en status til en nettverksside, deletestatus for å slette en statusmelding, etc.",
 	"apihelp-userstatus-param-sportId": "ID-en til sporten",

@@ -48,7 +48,6 @@
 	"userstatus-vote-success": "Bu düşünceye başarıyla oy verdiniz.",
 	"action-delete-status-updates": "kullanıcıların durum güncellemelerini sil",
 	"right-delete-status-updates": "Kullanıcıların durum güncellemelerini sil",
-	"apihelp-userstatus-description": "Sosyal durum mesajlarını yönetmek için API",
 	"apihelp-userstatus-summary": "Sosyal durum mesajlarını yönetmek için API",
 	"apihelp-userstatus-param-what": "Ne yapalım? Fiil + konu, örneğin bir ağ sayfasına bir durum eklemek için addnetworkstatus, bir durum mesajını silmek için deletestatus, vb.",
 	"apihelp-userstatus-param-sportId": "Sporun kimliği",

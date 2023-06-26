@@ -48,7 +48,6 @@
 	"userstatus-vote-success": "لقد قمت بالتصويت بنجاح لهذا الفكر.",
 	"action-delete-status-updates": "حذف تحديثات حالة المستخدمين",
 	"right-delete-status-updates": "حذف تحديثات حالة المستخدمين",
-	"apihelp-userstatus-description": "API للتعامل مع رسائل الحالة الاجتماعية",
 	"apihelp-userstatus-summary": "API للتعامل مع رسائل الحالة الاجتماعية",
 	"apihelp-userstatus-param-what": "ماذا أفعل؟ Verb + subject: أي addnetworkstatus لإضافة حالة إلى صفحة الشبكة، وحذفها لحذف رسالة الحالة، إلخ.",
 	"apihelp-userstatus-param-sportId": "معرف الرياضة",

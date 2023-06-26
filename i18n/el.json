@@ -37,7 +37,6 @@
 	"userstatus-just-added": "μόλις προστέθηκε",
 	"userstatus-confirm-delete": "Θέλετε να διαγράψετε αυτήν την σκέψη;",
 	"right-delete-status-updates": "Διαγράψετε τις τρέχουσες  ενημερώσεις  των χρηστών",
-	"apihelp-userstatus-description": "API για την διαχείρηση κοινωνικού στάτους μηνυμάτων",
 	"apihelp-userstatus-summary": "API για χειρισμό στάτους κοινωνικών μηνυμάτων",
 	"apihelp-userstatus-param-what": "Τι να κάνεις; Ρήμα + υποκείμενο, πχ προσθήκηστάτουςδικτύου για να προσθέσεις ένα στάτους σε μια σελίδα δικτύου, απαλοιφήστάτους, για να διαγραφή του στάτους ενός μηνύματος, κλπ",
 	"apihelp-userstatus-param-sportId": "ID του σπορ",

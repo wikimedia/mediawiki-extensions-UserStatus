@@ -40,7 +40,6 @@
 	"userstatus-just-added": "刚刚添加",
 	"userstatus-confirm-delete": "您确定要删除此想法么？",
 	"right-delete-status-updates": "删除用户的状态更新",
-	"apihelp-userstatus-description": "用于处理社交状态消息的API",
 	"apihelp-userstatus-summary": "用于处理社交状态消息的API",
 	"apihelp-userstatus-param-what": "可以干什么？动词+主题，也就是addnetworkstatus添加状态至网络页面，deletestatus删除状态消息等。",
 	"apihelp-userstatus-param-sportId": "体育的ID",

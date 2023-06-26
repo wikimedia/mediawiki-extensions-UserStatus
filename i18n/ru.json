@@ -46,7 +46,6 @@
 	"userstatus-confirm-delete": "Вы уверены, что хотите удалить эту мысль?",
 	"action-delete-status-updates": "удаление обновлений статусов участников",
 	"right-delete-status-updates": "Удаление обновлений статуса пользователя",
-	"apihelp-userstatus-description": "API для обработки сообщений социального статуса",
 	"apihelp-userstatus-summary": "API для обработки сообщений социального статуса",
 	"apihelp-userstatus-param-what": "Что делать? Глагол + предмет, например addnetworkstatus чтобы добавить статус на страницу,, deletestatus чтобы удалить статус, итд.",
 	"apihelp-userstatus-param-sportId": "ID спорта",

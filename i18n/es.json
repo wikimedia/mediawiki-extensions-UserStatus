@@ -49,7 +49,6 @@
 	"userstatus-vote-page-title": "Votar por una opinión",
 	"userstatus-vote-success": "Has votado satisfactoriamente por esta opinión.",
 	"right-delete-status-updates": "Borrar las actualizaciones de estado de los usuarios",
-	"apihelp-userstatus-description": "API para gestionar mensajes de estado social",
 	"apihelp-userstatus-summary": "API para gestionar mensajes de estado social",
 	"apihelp-userstatus-param-what": "¿Qué hacer? Verb + asunto, es decir, addnetworkstatus para añadir un estado a una página de la red, deletestatus para eliminar un mensaje de estado, etc.",
 	"apihelp-userstatus-param-sportId": "Id. del deporte",

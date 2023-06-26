@@ -38,7 +38,6 @@
 	"userstatus-just-added": "lades precis till",
 	"userstatus-confirm-delete": "Är du säker på att du vill radera denna tanke?",
 	"right-delete-status-updates": "Radera användares statusuppdateringar",
-	"apihelp-userstatus-description": "API för att hantera sociala statusmeddelanden",
 	"apihelp-userstatus-summary": "API för att hantera sociala statusmeddelanden",
 	"apihelp-userstatus-param-what": "Hur gör man? Verb + ämne, t.ex. addnetworkstatus för att lägga till en status till en nätverkssida, deletestatus för att radera ett statusmeddelande, etc.",
 	"apihelp-userstatus-param-sportId": "Sportens ID",

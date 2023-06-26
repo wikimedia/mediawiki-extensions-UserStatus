@@ -48,7 +48,6 @@
 	"userstatus-vote-success": "Vous avez bien voté pour cette idée.",
 	"action-delete-status-updates": "supprimer les mises à jour de l’état des utilisateurs",
 	"right-delete-status-updates": "Supprimer les mises à jour de l’état des utilisateurs",
-	"apihelp-userstatus-description": "API pour gérer les messages d’états sociaux",
 	"apihelp-userstatus-summary": "API pour gérer les messages des états sociaux",
 	"apihelp-userstatus-param-what": "Que faire ? Verbe + objet, par exemple ''addnetworkstatus'' pour ajouter un statut (''add'') à une page de réseau (''networkstatus''), ''deletestatus'' pour supprimer (''delete'') un message d'état (''status''), etc.",
 	"apihelp-userstatus-param-sportId": "Identifiant du sport",

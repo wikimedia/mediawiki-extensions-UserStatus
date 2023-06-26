@@ -45,7 +45,6 @@
 	"userstatus-vote-success": "Du hast erfolgreich für diesen Gedanken gestimmt.",
 	"action-delete-status-updates": "Statusaktualisierungen des Benutzers zu löschen",
 	"right-delete-status-updates": "Statusaktualisierungen des Benutzers löschen",
-	"apihelp-userstatus-description": "API zur Verarbeitung von Nachrichten des sozialen Status",
 	"apihelp-userstatus-summary": "API zur Verarbeitung von Nachrichten des sozialen Status",
 	"apihelp-userstatus-param-what": "Was ist zu tun? Verb + Subjekt, z.&nbsp;B. addnetworkstatus zum Hinzufügen eines Status zu einer Netzwerkseite, deletestatus zum Löschen einer Statusnachricht etc.",
 	"apihelp-userstatus-param-sportId": "Kennung des Sports",

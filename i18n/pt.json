@@ -45,7 +45,6 @@
 	"userstatus-vote-success": "Votou neste pensamento.",
 	"action-delete-status-updates": "eliminar atualizações de estado dos utilizadores",
 	"right-delete-status-updates": "Eliminar atualizações de estado dos utilizadores",
-	"apihelp-userstatus-description": "API para lidar com mensagens de estado social",
 	"apihelp-userstatus-summary": "API para lidar com mensagens de estado social",
 	"apihelp-userstatus-param-what": "O que fazer? Verbo + sujeito, isto é, addnetworkstatus para adicionar um estado a uma página de rede social, deletestatus para eliminar uma mensagem de estado, etc.",
 	"apihelp-userstatus-param-sportId": "Identificador do desporto",
