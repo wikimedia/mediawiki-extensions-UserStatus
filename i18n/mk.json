@@ -6,7 +6,7 @@
 	},
 	"userstatus-desc": "Друштвени статусни поднови на кориснички профили и на мрежните страници",
 	"userstatus-network-thoughts": "Мисли на $1",
-	"userstatus-back-to-network": "< Назад кон мрежата",
+	"userstatus-back-to-network": "&lt; Назад кон мрежата",
 	"userstatus-showing-thoughts": "{{PLURAL:$2|Прикажана една мисла|Прикажани $1 - $2 од вкупно $3 мисли}}.",
 	"userstatus-prev": "прет",
 	"userstatus-next": "след",
