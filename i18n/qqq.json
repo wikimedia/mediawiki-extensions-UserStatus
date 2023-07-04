@@ -3,12 +3,13 @@
 		"authors": [
 			"Liuxinyu970226",
 			"Robby",
-			"Umherirrender"
+			"Umherirrender",
+			"Amire80"
 		]
 	},
 	"userstatus-desc": "{{desc|name=UserStatus|url=https://www.mediawiki.org/wiki/Extension:UserStatus}}",
 	"userstatus-network-thoughts": "A page title on [[Special:FanUpdates]]\n{{Identical|Thought}}",
-	"userstatus-back-to-network": "A link text",
+	"userstatus-back-to-network": "A link text. Use \"&amp;lt;\" in both LTR and RTL languages.",
 	"userstatus-showing-thoughts": "A navigation link text",
 	"userstatus-prev": "A navigation link text\n{{Identical|Prev}}",
 	"userstatus-next": "A navigation link text\n{{Identical|Next}}",
