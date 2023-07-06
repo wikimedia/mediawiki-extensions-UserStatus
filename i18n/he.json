@@ -52,5 +52,5 @@
 	"apihelp-userstatus-param-text": "טקסט עדכון הסטטוס",
 	"apihelp-userstatus-param-count": "הצגת כמות כזאת של עדכוני סטטוס בהזנה המוחזרת",
 	"apihelp-userstatus-param-us_id": "מזהה הודעת הסטטוס",
-	"apihelp-userstatus-param-vote": "1 כדי להבציע הודעת סטטוס, <span dir=\"ltr\"-1\"</span> כדי להצביע נגד"
+	"apihelp-userstatus-param-vote": "1 כדי להצביע בעד הודעת סטטוס, <span dir=\"ltr\">-1\"</span> כדי להצביע נגד"
 }
