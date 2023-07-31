@@ -6,7 +6,7 @@
 	},
 	"userstatus-desc": "在個人檔案以及網路頁面上的社交狀態更新",
 	"userstatus-network-thoughts": "$1 個看法",
-	"userstatus-back-to-network": "< 返回至網路",
+	"userstatus-back-to-network": "&lt; 返回至網路",
 	"userstatus-showing-thoughts": "{{PLURAL:$2|顯示 1 個看法|顯示 $3 個中 $1 - $2 個看法}}.",
 	"userstatus-prev": "上一個",
 	"userstatus-next": "下一個",
