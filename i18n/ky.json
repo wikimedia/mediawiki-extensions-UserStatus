@@ -4,5 +4,6 @@
 			"Bosogo"
 		]
 	},
-	"userstatus-btn-add": "кошуу"
+	"userstatus-btn-add": "кошуу",
+	"userstatus-time-days": "{{PLURAL:$1|бир күн|$1 күн}}"
 }
