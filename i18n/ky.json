@@ -4,5 +4,8 @@
 			"Bosogo"
 		]
 	},
-	"userstatus-btn-add": "кошуу"
+	"userstatus-next": "кийинки",
+	"userstatus-btn-add": "кошуу",
+	"userstatus-time-days": "{{PLURAL:$1|бир күн|$1 күн}}",
+	"userstatus-agree": "макул болуу"
 }
