@@ -28,7 +28,7 @@
 	"userstatus-user-profile": "< Vis {{GRAMMAR:genitive|$1}} profil",
 	"userstatus-back-your-profile": "&lt; Tilbake til profilen din",
 	"userstatus-back-user-profile": "Tilbake til {{GRAMMAR:genitive|$1}} profil",
-	"userstatus-all-team-updates": "ALle $1-opdateringer",
+	"userstatus-all-team-updates": "Alle $1-opdateringer",
 	"userstatus-num-agree": "{{PLURAL:$1|Én person er enig|$1 personer er enige}}",
 	"userstatus-agree": "enig",
 	"userstatus-see-who-agrees": "se hvem andre som er enige",
