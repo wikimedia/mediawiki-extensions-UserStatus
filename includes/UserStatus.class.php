@@ -7,19 +7,31 @@
  */
 class UserStatus {
 	/**
-	 * @var User
+	 * @var User Current user (i.e. the user who is viewing the page)
 	 */
 	public $user;
 
 	/**
 	 * Constructor
 	 *
-	 * @param User $user
+	 * @param User $user Current user, i.e. the user who is viewing the page (for
+	 * social profile pages, obviously "current user who is viewing the page" and
+	 * "the user whose page is being viewed" can be and likely _will_ be different!)
 	 */
 	public function __construct( $user ) {
 		$this->user = $user;
 	}
 
+	/**
+	 * Add a status update (provided the user isn't blocked) and update the
+	 * relevant social statistics.
+	 *
+	 * @param int $sport_id Sport ID with which the status update is associated
+	 * @param int $team_id Team ID with which the status update is associated
+	 * @param string $text User-supplied status update text
+	 * @return string|int Empty string if the user is blocked, otherwise ID
+	 * of the newly inserted status update
+	 */
 	public function addStatus( $sport_id, $team_id, $text ) {
 		$dbw = wfGetDB( DB_MASTER );
 
