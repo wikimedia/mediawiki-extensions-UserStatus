@@ -30,6 +30,8 @@ class ViewFanUpdates extends UnlistedSpecialPage {
 		$request = $this->getRequest();
 		$user = $this->getUser();
 
+		$this->setHeaders();
+
 		$messages_show = 25;
 		$updates_show = 25; // just an arbitrary value to stop PHP from complaining on 12 August 2011 --ashley
 		$output = '';

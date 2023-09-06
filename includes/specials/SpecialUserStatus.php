@@ -33,6 +33,8 @@ class ViewUserStatus extends UnlistedSpecialPage {
 		$currentUser = $this->getUser();
 		$linkRenderer = $this->getLinkRenderer();
 
+		$this->setHeaders();
+
 		$messages_show = 25;
 		$output = '';
 		$user_name = $request->getVal( 'user', $par );

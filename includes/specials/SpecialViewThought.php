@@ -23,6 +23,8 @@ class ViewThought extends UnlistedSpecialPage {
 		$out = $this->getOutput();
 		$request = $this->getRequest();
 
+		$this->setHeaders();
+
 		$messages_show = 25;
 		$output = '';
 		$us_id = $request->getInt( 'id', $par );
