@@ -2,7 +2,7 @@
 
 use MediaWiki\MediaWikiServices;
 
-class ViewUserStatus extends UnlistedSpecialPage {
+class SpecialViewUserStatus extends UnlistedSpecialPage {
 
 	/**
 	 * Constructor -- set up the new special page
@@ -26,6 +26,7 @@ class ViewUserStatus extends UnlistedSpecialPage {
 	 * Show the special page
 	 *
 	 * @param string|int|null $par Parameter passed to the special page, if any
+	 * @return bool|void
 	 */
 	public function execute( $par ) {
 		$out = $this->getOutput();
@@ -170,7 +171,9 @@ class ViewUserStatus extends UnlistedSpecialPage {
 		}
 
 		// "Back to (your|$user_name's) profile" link
-		$output .= '<div class="gift-links">'; // @todo FIXME: this really should be renamed...
+
+		// @todo FIXME: this really should be renamed...
+		$output .= '<div class="gift-links">';
 		if ( !( $currentUser->getName() == $user_name ) ) {
 			$output .= $linkRenderer->makeLink(
 				$user->getUserPage(),
@@ -301,8 +304,7 @@ class ViewUserStatus extends UnlistedSpecialPage {
 				if (
 					$currentUser->getActorId() == $message['actor'] ||
 					$currentUser->isAllowed( 'delete-status-updates' )
-				)
-				{
+				) {
 					$deleteURL = htmlspecialchars(
 						$thisTitle->getFullURL( [
 							'action' => 'delete',
@@ -312,7 +314,7 @@ class ViewUserStatus extends UnlistedSpecialPage {
 					);
 					$delete_link = "<span class=\"user-status-delete-link\">
 						<a href=\"{$deleteURL}\" data-message-id=\"{$message['id']}\">" .
-						$this->msg( 'userstatus-delete-thought-text' )->escaped() ."</a>
+						$this->msg( 'userstatus-delete-thought-text' )->escaped() . "</a>
 					</span>";
 				}
 

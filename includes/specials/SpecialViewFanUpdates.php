@@ -11,7 +11,7 @@ use MediaWiki\MediaWikiServices;
  * @file
  * @ingroup Extensions
  */
-class ViewFanUpdates extends UnlistedSpecialPage {
+class SpecialViewFanUpdates extends UnlistedSpecialPage {
 
 	/**
 	 * Constructor -- set up the new special page
@@ -24,6 +24,7 @@ class ViewFanUpdates extends UnlistedSpecialPage {
 	 * Show the special page
 	 *
 	 * @param string|int|null $par Parameter passed to the special page, if any
+	 * @return bool|void
 	 */
 	public function execute( $par ) {
 		$out = $this->getOutput();
@@ -33,7 +34,8 @@ class ViewFanUpdates extends UnlistedSpecialPage {
 		$this->setHeaders();
 
 		$messages_show = 25;
-		$updates_show = 25; // just an arbitrary value to stop PHP from complaining on 12 August 2011 --ashley
+		// just an arbitrary value to stop PHP from complaining on 12 August 2011 --ashley
+		$updates_show = 25;
 		$output = '';
 		$sport_id = $request->getInt( 'sport_id' );
 		$team_id = $request->getInt( 'team_id' );
@@ -78,7 +80,8 @@ class ViewFanUpdates extends UnlistedSpecialPage {
 			$page
 		);
 
-		$output .= '<div class="gift-links">'; // @todo FIXME: rename!
+		// @todo FIXME: rename!
+		$output .= '<div class="gift-links">';
 		$output .= '<a href="' .
 			htmlspecialchars(
 				SpecialPage::getTitleFor( 'FanHome' )->getFullURL( [
@@ -190,8 +193,7 @@ class ViewFanUpdates extends UnlistedSpecialPage {
 				if (
 					$user->getActorId() == $message['actor'] ||
 					$user->isAllowed( 'delete-status-updates' )
-				)
-				{
+				) {
 					$deleteURL = htmlspecialchars(
 						$statusPage->getFullURL( [
 							'action' => 'delete',
@@ -232,6 +234,8 @@ class ViewFanUpdates extends UnlistedSpecialPage {
 	}
 
 	/**
+	 * @param int $sportId
+	 * @param int $teamId
 	 * @return string
 	 */
 	private function getFanUpdatesURL( $sportId, $teamId ) {

@@ -14,9 +14,9 @@
 		"MediaWiki": ">= 1.34.0"
 	},
 	"SpecialPages": {
-		"FanUpdates": "ViewFanUpdates",
-		"UserStatus": "ViewUserStatus",
-		"ViewThought": "ViewThought"
+		"FanUpdates": "SpecialViewFanUpdates",
+		"UserStatus": "SpecialViewUserStatus",
+		"ViewThought": "SpecialViewThought"
 	},
 	"MessagesDirs": {
 		"UserStatus": [
@@ -32,11 +32,11 @@
 	},
 	"AutoloadClasses": {
 		"ApiUserStatus": "includes/api/ApiUserStatus.php",
-		"UserStatus": "includes/UserStatus.class.php",
-		"UserStatusHooks": "includes/UserStatus.hooks.php",
-		"ViewFanUpdates": "includes/specials/SpecialFanUpdates.php",
-		"ViewUserStatus": "includes/specials/SpecialUserStatus.php",
-		"ViewThought": "includes/specials/SpecialViewThought.php"
+		"UserStatus": "includes/UserStatus.php",
+		"UserStatusHooks": "includes/UserStatusHooks.php",
+		"SpecialViewFanUpdates": "includes/specials/SpecialViewFanUpdates.php",
+		"SpecialViewUserStatus": "includes/specials/SpecialViewUserStatus.php",
+		"SpecialViewThought": "includes/specials/SpecialViewThought.php"
 	},
 	"Hooks": {
 		"LoadExtensionSchemaUpdates": "UserStatusHooks::onLoadExtensionSchemaUpdates"

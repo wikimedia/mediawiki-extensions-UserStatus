@@ -358,7 +358,7 @@ class UserStatus {
 				$avatar = new wAvatar( $user->getId(), 'm' );
 
 				$messages_link = '<a href="' .
-					UserStatus::getUserUpdatesURL( $userName ) . '">' .
+					self::getUserUpdatesURL( $userName ) . '">' .
 					wfMessage( 'userstatus-view-all-updates', $userName )->text() .
 				'</a>';
 				$delete_link = '';
@@ -368,8 +368,7 @@ class UserStatus {
 				if (
 					$this->user->getActorId() == $message['actor'] ||
 					$this->user->isAllowed( 'delete-status-updates' )
-				)
-				{
+				) {
 					$deleteURL = htmlspecialchars(
 						$statusPage->getFullURL( [
 							'action' => 'delete',
@@ -595,6 +594,9 @@ class UserStatus {
 	 * Cuts link text if it's too long.
 	 * For example, http://www.google.com/some_stuff_here could be changed into
 	 * http://goo...stuff_here or so.
+	 *
+	 * @param string[] $matches
+	 * @return string
 	 */
 	public static function cutLinkText( $matches ) {
 		$tagOpen = $matches[1];
@@ -602,7 +604,7 @@ class UserStatus {
 		$tagClose = $matches[3];
 
 		$image = preg_match( '/<img src=/i', $linkText );
-		$isURL = ( preg_match( '%^(?:http|https|ftp)://(?:www\.)?.*$%i', $linkText ) ? true : false );
+		$isURL = (bool)preg_match( '%^(?:http|https|ftp)://(?:www\.)?.*$%i', $linkText );
 
 		if ( $isURL && !$image && strlen( $linkText ) > 50 ) {
 			$start = substr( $linkText, 0, ( 50 / 2 ) - 3 );

@@ -8,9 +8,7 @@
  */
 class ApiUserStatus extends ApiBase {
 
-	/**
-	 * @var UserStatus
-	 */
+	/** @var UserStatus */
 	private $userStatus;
 
 	public function execute() {
@@ -40,13 +38,13 @@ class ApiUserStatus extends ApiBase {
 
 		// Hmm, what do we want to do?
 		switch ( $params['what'] ) {
-			case 'addstatus': // add a status to user profile
+			// add a status to user profile
+			case 'addstatus':
 				if (
 					$sportId === null || !is_numeric( $sportId ) ||
 					$teamId === null || !is_numeric( $teamId ) ||
 					!isset( $text ) || count( $params ) < 3
-				)
-				{
+				) {
 					$this->dieWithError(
 						new RawMessage( 'One or more of the required three params is missing' ),
 						'zomgamissingparam'
@@ -54,14 +52,14 @@ class ApiUserStatus extends ApiBase {
 				}
 				$output = $this->addStatus( $sportId, $teamId, $text );
 				break;
-			case 'addnetworkstatus': // add a status to a network page
+			// add a status to a network page
+			case 'addnetworkstatus':
 				if (
 					$sportId === null || !is_numeric( $sportId ) ||
 					$teamId === null || !is_numeric( $teamId ) ||
 					!isset( $text ) || !is_numeric( $count ) ||
 					count( $params ) < 4
-				)
-				{
+				) {
 					$this->dieWithError(
 						new RawMessage( 'One or more of the required four params is missing' ),
 						'zomgamissingparam2'
@@ -73,8 +71,7 @@ class ApiUserStatus extends ApiBase {
 				if (
 					$us_id === null || !is_numeric( $us_id ) ||
 					$vote === null || count( $params ) < 2
-				)
-				{
+				) {
 					$this->dieWithError(
 						new RawMessage( 'One or more of the required two params is missing' ),
 						'zomgamissingparam4'
@@ -150,8 +147,7 @@ class ApiUserStatus extends ApiBase {
 		if (
 			$this->userStatus->doesUserOwnStatusMessage( $user->getActorId(), $us_id ) ||
 			$user->isAllowed( 'delete-status-updates' )
-		)
-		{
+		) {
 			$this->userStatus->deleteStatus( $us_id );
 		}
 
@@ -247,7 +243,9 @@ class ApiUserStatus extends ApiBase {
 		return true;
 	}
 
-	// Get examples
+	/**
+	 * @inheritDoc
+	 */
 	public function getExamples() {
 		return [
 			'api.php?action=userstatus&what=addstatus&sportId=2&teamId=43&text=My team rocks!' => 'Adds a status message ("My team rocks!") under the team #43, sport #2',

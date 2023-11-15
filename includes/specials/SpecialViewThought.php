@@ -5,7 +5,7 @@
  * @file
  * @ingroup Extensions
  */
-class ViewThought extends UnlistedSpecialPage {
+class SpecialViewThought extends UnlistedSpecialPage {
 
 	/**
 	 * Constructor -- set up the new special page
@@ -18,6 +18,7 @@ class ViewThought extends UnlistedSpecialPage {
 	 * Show the special page
 	 *
 	 * @param string|int|null $par Parameter passed to the special page, if any
+	 * @return bool|void
 	 */
 	public function execute( $par ) {
 		$out = $this->getOutput();
