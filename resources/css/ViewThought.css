@@ -34,6 +34,7 @@
 	font-weight: bold;
 	padding: 0px 0px 3px 0px;
 	border-bottom: 1px solid #dcdcdc;
+	/* stylelint-disable-next-line declaration-no-important */
 	margin: 0px 0px 10px 0px !important;
 }
 
@@ -53,7 +54,7 @@
 }
 
 .user-status-date {
-	color: #bbbbbb;
+	color: #bbb;
 	font-size: 10px;
 	font-weight: bold;
 	margin: 3px 0px 0px 0px;

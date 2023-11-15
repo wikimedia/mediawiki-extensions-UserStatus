@@ -26,7 +26,7 @@
 }
 
 .user-status-date {
-	color: #bbbbbb;
+	color: #bbb;
 	font-size: 10px;
 	font-weight: bold;
 	margin: 1px 0px 0px 0px;
@@ -51,7 +51,7 @@
 }
 
 span.user-status-delete-link a {
-	color: #ff0000;
+	color: #f00;
 }
 
 .user-status-vote {
@@ -59,6 +59,6 @@ span.user-status-delete-link a {
 }
 
 .user-page-message-count {
-	color: #666666;
+	color: #666;
 	font-size: 11px;
 }
