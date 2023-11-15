@@ -1,0 +1,13 @@
+{
+	"@metadata": {
+		"authors": []
+	},
+	"apihelp-userstatus-summary": "{{doc-apihelp-summary|userstatus}}",
+	"apihelp-userstatus-param-what": "{{doc-important|Do not translate \"addnetworkstatus\" and \"deletestatus\".}}\n{{doc-apihelp-param|userstatus|what}}",
+	"apihelp-userstatus-param-sportId": "{{doc-apihelp-param|userstatus|sportId}}",
+	"apihelp-userstatus-param-teamId": "{{doc-apihelp-param|userstatus|teamId}}",
+	"apihelp-userstatus-param-text": "{{doc-apihelp-param|userstatus|text}}",
+	"apihelp-userstatus-param-count": "{{doc-apihelp-param|userstatus|count}}",
+	"apihelp-userstatus-param-us_id": "{{doc-apihelp-param|userstatus|us_id}}",
+	"apihelp-userstatus-param-vote": "{{doc-important|1. Please do not translate both numbers (1 and -1); 2. Please ignore the auto-provided \"Do not translate text that either quoted\" below, translating both \"upvote\" and \"downvote\" are OK here.}}\n{{doc-apihelp-param|userstatus|vote}}"
+}

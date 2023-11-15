@@ -42,13 +42,5 @@
 	"userstatus-vote-page-title": "Vote for a thought",
 	"userstatus-vote-success": "You have successfully voted for this thought.",
 	"action-delete-status-updates": "delete users' status updates",
-	"right-delete-status-updates": "Delete users' status updates",
-	"apihelp-userstatus-summary": "API for handling social status messages",
-	"apihelp-userstatus-param-what": "What to do? Verb + subject, i.e. addnetworkstatus to add a status to a network page, deletestatus to delete a status message, etc.",
-	"apihelp-userstatus-param-sportId": "ID of the sport",
-	"apihelp-userstatus-param-teamId": "ID of the sport team",
-	"apihelp-userstatus-param-text": "Status update text",
-	"apihelp-userstatus-param-count": "Display this many status updates in the returned feed",
-	"apihelp-userstatus-param-us_id": "Status message ID",
-	"apihelp-userstatus-param-vote": "1 to \"upvote\" a status message, -1 to \"downvote\" instead"
+	"right-delete-status-updates": "Delete users' status updates"
 }

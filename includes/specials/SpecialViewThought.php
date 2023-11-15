@@ -31,6 +31,7 @@ class ViewThought extends UnlistedSpecialPage {
 		$page = $request->getInt( 'page', 1 );
 
 		// No ID? Show an error message then.
+		// @phan-suppress-next-line PhanRedundantCondition
 		if ( !$us_id || !is_numeric( $us_id ) ) {
 			$out->setPageTitle( $this->msg( 'userstatus-woops' )->escaped() );
 			$out->addHTML( $this->msg( 'userstatus-invalid-link' )->escaped() );
