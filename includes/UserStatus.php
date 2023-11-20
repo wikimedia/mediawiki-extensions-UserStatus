@@ -359,7 +359,7 @@ class UserStatus {
 
 				$messages_link = '<a href="' .
 					self::getUserUpdatesURL( $userName ) . '">' .
-					wfMessage( 'userstatus-view-all-updates', $userName )->text() .
+					wfMessage( 'userstatus-view-all-updates', $userName )->escaped() .
 				'</a>';
 				$delete_link = '';
 
@@ -378,7 +378,7 @@ class UserStatus {
 					);
 					$delete_link = "<span class=\"user-status-delete-link\">
 						<a href=\"{$deleteURL}\" data-message-id=\"{$message['id']}\">" .
-						wfMessage( 'userstatus-delete-thought-text' )->text() . '</a>
+						wfMessage( 'userstatus-delete-thought-text' )->escaped() . '</a>
 					</span>';
 				}
 
@@ -393,14 +393,14 @@ class UserStatus {
 							ENT_QUOTES
 						);
 						$vote_link = "<a class=\"vote-status-link\" href=\"{$voteURL}\" data-message-id=\"{$message['id']}\">[" .
-							wfMessage( 'userstatus-agree' )->text() . ']</a>';
+							wfMessage( 'userstatus-agree' )->escaped() . ']</a>';
 					} else {
 						$vote_link = $vote_count;
 					}
 				}
 
 				$view_thought_link = '<a href="' . $thought_link->getFullURL( 'id=' . $message['id'] ) .
-					'">[' . wfMessage( 'userstatus-see-who-agrees' )->text() . ']</a>';
+					'">[' . wfMessage( 'userstatus-see-who-agrees' )->escaped() . ']</a>';
 
 				$message_text = preg_replace_callback(
 					'/(<a[^>]*>)(.*?)(<\/a>)/i',
@@ -438,7 +438,7 @@ class UserStatus {
 				$x++;
 			}
 		} else {
-			$output .= '<p>' . wfMessage( 'userstatus-no-new-thoughts' )->text() . '</p>';
+			$output .= '<p>' . wfMessage( 'userstatus-no-new-thoughts' )->escaped() . '</p>';
 		}
 
 		return $output;
