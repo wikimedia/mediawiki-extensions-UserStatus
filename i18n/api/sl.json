@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"Eleassar"
+		]
+	},
+	"apihelp-userstatus-summary": "API za obdelavo sporočil o socialnem statusu",
+	"apihelp-userstatus-param-what": "Kaj storiti? Glagol + zadeva, tj. addnetworkstatus za dodajanje statusa omrežni strani, deletestatus za brisanje sporočila statusa itn.",
+	"apihelp-userstatus-param-sportId": "ID športa",
+	"apihelp-userstatus-param-teamId": "ID športne ekipe",
+	"apihelp-userstatus-param-text": "Besedilo posodobitve statusa",
+	"apihelp-userstatus-param-count": "V vrnjenem viru prikaži toliko posodobitev statusa",
+	"apihelp-userstatus-param-us_id": "ID sporočila statusa",
+	"apihelp-userstatus-param-vote": "1 za »všečkanje« sporočila statusa, -1 za »grajanje«"
+}

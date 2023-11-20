@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"WikiPhoenix"
+		]
+	},
+	"apihelp-userstatus-summary": "API för att hantera sociala statusmeddelanden",
+	"apihelp-userstatus-param-what": "Hur gör man? Verb + ämne, t.ex. addnetworkstatus för att lägga till en status till en nätverkssida, deletestatus för att radera ett statusmeddelande, etc.",
+	"apihelp-userstatus-param-sportId": "Sportens ID",
+	"apihelp-userstatus-param-teamId": "Sportlagets ID",
+	"apihelp-userstatus-param-text": "Statusuppdateringens text",
+	"apihelp-userstatus-param-count": "Visa så många statusuppdateringar i den returnerade matningen",
+	"apihelp-userstatus-param-us_id": "Statusmeddelande-ID",
+	"apihelp-userstatus-param-vote": "1 för att \"rösta upp\" ett statusmeddelande, -1 för att \"rösta ned\" istället"
+}

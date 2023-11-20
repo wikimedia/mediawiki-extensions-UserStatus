@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"Fitoschido",
+			"Jelou"
+		]
+	},
+	"apihelp-userstatus-summary": "API para gestionar mensajes de estado social",
+	"apihelp-userstatus-param-what": "¿Qué hacer? Verb + asunto, es decir, addnetworkstatus para añadir un estado a una página de la red, deletestatus para eliminar un mensaje de estado, etc.",
+	"apihelp-userstatus-param-sportId": "Id. del deporte",
+	"apihelp-userstatus-param-teamId": "Id. del equipo deportivo",
+	"apihelp-userstatus-param-text": "Texto de la actualización de estado",
+	"apihelp-userstatus-param-count": "Muestra este número de actualizaciones de estado devueltas por la fuente",
+	"apihelp-userstatus-param-us_id": "Id. de mensaje de estado"
+}

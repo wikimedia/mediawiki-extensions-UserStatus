@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Ykhwong"
+		]
+	},
+	"apihelp-userstatus-param-text": "상태 업데이트 텍스트",
+	"apihelp-userstatus-param-us_id": "상태 메시지 ID"
+}

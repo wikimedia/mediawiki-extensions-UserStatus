@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"McDutchie"
+		]
+	},
+	"apihelp-userstatus-summary": "API pro gerer messages de stato social",
+	"apihelp-userstatus-param-what": "Que facer? Verbo + subjecto, i.e. addnetworkstatus pro adder un stato a un pagina de rete, deletestatus pro deler un message de stato, etc.",
+	"apihelp-userstatus-param-sportId": "ID del sport",
+	"apihelp-userstatus-param-teamId": "ID del equipa sportive",
+	"apihelp-userstatus-param-text": "Texto del actualisation de stato",
+	"apihelp-userstatus-param-count": "Monstra tante actualisationes de stato in le fluxo restituite",
+	"apihelp-userstatus-param-us_id": "ID del message de stato",
+	"apihelp-userstatus-param-vote": "1 pro \"votar pro\" un message de stato, -1 pro \"votar contra\""
+}

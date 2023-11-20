@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"Nokeoo"
+		]
+	},
+	"apihelp-userstatus-param-sportId": "Sporto ID",
+	"apihelp-userstatus-param-teamId": "Sporto komandos ID",
+	"apihelp-userstatus-param-text": "Būsenos atnaujinimo tekstas",
+	"apihelp-userstatus-param-us_id": "Būsenos pranešimo ID"
+}

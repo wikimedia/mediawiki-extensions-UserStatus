@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"ديفيد"
+		]
+	},
+	"apihelp-userstatus-summary": "API للتعامل مع رسائل الحالة الاجتماعية",
+	"apihelp-userstatus-param-what": "ماذا أفعل؟ Verb + subject: أي addnetworkstatus لإضافة حالة إلى صفحة الشبكة، وحذفها لحذف رسالة الحالة، إلخ.",
+	"apihelp-userstatus-param-sportId": "معرف الرياضة",
+	"apihelp-userstatus-param-teamId": "معرف الفريق الرياضي",
+	"apihelp-userstatus-param-text": "نص تحديث الحالة",
+	"apihelp-userstatus-param-count": "عرض هذا العديد من تحديثات الحالة في الخلاصة التي تم إرجاعها",
+	"apihelp-userstatus-param-us_id": "معرف رسالة الحالة",
+	"apihelp-userstatus-param-vote": "1 لـ\"upvote\"رسالة حالة، -1 لـ\"downvote\" بدلا من ذلك"
+}

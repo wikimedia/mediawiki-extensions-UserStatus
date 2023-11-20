@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"Liuxinyu970226"
+		]
+	},
+	"apihelp-userstatus-summary": "用于处理社交状态消息的API",
+	"apihelp-userstatus-param-what": "可以干什么？动词+主题，也就是addnetworkstatus添加状态至网络页面，deletestatus删除状态消息等。",
+	"apihelp-userstatus-param-sportId": "体育的ID",
+	"apihelp-userstatus-param-teamId": "体育队的ID",
+	"apihelp-userstatus-param-text": "状态更新文本",
+	"apihelp-userstatus-param-count": "在返回的订阅源中显示这么多的状态更新",
+	"apihelp-userstatus-param-us_id": "状态消息ID",
+	"apihelp-userstatus-param-vote": "1以为状态消息投“赞同”票，-1以投“否决”票"
+}

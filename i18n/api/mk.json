@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"Bjankuloski06"
+		]
+	},
+	"apihelp-userstatus-summary": "Извршник за работа со друштвени статусни пораки",
+	"apihelp-userstatus-param-what": "Што да правите? Глагол + подмет, т.е. addnetworkstatus за да додадете статус во мрежна страница, deletestatus за да избришете статусна порака итн.",
+	"apihelp-userstatus-param-sportId": "Назнака на спортот",
+	"apihelp-userstatus-param-teamId": "Назнака на екипата",
+	"apihelp-userstatus-param-text": "Текст на подновата",
+	"apihelp-userstatus-param-count": "Прикажи олку статусни поднови во дадениот тековник",
+	"apihelp-userstatus-param-us_id": "Назнака на статусната порака",
+	"apihelp-userstatus-param-vote": "1 за допаѓање, а -1 за недопаѓање на статусната порака"
+}

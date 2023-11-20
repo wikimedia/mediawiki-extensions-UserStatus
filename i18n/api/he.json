@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"Amire80"
+		]
+	},
+	"apihelp-userstatus-summary": "API לטיפול בהודעות הסטטוס החברתי",
+	"apihelp-userstatus-param-what": "מה לעשות? פועל + נושא המשפט, כלומר addnetworkstatus כדי להוסיף סטטוס לדף ברשת, deletestatus כדי למחוק הודעת סטטוס, וכו'.",
+	"apihelp-userstatus-param-sportId": "מזהה הספורט",
+	"apihelp-userstatus-param-teamId": "מזהה קבוצת הספורט",
+	"apihelp-userstatus-param-text": "טקסט עדכון הסטטוס",
+	"apihelp-userstatus-param-count": "הצגת כמות כזאת של עדכוני סטטוס בהזנה המוחזרת",
+	"apihelp-userstatus-param-us_id": "מזהה הודעת הסטטוס",
+	"apihelp-userstatus-param-vote": "1 כדי להצביע בעד הודעת סטטוס, <span dir=\"ltr\">-1\"</span> כדי להצביע נגד"
+}

@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"Kly"
+		]
+	},
+	"apihelp-userstatus-summary": "處理社交狀態訊息用的 API",
+	"apihelp-userstatus-param-what": "得做什麼？動詞 + 名詞，例如：addnetworkstatus 代表添加狀態在網路頁面, deletestatus 代表刪除狀態訊息等等。",
+	"apihelp-userstatus-param-sportId": "娛樂 ID",
+	"apihelp-userstatus-param-teamId": "娛樂團隊 ID",
+	"apihelp-userstatus-param-text": "狀態更新文字",
+	"apihelp-userstatus-param-count": "在返回的訊息來源裡顯示這樣多的狀態更新",
+	"apihelp-userstatus-param-us_id": "狀態訊息 ID",
+	"apihelp-userstatus-param-vote": "1 代表「贊成」狀態訊息，-1 代表「反對」"
+}

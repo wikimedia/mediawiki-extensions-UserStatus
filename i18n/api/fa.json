@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"FarsiNevis"
+		]
+	},
+	"apihelp-userstatus-param-sportId": "شناسهٔ این ورزش",
+	"apihelp-userstatus-param-teamId": "شناسهٔ این تیم ورزشی"
+}
