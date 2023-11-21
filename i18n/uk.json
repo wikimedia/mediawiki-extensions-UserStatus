@@ -48,13 +48,5 @@
 	"userstatus-vote-page-title": "Голосуйте за думку",
 	"userstatus-vote-success": "Ви успішно проголосували за цю думку.",
 	"action-delete-status-updates": "видалення статусних оновлень користувачів",
-	"right-delete-status-updates": "Вилучення оновлень статусу користувачів",
-	"apihelp-userstatus-summary": "API для роботи з повідомленнями про соціальний статус",
-	"apihelp-userstatus-param-what": "Що зробити? Дієслово + об'єкт, тобто addnetworkstatus — щоб додати статус до сторінки мережі, deletestatus — щоб вилучити повідомлення про статус тощо.",
-	"apihelp-userstatus-param-sportId": "Ідентифікатор виду спорту",
-	"apihelp-userstatus-param-teamId": "Ідентифікатор спортивної команди",
-	"apihelp-userstatus-param-text": "Текст оновлення статусу",
-	"apihelp-userstatus-param-count": "Показати саме стільки оновлень статусу у повернутій стрічці оновлень",
-	"apihelp-userstatus-param-us_id": "Ідентифікатор повідомлення про статус",
-	"apihelp-userstatus-param-vote": "1 щоб висловити «схвалення» повідомленню про статус, і -1 щоб висловити «несхвалення»"
+	"right-delete-status-updates": "Вилучення оновлень статусу користувачів"
 }

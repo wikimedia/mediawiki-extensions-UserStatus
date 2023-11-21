@@ -32,7 +32,5 @@
 	"userstatus-who-agrees": "موافقان",
 	"userstatus-nobody-agrees": "هیچ‌کس با این اندیشه موافق نیست",
 	"userstatus-no-new-thoughts": "هیچ اندیشهٔ تازه‌ای نیست. یکی بنویسید!",
-	"userstatus-confirm-delete": "آیا اطمینان دارید که می‌خواهید این اندیشه را حذف کنید؟",
-	"apihelp-userstatus-param-sportId": "شناسهٔ این ورزش",
-	"apihelp-userstatus-param-teamId": "شناسهٔ این تیم ورزشی"
+	"userstatus-confirm-delete": "آیا اطمینان دارید که می‌خواهید این اندیشه را حذف کنید؟"
 }

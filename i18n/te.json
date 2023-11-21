@@ -42,10 +42,5 @@
 	"userstatus-vote-page-title": "ఈ ఆలోచనకు వోటెయ్యండి",
 	"userstatus-vote-success": "మీరీ ఆలోచనకు విజయవంతంగా వోటేసారు.",
 	"action-delete-status-updates": "వాడుకరి స్థితి తాజాకరణలను తొలగించే",
-	"right-delete-status-updates": "వాడుకరి స్థితి తాజాకరణలను తొలగించడం",
-	"apihelp-userstatus-param-what": "ఏం చెయ్యాలి? కర్త + క్రియ, అంటే.. నెట్‌వర్కు పేజీలో స్థితిని చేర్చడానికి addnetworkstatus, స్థితి సందేశాన్ని తొలగించడానికి deletestatus, మొదలైనవి.",
-	"apihelp-userstatus-param-sportId": "క్రీడ ఐడీ",
-	"apihelp-userstatus-param-teamId": "క్రీడా జట్టు ఐడీ",
-	"apihelp-userstatus-param-text": "స్థితి తాజాకరణ పాఠ్యం",
-	"apihelp-userstatus-param-vote": "స్థితి సందేశానికి \"పెంచేవోటు\" వేసేందుకు 1, \"దించేవోటు\" కోసం -1"
+	"right-delete-status-updates": "వాడుకరి స్థితి తాజాకరణలను తొలగించడం"
 }

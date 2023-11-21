@@ -28,7 +28,5 @@
 	"userstatus-agree": "동의",
 	"userstatus-invalid-link": "유효하지 않은 링크",
 	"userstatus-just-added": "방금 추가했습니다",
-	"right-delete-status-updates": "사용자의 상태 업데이트 삭제",
-	"apihelp-userstatus-param-text": "상태 업데이트 텍스트",
-	"apihelp-userstatus-param-us_id": "상태 메시지 ID"
+	"right-delete-status-updates": "사용자의 상태 업데이트 삭제"
 }

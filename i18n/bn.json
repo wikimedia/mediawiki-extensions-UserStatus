@@ -35,6 +35,5 @@
 	"userstatus-no-new-thoughts": "নতুন কোন ভাবনা নেই। একটি যোগ করুন!",
 	"userstatus-just-added": "এইমাত্র যোগ হয়েছে",
 	"userstatus-confirm-delete": "আপনি কি নিশ্চিতভাবে এই ভাবনা অপসারণ করতে চান?",
-	"right-delete-status-updates": "ব্যবহারকারীদের অবস্থার হালনাগাদ অপসারণ করা",
-	"apihelp-userstatus-param-us_id": "আইডির অবস্থা নির্দেশক বার্তা"
+	"right-delete-status-updates": "ব্যবহারকারীদের অবস্থার হালনাগাদ অপসারণ করা"
 }

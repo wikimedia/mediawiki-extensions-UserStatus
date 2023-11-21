@@ -45,13 +45,5 @@
 	"userstatus-vote-page-title": "Stem på en tanke",
 	"userstatus-vote-success": "Du har stemt på denne tanken.",
 	"action-delete-status-updates": "slette brukeres statusoppdateringer",
-	"right-delete-status-updates": "Slette brukeres statusoppdateringer",
-	"apihelp-userstatus-summary": "API for å behandle sosiale statusmeldinger",
-	"apihelp-userstatus-param-what": "Hva skal gjøres? Verb + subjekt, f.eks. attnetworkstatus for å legge til en status til en nettverksside, deletestatus for å slette en statusmelding, etc.",
-	"apihelp-userstatus-param-sportId": "ID-en til sporten",
-	"apihelp-userstatus-param-teamId": "ID-en til sportslaget",
-	"apihelp-userstatus-param-text": "Statusoppdateringstekst",
-	"apihelp-userstatus-param-count": "Vis så mange statusoppdateringer i den returnerte matingen",
-	"apihelp-userstatus-param-us_id": "Statusmeldings-ID",
-	"apihelp-userstatus-param-vote": "1 for å «stemme opp» en statusmelding, -1 for å «stemme ned» i stedet"
+	"right-delete-status-updates": "Slette brukeres statusoppdateringer"
 }

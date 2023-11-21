@@ -47,13 +47,5 @@
 	"userstatus-vote-page-title": "Bir düşünce için oy verin",
 	"userstatus-vote-success": "Bu düşünceye başarıyla oy verdiniz.",
 	"action-delete-status-updates": "kullanıcıların durum güncellemelerini sil",
-	"right-delete-status-updates": "Kullanıcıların durum güncellemelerini sil",
-	"apihelp-userstatus-summary": "Sosyal durum mesajlarını yönetmek için API",
-	"apihelp-userstatus-param-what": "Ne yapalım? Fiil + konu, örneğin bir ağ sayfasına bir durum eklemek için addnetworkstatus, bir durum mesajını silmek için deletestatus, vb.",
-	"apihelp-userstatus-param-sportId": "Sporun kimliği",
-	"apihelp-userstatus-param-teamId": "Spor takımı kimliği",
-	"apihelp-userstatus-param-text": "Durum güncellemesi metni",
-	"apihelp-userstatus-param-count": "Döndürülen beslemesinde bu kadar çok durum güncellemesini gösterin",
-	"apihelp-userstatus-param-us_id": "Durum mesajı kimliği",
-	"apihelp-userstatus-param-vote": "1'i bir durum mesajını \"upvote\", -1 yerine \"downvote\""
+	"right-delete-status-updates": "Kullanıcıların durum güncellemelerini sil"
 }

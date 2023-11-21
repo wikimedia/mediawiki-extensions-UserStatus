@@ -44,13 +44,5 @@
 	"userstatus-vote-page-title": "Vote por um pensamento",
 	"userstatus-vote-success": "Você votou com sucesso por esse pensamento.",
 	"action-delete-status-updates": "excluir atualizações de status dos usuários",
-	"right-delete-status-updates": "Exclua as atualizações de status dos usuários",
-	"apihelp-userstatus-summary": "API para lidar com mensagens de status social",
-	"apihelp-userstatus-param-what": "O que fazer? Verb + subject, ou seja, addnetworkstatus para adicionar um status a uma página de rede, deletestatus para excluir uma mensagem de status, etc.",
-	"apihelp-userstatus-param-sportId": "Identificador do esporte",
-	"apihelp-userstatus-param-teamId": "Identificador da equipa desportiva",
-	"apihelp-userstatus-param-text": "Texto de atualização de status",
-	"apihelp-userstatus-param-count": "Exibir essas atualizações de status no feed retornado",
-	"apihelp-userstatus-param-us_id": "Identificador da mensagem de status",
-	"apihelp-userstatus-param-vote": "1 para um voto positivo na mensagem de estado, -1 para um voto negativo"
+	"right-delete-status-updates": "Exclua as atualizações de status dos usuários"
 }

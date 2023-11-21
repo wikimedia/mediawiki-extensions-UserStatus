@@ -43,9 +43,5 @@
 	"userstatus-vote-page-title": "Balsuoti už mintį",
 	"userstatus-vote-success": "Jūs sėkmingai balsavote už šią mintį.",
 	"action-delete-status-updates": "ištrinti naudotoju būsenos atnaujinimus",
-	"right-delete-status-updates": "Ištrinti naudotoju būsenos atnaujinimus",
-	"apihelp-userstatus-param-sportId": "Sporto ID",
-	"apihelp-userstatus-param-teamId": "Sporto komandos ID",
-	"apihelp-userstatus-param-text": "Būsenos atnaujinimo tekstas",
-	"apihelp-userstatus-param-us_id": "Būsenos pranešimo ID"
+	"right-delete-status-updates": "Ištrinti naudotoju būsenos atnaujinimus"
 }
