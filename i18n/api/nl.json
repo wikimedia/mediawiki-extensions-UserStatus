@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"McDutchie"
+		]
+	},
+	"apihelp-userstatus-summary": "API voor het verwerken van sociale statusberichten",
+	"apihelp-userstatus-param-what": "Wat te doen? Werkwoord + onderwerp in het Engels, d.w.z. addnetworkstatus om een status aan een netwerkpagina toe te voegen, deletestatus om een statusbericht te verwijderen, enz.",
+	"apihelp-userstatus-param-sportId": "ID van de sport",
+	"apihelp-userstatus-param-teamId": "ID van het sportteam",
+	"apihelp-userstatus-param-text": "Tekst statusupdate",
+	"apihelp-userstatus-param-count": "Zoveel statusupdates weergeven in de teruggestuurde feed",
+	"apihelp-userstatus-param-us_id": "Statusbericht-ID",
+	"apihelp-userstatus-param-vote": "1 om een statusbericht “omhoog te stemmen”, -1 om het in plaats daarvan “omlaag te stemmen”"
+}
