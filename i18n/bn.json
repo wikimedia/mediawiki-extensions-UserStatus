@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Aftabuzzaman",
+			"Aishik Rehman",
 			"Jack Phoenix",
 			"আফতাবুজ্জামান"
 		]
@@ -20,7 +21,7 @@
 	"userstatus-time-hours": "{{PLURAL:$1|এক ঘণ্টা|$1 ঘণ্টা}}",
 	"userstatus-time-minutes": "{{PLURAL:$1|এক মিনিট|$1 মিনিট}}",
 	"userstatus-time-seconds": "{{PLURAL:$1|এক সেকেন্ড|$1 সেকেন্ড}}",
-	"userstatus-no-updates": "এখানে কোন হালনাগাদ নেই",
+	"userstatus-no-updates": "এখানে কোনো হালনাগাদ নেই",
 	"userstatus-woops": "ওহ!",
 	"userstatus-no-user": "আপনি যে ব্যবহারকারী দেখার চেষ্টা করছেন তার অস্তিত্ব নেই।",
 	"userstatus-your-thoughts": "আপনার ভাবনা",
