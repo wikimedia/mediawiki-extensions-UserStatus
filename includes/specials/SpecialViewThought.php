@@ -50,7 +50,7 @@ class SpecialViewThought extends UnlistedSpecialPage {
 		// Before doing any further processing, check if we got an empty array.
 		// It occurs when someone is trying to access this special page with
 		// the ID of a deleted status update.
-		if ( empty( $message ) ) {
+		if ( !$message ) {
 			$out->setPageTitle( $this->msg( 'userstatus-woops' )->escaped() );
 
 			$output = '<div class="relationship-request-message">' .
