@@ -126,18 +126,17 @@ class SpecialViewUserStatus extends UnlistedSpecialPage {
 			*/
 			// Deletions
 			if ( $isDelete ) {
+				if ( !$currentUser->matchEditToken( $request->getVal( 'wpDeleteToken' ) ) ) {
+					// CSRF attempt or something...display an informational message in that case
+					$output .= Html::errorBox( $this->msg( 'sessionfailure' )->escaped() );
+				}
+
 				if (
-					(
-						$s->doesUserOwnStatusMessage( $currentUser->getActorId(), $us_id ) ||
-						$currentUser->isAllowed( 'delete-status-updates' )
-					) &&
-					$currentUser->matchEditToken( $request->getVal( 'wpDeleteToken' ) )
+					$s->doesUserOwnStatusMessage( $currentUser->getActorId(), $us_id ) ||
+					$currentUser->isAllowed( 'delete-status-updates' )
 				) {
 					$s->deleteStatus( $us_id );
 					$output .= Html::successBox( $this->msg( 'userstatus-delete-success' )->escaped() );
-				} else {
-					// CSRF attempt or something...display an informational message in that case
-					$output .= Html::errorBox( $this->msg( 'sessionfailure' )->escaped() );
 				}
 			} elseif ( $isVote ) {
 				// Voting for a thought (=agreeing with it)
@@ -415,13 +414,15 @@ class SpecialViewUserStatus extends UnlistedSpecialPage {
 		$s = new UserStatus( $user );
 
 		if (
-			$s->doesUserOwnStatusMessage( $user->getActorId(), $us_id ) ||
-			$user->isAllowed( 'delete-status-updates' )
-
+			!(
+				$s->doesUserOwnStatusMessage( $user->getActorId(), $us_id ) ||
+				$user->isAllowed( 'delete-status-updates' )
+			)
 		) {
-			if ( !$user->isAllowed( 'delete-status-updates' ) ) {
-				throw new PermissionsError( 'delete-status-updates' );
-			}
+			// If the user neither owns the status message or is privileged enough to
+			// have been granted the power to delete other people's status messages,
+			// shoo them away!
+			throw new PermissionsError( 'delete-status-updates' );
 		}
 
 		$form .= '<form method="post" name="delete-thought" action="">';
