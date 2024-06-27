@@ -4,7 +4,8 @@
 			"FakeGreenHand",
 			"GuoPC",
 			"Jack Phoenix",
-			"Liuxinyu970226"
+			"Liuxinyu970226",
+			"Lakejason0"
 		]
 	},
 	"userstatus-desc": "在用户个人资料以及在网络页面上的社交状态更新",
@@ -39,5 +40,12 @@
 	"userstatus-no-new-thoughts": "没有新的想法。添加一个吧！",
 	"userstatus-just-added": "刚刚添加",
 	"userstatus-confirm-delete": "您确定要删除此想法么？",
+	"userstatus-delete-page-title": "删除想法",
+	"userstatus-delete-success": "想法删除成功！",
+	"userstatus-confirm-vote": "您确定要同意此想法么？",
+	"userstatus-vote": "投票",
+	"userstatus-vote-page-title": "为想法投票",
+	"userstatus-vote-success": "您已成功投票支持此想法。",
+	"action-delete-status-updates": "删除用户的状态更新",
 	"right-delete-status-updates": "删除用户的状态更新"
 }
