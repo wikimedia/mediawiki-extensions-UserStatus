@@ -7,7 +7,8 @@
 			"Hamilton Abreu",
 			"Ice bulldog",
 			"Jelou",
-			"KATRINE1992"
+			"KATRINE1992",
+			"McDutchie"
 		]
 	},
 	"userstatus-desc": "Actualizaciones del estado social en los perfiles de usuarios y en las páginas de la red",
@@ -34,7 +35,7 @@
 	"userstatus-back-user-profile": "Volver al perfil de $1",
 	"userstatus-all-team-updates": "Todas las actualizaciones de $1",
 	"userstatus-num-agree": "{{PLURAL:$1|Una persona está de acuerdo|$1 personas están de acuerdo}}",
-	"userstatus-agree": "estar de acuerdo",
+	"userstatus-agree": "estoy de acuerdo",
 	"userstatus-see-who-agrees": "ver quién más está de acuerdo",
 	"userstatus-invalid-link": "Enlace no válido",
 	"userstatus-who-agrees": "Quiénes están de acuerdo",
