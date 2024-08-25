@@ -158,7 +158,7 @@ class ApiUserStatus extends ApiBase {
 		$user = $this->getUser();
 
 		// Get a database handler
-		$dbw = wfGetDB( DB_MASTER );
+		$dbw = wfGetDB( DB_PRIMARY );
 
 		// Write new data to user_status
 		$dbw->insert(
