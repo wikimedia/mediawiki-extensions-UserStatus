@@ -18,7 +18,7 @@ class UserStatusHooks {
 		// because both the SP core one and this extension use a table called
 		// "user_status" and trying to create a table that already exists won't
 		// work, obviously
-		if ( $db->tableExists( 'user_status_history' ) ) {
+		if ( $db->tableExists( 'user_status_history', __METHOD__ ) ) {
 			$tablesToDrop = [
 				'user_status',
 				'user_status_history',
