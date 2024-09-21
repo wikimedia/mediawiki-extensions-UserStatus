@@ -1,4 +1,7 @@
 <?php
+
+use MediaWiki\MediaWikiServices;
+
 /**
  * UserStatus API module
  *
@@ -158,7 +161,7 @@ class ApiUserStatus extends ApiBase {
 		$user = $this->getUser();
 
 		// Get a database handler
-		$dbw = wfGetDB( DB_PRIMARY );
+		$dbw = MediaWikiServices::getInstance()->getDBLoadBalancer()->getConnection( DB_PRIMARY );
 
 		// Write new data to user_status
 		$dbw->insert(
