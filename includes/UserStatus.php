@@ -1,4 +1,7 @@
 <?php
+
+use MediaWiki\MediaWikiServices;
+
 /**
  * Class for managing status updates and status update votes ("X people agree")
  *
@@ -33,7 +36,7 @@ class UserStatus {
 	 * of the newly inserted status update
 	 */
 	public function addStatus( $sport_id, $team_id, $text ) {
-		$dbw = wfGetDB( DB_MASTER );
+		$dbw = MediaWikiServices::getInstance()->getDBLoadBalancer()->getConnection( DB_PRIMARY );
 
 		if ( $this->user->getBlock() ) {
 			return '';
@@ -74,7 +77,7 @@ class UserStatus {
 				return;
 			}
 
-			$dbw = wfGetDB( DB_MASTER );
+			$dbw = MediaWikiServices::getInstance()->getDBLoadBalancer()->getConnection( DB_PRIMARY );
 
 			$dbw->insert(
 				'user_status_vote',
@@ -106,7 +109,7 @@ class UserStatus {
 		} else {
 			$field = 'us_vote_minus';
 		}
-		$dbw = wfGetDB( DB_MASTER );
+		$dbw = MediaWikiServices::getInstance()->getDBLoadBalancer()->getConnection( DB_PRIMARY );
 		$dbw->update(
 			'user_status',
 			[ "{$field}={$field}+1" ],
@@ -123,7 +126,7 @@ class UserStatus {
 	 * @return bool True if the user has already voted, otherwise false
 	 */
 	public function alreadyVotedStatusMessage( $actor_id, $us_id ) {
-		$dbr = wfGetDB( DB_MASTER );
+		$dbr = MediaWikiServices::getInstance()->getDBLoadBalancer()->getConnection( DB_PRIMARY );
 		$s = $dbr->selectRow(
 			'user_status_vote',
 			[ 'sv_actor' ],
@@ -146,7 +149,7 @@ class UserStatus {
 	 * @return bool True if the user owns the status message, else false
 	 */
 	public function doesUserOwnStatusMessage( $actor_id, $us_id ) {
-		$dbr = wfGetDB( DB_MASTER );
+		$dbr = MediaWikiServices::getInstance()->getDBLoadBalancer()->getConnection( DB_PRIMARY );
 		$s = $dbr->selectRow(
 			'user_status',
 			[ 'us_actor' ],
@@ -170,7 +173,7 @@ class UserStatus {
 	 */
 	public function deleteStatus( $us_id ) {
 		if ( $us_id ) {
-			$dbw = wfGetDB( DB_MASTER );
+			$dbw = MediaWikiServices::getInstance()->getDBLoadBalancer()->getConnection( DB_PRIMARY );
 			$s = $dbw->selectRow(
 				'user_status',
 				[ 'us_actor', 'us_sport_id', 'us_team_id' ],
@@ -219,7 +222,7 @@ class UserStatus {
 		// Paranoia, because nobody likes an SQL injection point.
 		$us_id = (int)$us_id;
 
-		$dbr = wfGetDB( DB_MASTER );
+		$dbr = MediaWikiServices::getInstance()->getDBLoadBalancer()->getConnection( DB_PRIMARY );
 
 		$sql = "SELECT us_id, us_actor, us_text,
 			us_sport_id, us_team_id, us_vote_plus, us_vote_minus,
@@ -264,7 +267,7 @@ class UserStatus {
 	 *                status update ID number and more about each update
 	 */
 	public function getStatusMessages( $actor_id = 0, $sport_id = 0, $team_id = 0, $limit = 10, $page = 0 ) {
-		$dbr = wfGetDB( DB_MASTER );
+		$dbr = MediaWikiServices::getInstance()->getDBLoadBalancer()->getConnection( DB_PRIMARY );
 		$user_sql = $sport_sql = $where = '';
 
 		$offset = 0;
@@ -452,7 +455,7 @@ class UserStatus {
 	 *                an array containing the plus and minus votes
 	 */
 	public function getStatusVotes( $us_id ) {
-		$dbr = wfGetDB( DB_MASTER );
+		$dbr = MediaWikiServices::getInstance()->getDBLoadBalancer()->getConnection( DB_PRIMARY );
 		$s = $dbr->selectRow(
 			'user_status',
 			[ 'us_vote_plus', 'us_vote_minus' ],
@@ -479,7 +482,7 @@ class UserStatus {
 	 * @return array
 	 */
 	public function getStatusVoters( $us_id ) {
-		$dbr = wfGetDB( DB_MASTER );
+		$dbr = MediaWikiServices::getInstance()->getDBLoadBalancer()->getConnection( DB_PRIMARY );
 
 		$res = $dbr->select(
 			'user_status_vote',
@@ -503,7 +506,7 @@ class UserStatus {
 	}
 
 	static function getNetworkUpdatesCount( $sport_id, $team_id ) {
-		$dbr = wfGetDB( DB_MASTER );
+		$dbr = MediaWikiServices::getInstance()->getDBLoadBalancer()->getConnection( DB_PRIMARY );
 		if ( !$team_id ) {
 			$teamIds = [];
 			$res = $dbr->select(
