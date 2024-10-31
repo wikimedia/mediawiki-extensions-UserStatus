@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Fitoschido",
-			"Jelou"
+			"Jelou",
+			"Ciencia Al Poder"
 		]
 	},
 	"apihelp-userstatus-summary": "API para gestionar mensajes de estado social",
