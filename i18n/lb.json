@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Les Meloures",
-			"Robby"
+			"Robby",
+			"Volvox"
 		]
 	},
 	"userstatus-network-thoughts": "Iwwerleeunge vum $1",
@@ -18,7 +19,7 @@
 	"userstatus-time-seconds": "{{PLURAL:$1|eng Sekonn|$1 Sekonnen}}",
 	"userstatus-no-updates": "Et gëtt keng Aktualisatiounen",
 	"userstatus-woops": "Ups!",
-	"userstatus-no-user": "De Benotzer deen Dir probéiert Iech unzekucke gëtt et net.",
+	"userstatus-no-user": "De Benotzer, deen Dir probéiert Iech unzekucken, gëtt et net.",
 	"userstatus-your-thoughts": "Är Iwwerleeungen",
 	"userstatus-user-thoughts": "Iwwerleeunge vum $1",
 	"userstatus-user-profile": "〈 Profil vum $1 weisen",
