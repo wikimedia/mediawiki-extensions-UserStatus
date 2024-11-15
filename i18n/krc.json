@@ -1,0 +1,38 @@
+{
+	"@metadata": {
+		"authors": [
+			"Къарачайлы"
+		]
+	},
+	"userstatus-desc": "Хайырланыучу профиллени эмда нетаулау бетледе социал статусланы джангыртыулары",
+	"userstatus-network-thoughts": "$1 Сагъыш",
+	"userstatus-back-to-network": "&lt; Нетаулаугъа Къайт",
+	"userstatus-showing-thoughts": "{{PLURAL:$2|1 Сагъыш кёргюзюлгенди|$1 - $2 бла $3 Сагъыш кёргюзюледи}}.",
+	"userstatus-prev": "алдагъы",
+	"userstatus-next": "эндиги",
+	"userstatus-btn-add": "къош",
+	"userstatus-view-all-updates": "Бютеу $1 Джангыртыуну Кёргюз",
+	"userstatus-delete": "Кетер",
+	"userstatus-ago": "$1 алгъа",
+	"userstatus-time-days": "{{PLURAL:$1|бир кюн|$1 кюн}}",
+	"userstatus-time-hours": "{{PLURAL:$1|бир сагъат|$1 сагъат}}",
+	"userstatus-time-minutes": "{{PLURAL:$1|бир минут|$1 минут}}",
+	"userstatus-time-seconds": "{{PLURAL:$1|бир секунд|$1 секунд}}",
+	"userstatus-no-updates": "Джангыртыу Джокъду",
+	"userstatus-woops": "Оппа!",
+	"userstatus-no-user": "Кёрюрге излеген хайырланыучу джокъду.",
+	"userstatus-your-thoughts": "Сагъышларыгъыз",
+	"userstatus-user-thoughts": "$1 Бетни Сагъышлары",
+	"userstatus-user-profile": "〈 $1 хайырланыучуну Профилин Кёр",
+	"userstatus-back-your-profile": "〈 Профилинге Къайт",
+	"userstatus-back-user-profile": "$1 Хайырланыучуну Профилине Къайт",
+	"userstatus-all-team-updates": "Бютеу $1 Джангыртыу",
+	"userstatus-num-agree": "{{PLURAL:$1|1 Адам Разыды|$1 Адам Разыды}}",
+	"userstatus-agree": "разы бол",
+	"userstatus-see-who-agrees": "башха биреулени разы болгъанын кёр",
+	"userstatus-invalid-link": "Терс Джибериу",
+	"userstatus-who-agrees": "Разы Болгъанла",
+	"userstatus-nobody-agrees": "Бу сагъышха киши разы тюлдю",
+	"userstatus-no-new-thoughts": "Джангы сагъыш джокъду. Къош бирин!",
+	"userstatus-just-added": "джангы къошулгъанды"
+}
