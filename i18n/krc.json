@@ -34,5 +34,14 @@
 	"userstatus-who-agrees": "Разы Болгъанла",
 	"userstatus-nobody-agrees": "Бу сагъышха киши разы тюлдю",
 	"userstatus-no-new-thoughts": "Джангы сагъыш джокъду. Къош бирин!",
-	"userstatus-just-added": "джангы къошулгъанды"
+	"userstatus-just-added": "джангы къошулгъанды",
+	"userstatus-confirm-delete": "Бу сагъышны кетерирге излегенигизге ишексизмисиз?",
+	"userstatus-delete-page-title": "Сагъышны кетер",
+	"userstatus-delete-success": "Сагъыш джетишимли кетерилди!",
+	"userstatus-confirm-vote": "Бу сагъыш бла разы болгъаныгъызгъа ишексизмисиз?",
+	"userstatus-vote": "Чёб ат",
+	"userstatus-vote-page-title": "Сагъыш ючюн чёб ат",
+	"userstatus-vote-success": "Бу сагъыш ючюн джетишимли чёб атхансыз.",
+	"action-delete-status-updates": "хайырланыучуланы статусларыны джангыртыуларын кетер",
+	"right-delete-status-updates": "Хайырланыучуланы статусларыны джангыртыуларын кетер"
 }
