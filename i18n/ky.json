@@ -7,5 +7,6 @@
 	"userstatus-next": "кийинки",
 	"userstatus-btn-add": "кошуу",
 	"userstatus-time-days": "{{PLURAL:$1|бир күн|$1 күн}}",
+	"userstatus-time-minutes": "{{PLURAL:$1|бир мүнөт|$1 мүнөт}}",
 	"userstatus-agree": "макул болуу"
 }
