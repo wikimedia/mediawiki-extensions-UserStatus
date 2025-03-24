@@ -44,6 +44,7 @@
 	"userstatus-no-new-thoughts": "Нет новых мыслей. Добавить одну!",
 	"userstatus-just-added": "только что добавлено",
 	"userstatus-confirm-delete": "Вы уверены, что хотите удалить эту мысль?",
+	"userstatus-vote": "Голосовать",
 	"action-delete-status-updates": "удаление обновлений статусов участников",
 	"right-delete-status-updates": "Удаление обновлений статуса пользователя"
 }
