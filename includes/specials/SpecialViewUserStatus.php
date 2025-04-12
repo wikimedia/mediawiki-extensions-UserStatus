@@ -1,6 +1,10 @@
 <?php
 
+use MediaWiki\Exception\PermissionsError;
+use MediaWiki\Html\Html;
+use MediaWiki\Html\TemplateParser;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\SpecialPage\SpecialPage;
 
 class SpecialViewUserStatus extends UnlistedSpecialPage {
 

@@ -1,6 +1,8 @@
 <?php
 
+use MediaWiki\Html\TemplateParser;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\SpecialPage\SpecialPage;
 
 /**
  * Class for managing status updates and status update votes ("X people agree")

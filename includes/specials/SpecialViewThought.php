@@ -5,6 +5,10 @@
  * @file
  * @ingroup Extensions
  */
+
+use MediaWiki\Html\TemplateParser;
+use MediaWiki\Title\Title;
+
 class SpecialViewThought extends UnlistedSpecialPage {
 
 	/**
