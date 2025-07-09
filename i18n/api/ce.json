@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"Умар"
+		]
+	},
+	"apihelp-userstatus-summary": "Социалан статусан хаамаш кечбарна леррина API",
+	"apihelp-userstatus-param-what": "ХӀун дан деза? Хандош + предмет, масала addnetworkstatus агӀонна статус тӀетоха, deletestatus статус дӀайаккха, и.дӀ.кх.а.",
+	"apihelp-userstatus-param-sportId": "Спортан ID",
+	"apihelp-userstatus-param-teamId": "Спортан тобанан ID",
+	"apihelp-userstatus-param-text": "Статус карлайаккхаран текст",
+	"apihelp-userstatus-param-count": "Лентехь гойтуш йолу статус карлайаккхаран терахь",
+	"apihelp-userstatus-param-us_id": "Статусан хааман ID",
+	"apihelp-userstatus-param-vote": "1 — кхажтасарна «реза», -1 — кхажтасарна «дуьхьал»"
+}
