@@ -1,0 +1,39 @@
+{
+	"@metadata": {
+		"authors": [
+			"Умар"
+		]
+	},
+	"userstatus-network-thoughts": "$1 Ойланаш",
+	"userstatus-back-to-network": "&lt; Йуха а блоге",
+	"userstatus-prev": "хьалх.",
+	"userstatus-next": "рогӀера",
+	"userstatus-btn-add": "тӀетоха",
+	"userstatus-view-all-updates": "Дерриге а керланаш хьажа $1",
+	"userstatus-delete": "ДӀайаккха",
+	"userstatus-ago": "$1 хьалха",
+	"userstatus-time-days": "{{PLURAL:$1|цхьа де|$1 де}}",
+	"userstatus-time-hours": "{{PLURAL:$1|цхьа сахьт|$1 сахьт}}",
+	"userstatus-time-minutes": "{{PLURAL:$1|цхьа минот|$1 минот}}",
+	"userstatus-time-seconds": "{{PLURAL:$1|цхьа секунд|$1 секунд}}",
+	"userstatus-no-updates": "Цхьа а керланиг дац",
+	"userstatus-woops": "Упс!",
+	"userstatus-your-thoughts": "Хьан ойланаш",
+	"userstatus-user-thoughts": "$1 Ойланаш",
+	"userstatus-user-profile": "〈 Профиль хьажа $1.",
+	"userstatus-back-your-profile": "〈 Хьайн профиле йухагӀо",
+	"userstatus-back-user-profile": "$1 хьайн профиле йухагӀо",
+	"userstatus-all-team-updates": "Дерриге а керланаш $1",
+	"userstatus-num-agree": "{{PLURAL:$1|Цхьа стаг реза|$1 стаг реза}}",
+	"userstatus-agree": "реза хила",
+	"userstatus-see-who-agrees": "кхин мила реза ву хьажа",
+	"userstatus-invalid-link": "Нийса йоцу хьажорг",
+	"userstatus-who-agrees": "Реза",
+	"userstatus-nobody-agrees": "Цхьа а вац оцу ойланна реза",
+	"userstatus-no-new-thoughts": "Керла ойланаш йац. Цхьаъ тӀетоха!",
+	"userstatus-just-added": "хӀинцца тӀетоьхна",
+	"userstatus-confirm-delete": "Бакъалла а и ойла дӀайаккха лаьий хьуна?",
+	"userstatus-vote": "Кхажтасар",
+	"action-delete-status-updates": "декъашхочун статус карлайаккхар дӀадаккхар",
+	"right-delete-status-updates": "Декъашхочун статус карлайаккхар дӀадаккхар"
+}
