@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"Toliño"
+		]
+	},
+	"apihelp-userstatus-summary": "API para xestionar as mensaxes do estado social",
+	"apihelp-userstatus-param-what": "Que facer? Verbo + suxeito; por exemplo, «addnetworkstatus» para engadir un estado a unha páxina de rede, «deletestatus» para eliminar unha mensaxe de estado etc.",
+	"apihelp-userstatus-param-sportId": "Identificador do deporte",
+	"apihelp-userstatus-param-teamId": "Identificador do equipo deportivo",
+	"apihelp-userstatus-param-text": "Texto de actualización de estado",
+	"apihelp-userstatus-param-count": "Mostrar este número de actualizacións de estado na fonte devolta",
+	"apihelp-userstatus-param-us_id": "Identificador de mensaxe de estado",
+	"apihelp-userstatus-param-vote": "1 para «votar positivamente» unha mensaxe de estado, -1 para \"votar negativamente\""
+}
