@@ -96,7 +96,7 @@ class SpecialViewUserStatus extends UnlistedSpecialPage {
 		// then change the profile hooks to point to this page w/ ?action=add
 		/*
 		if ( $isAdd && !$wasPosted ) {
-			$out->setPageTitle( $this->msg( 'userstatus-add-page-title' ) );
+			$out->setPageTitle( $this->msg( 'userstatus-add-page-title' )->escaped() );
 			$output .= $this->renderAddForm();
 			$out->addHTML( $output );
 			return;
@@ -104,14 +104,14 @@ class SpecialViewUserStatus extends UnlistedSpecialPage {
 		*/
 
 		if ( $isDelete && !$wasPosted && $us_id ) {
-			$out->setPageTitle( $this->msg( 'userstatus-delete-page-title' ) );
+			$out->setPageTitle( $this->msg( 'userstatus-delete-page-title' )->escaped() );
 			$output .= $this->renderConfirmDeleteForm( $us_id );
 			$out->addHTML( $output );
 			return;
 		}
 
 		if ( $isVote && !$wasPosted && $us_id && $vote ) {
-			$out->setPageTitle( $this->msg( 'userstatus-vote-page-title' ) );
+			$out->setPageTitle( $this->msg( 'userstatus-vote-page-title' )->escaped() );
 			$output .= $this->renderConfirmVoteForm( $us_id, $vote );
 			$out->addHTML( $output );
 			return;
