@@ -22,7 +22,7 @@
 	"userstatus-time-seconds": "{{PLURAL:$1|un segundo|$1 segundos}}",
 	"userstatus-no-updates": "Non hai actualizacións",
 	"userstatus-woops": "Vaites!",
-	"userstatus-no-user": "O usuario que intentas consultar non existe.",
+	"userstatus-no-user": "O usuario que intentas ver non existe.",
 	"userstatus-your-thoughts": "Os teus pensamentos",
 	"userstatus-user-thoughts": "Os pensamentos de $1",
 	"userstatus-user-profile": "〈 Ver o perfil de $1",
