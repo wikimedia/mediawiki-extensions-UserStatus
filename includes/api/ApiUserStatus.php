@@ -49,7 +49,7 @@ class ApiUserStatus extends MediaWiki\Api\ApiBase {
 				if (
 					$sportId === null || !is_numeric( $sportId ) ||
 					$teamId === null || !is_numeric( $teamId ) ||
-					!isset( $text ) || count( $params ) < 3
+					$text === null || count( $params ) < 3
 				) {
 					$this->dieWithError(
 						new RawMessage( 'One or more of the required three params is missing' ),
@@ -63,7 +63,7 @@ class ApiUserStatus extends MediaWiki\Api\ApiBase {
 				if (
 					$sportId === null || !is_numeric( $sportId ) ||
 					$teamId === null || !is_numeric( $teamId ) ||
-					!isset( $text ) || !is_numeric( $count ) ||
+					$text === null || !is_numeric( $count ) ||
 					count( $params ) < 4
 				) {
 					$this->dieWithError(

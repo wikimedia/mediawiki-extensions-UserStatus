@@ -14,7 +14,7 @@ var UserStatus = {
 	 * Adds a status update to a network page and then reloads the page.
 	 */
 	addStatus: function () {
-		var statusUpdateText = document.getElementById( 'user_status_text' ).value;
+		const statusUpdateText = document.getElementById( 'user_status_text' ).value;
 		if ( statusUpdateText && !UserStatus.posted ) {
 			UserStatus.posted = 1;
 
@@ -26,7 +26,7 @@ var UserStatus = {
 				text: encodeURIComponent( statusUpdateText ),
 				count: __updates_show__,
 				format: 'json'
-			} ).done( function () {
+			} ).done( () => {
 				UserStatus.posted = 0;
 				window.location = __redirect_url__;
 			} );
@@ -47,7 +47,7 @@ var UserStatus = {
 			us_id: id,
 			vote: vote,
 			format: 'json'
-		} ).done( function ( data ) {
+		} ).done( ( data ) => {
 			$( '#user-status-vote-' + id ).text( data.userstatus.result );
 		} );
 	},
@@ -66,7 +66,7 @@ var UserStatus = {
 				what: 'deletestatus',
 				us_id: id,
 				format: 'json'
-			} ).done( function () {
+			} ).done( () => {
 				$( 'span#user-status-vote-' + id ).parent().parent()
 					.parent().hide( 1000 );
 				// window.location = mw.config.get( 'wgArticlePath' ).replace( '$1', 'Special:UserStatus' );
@@ -75,7 +75,7 @@ var UserStatus = {
 	}
 };
 
-$( function () {
+$( () => {
 	// Both Special:FanUpdates and Special:UserStatus have "delete" links, so...
 	// UserStatus::displayStatusMessages() (UserStatusClass.php) also depends
 	// on this
@@ -88,7 +88,7 @@ $( function () {
 
 	// Code specific to Special:FanUpdates
 	if ( mw.config.get( 'wgCanonicalSpecialPageName' ) == 'FanUpdates' ) {
-		$( 'div.user-status-form input[type="button"]' ).on( 'click', function () {
+		$( 'div.user-status-form input[type="button"]' ).on( 'click', () => {
 			UserStatus.addStatus();
 		} );
 	}
