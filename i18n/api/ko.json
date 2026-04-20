@@ -1,9 +1,16 @@
 {
 	"@metadata": {
 		"authors": [
+			"Tensama0415",
 			"Ykhwong"
 		]
 	},
+	"apihelp-userstatus-summary": "소셜 상태 메시지 처리를 위한 API",
+	"apihelp-userstatus-param-what": "무엇을 해야 할까요? 동사 + 주어, 예를 들어 addnetworkstatus는 네트워크 문서에 상태를 추가하고, deletestatus는 상태 메시지를 삭제하는 식입니다.",
+	"apihelp-userstatus-param-sportId": "스포츠의 ID",
+	"apihelp-userstatus-param-teamId": "스포츠 팀의 ID",
 	"apihelp-userstatus-param-text": "상태 업데이트 텍스트",
-	"apihelp-userstatus-param-us_id": "상태 메시지 ID"
+	"apihelp-userstatus-param-count": "반환된 피드에 이만큼의 상태 업데이트를 표시합니다.",
+	"apihelp-userstatus-param-us_id": "상태 메시지 ID",
+	"apihelp-userstatus-param-vote": "상태 메시지에 \"찬성\"하려면 1, \"반대\"하려면 -1"
 }
