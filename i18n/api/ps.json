@@ -11,5 +11,5 @@
 	"apihelp-userstatus-param-text": "د دريځ هممهالولو ليک",
 	"apihelp-userstatus-param-count": "په راستنېدونکې ليددړه کې د دې گڼ دريځ هممهالېدنې ښکاره کول",
 	"apihelp-userstatus-param-us_id": "د دريځ پيغام پېژند",
-	"apihelp-userstatus-param-vote": "د دريځ پيغام د \"upvote\" لپاره 1 او د \"downvote\" لپاره يې پر ځای -1"
+	"apihelp-userstatus-param-vote": "د دريځ پيغام د \"مثبتې‌رايې\" لپاره ۱ او د \"منفي‌رايې\" لپاره يې پر ځای -۱"
 }
