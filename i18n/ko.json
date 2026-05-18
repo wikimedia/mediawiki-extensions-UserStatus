@@ -3,6 +3,7 @@
 		"authors": [
 			"Dr1t jg",
 			"Jack Phoenix",
+			"Tensama0415",
 			"Theshinster123",
 			"Ykhwong"
 		]
@@ -45,6 +46,6 @@
 	"userstatus-vote": "투표하기",
 	"userstatus-vote-page-title": "생각에 투표하기",
 	"userstatus-vote-success": "이 생각에 성공적으로 투표했습니다.",
-	"action-delete-status-updates": "사용자의 상태 업데이트를 삭제할",
+	"action-delete-status-updates": "사용자의 상태 업데이트 삭제",
 	"right-delete-status-updates": "사용자의 상태 업데이트 삭제"
 }
