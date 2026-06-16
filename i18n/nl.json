@@ -3,7 +3,8 @@
 		"authors": [
 			"Mainframe98",
 			"McDutchie",
-			"Romaine"
+			"Romaine",
+			"Siebrand"
 		]
 	},
 	"userstatus-desc": "Sociale statusupdates op gebruikersprofielen en op netwerkpagina’s",
@@ -32,7 +33,7 @@
 	"userstatus-num-agree": "$1 {{PLURAL:$1|persoon is|personen zijn}} het ermee eens",
 	"userstatus-agree": "akkoord",
 	"userstatus-see-who-agrees": "kijken wie het er nog meer mee eens is",
-	"userstatus-invalid-link": "Ongeldige koppeling",
+	"userstatus-invalid-link": "Incorrecte koppeling",
 	"userstatus-who-agrees": "Wie is het ermee eens",
 	"userstatus-nobody-agrees": "Niemand is het eens met deze gedachte",
 	"userstatus-no-new-thoughts": "Er zijn geen nieuwe gedachten. Voeg er één toe!",
