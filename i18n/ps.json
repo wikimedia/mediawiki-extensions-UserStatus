@@ -19,7 +19,7 @@
 	"userstatus-ago": "$1 دمخه",
 	"userstatus-time-days": "{{PLURAL:$1|يو ورځ|$1 ورځې}}",
 	"userstatus-time-hours": "{{PLURAL:$1|يو گړۍ|$1 گړۍ}}",
-	"userstatus-time-minutes": "{{PLURAL:$1|يوه دقيقه|$1 دقیقي}}",
+	"userstatus-time-minutes": "{{PLURAL:$1|يوه دقيقه|$1 دقیقې}}",
 	"userstatus-time-seconds": "{{PLURAL:$1|يوه ثانيه|$1 ثانيې}}",
 	"userstatus-no-updates": "هېڅ هم‌مهالونې نشته",
 	"userstatus-woops": "ووو!",
