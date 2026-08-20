@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"AhmedG612"
+		]
+	},
+	"apihelp-userstatus-summary": "API-ga maaraynta farriimaha xaaladda bulshada",
+	"apihelp-userstatus-param-what": "Maxaa la samaynayaa? Fal + mawduuc, tusaale ahaan addnetworkstatus si xaalad loogu daro bogga shabakadda, deletestatus si farriin xaaladeed loo tirtiro, iwm.",
+	"apihelp-userstatus-param-sportId": "Aqoonsiga ciyaarta",
+	"apihelp-userstatus-param-teamId": "Aqoonsiga kooxda ciyaarta",
+	"apihelp-userstatus-param-text": "Qoraalka cusboonaysiinta xaaladda",
+	"apihelp-userstatus-param-count": "Ku muuji tiradan cusboonaysiinta xaaladda ee ku jirta quudinta la soo celiyay",
+	"apihelp-userstatus-param-us_id": "Aqoonsiga farriinta xaaladda",
+	"apihelp-userstatus-param-vote": "1 si aad farriinta xaaladda ugu codayso, -1 si aad beddelkeeda uga codayso hoos."
+}
