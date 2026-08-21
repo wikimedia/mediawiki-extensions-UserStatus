@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"Wizzard"
+		]
+	},
+	"apihelp-userstatus-summary": "API na prácu so sociálnymi stavovými správami",
+	"apihelp-userstatus-param-what": "Čo sa má urobiť? Sloveso + predmet, napríklad addnetworkstatus na pridanie stavu na stránku siete, deletestatus na odstránenie stavovej správy a podobne.",
+	"apihelp-userstatus-param-sportId": "ID športu",
+	"apihelp-userstatus-param-teamId": "ID športového tímu",
+	"apihelp-userstatus-param-text": "Text aktualizácie stavu",
+	"apihelp-userstatus-param-count": "Zobraziť vo vrátenom kanáli tento počet aktualizácií stavu",
+	"apihelp-userstatus-param-us_id": "ID stavovej správy",
+	"apihelp-userstatus-param-vote": "1 na hlasovanie za stavovú správu, -1 na hlasovanie proti nej"
+}
